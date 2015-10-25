@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>897</width>
+    <height>656</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>1</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_4">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0" colspan="2">
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Initial Report</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="shipNameLabel">
+          <property name="text">
+           <string>Ship Name</string>
+          </property>
+          <property name="buddy">
+           <cstring>shipNameEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QLineEdit" name="shipNameEdit"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="callSignLabel">
+          <property name="text">
+           <string>Call Sign</string>
+          </property>
+          <property name="buddy">
+           <cstring>callSignEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="6">
+         <widget class="QLabel" name="classSocietyLabel">
+          <property name="text">
+           <string>Class Society</string>
+          </property>
+          <property name="buddy">
+           <cstring>classSocietyEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="6">
+         <widget class="QLabel" name="imoNumberLabel">
+          <property name="text">
+           <string>IMO Number</string>
+          </property>
+          <property name="buddy">
+           <cstring>imoNumberEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="portRegistryLabel">
+          <property name="text">
+           <string>Port of Registry</string>
+          </property>
+          <property name="buddy">
+           <cstring>portRegistryEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4" colspan="2">
+         <widget class="QLineEdit" name="companyNameEdit"/>
+        </item>
+        <item row="0" column="4" colspan="2">
+         <widget class="QLineEdit" name="callSignEdit"/>
+        </item>
+        <item row="1" column="1" colspan="2">
+         <widget class="QLineEdit" name="portRegistryEdit"/>
+        </item>
+        <item row="1" column="3" alignment="Qt::AlignLeft">
+         <widget class="QLabel" name="companyNameLabel">
+          <property name="text">
+           <string>Company Name</string>
+          </property>
+          <property name="buddy">
+           <cstring>companyNameEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="8" colspan="2">
+         <widget class="QLineEdit" name="classSocietyEdit"/>
+        </item>
+        <item row="0" column="8" colspan="2">
+         <widget class="QLineEdit" name="imoNumberEdit"/>
+        </item>
+        <item row="2" column="1" colspan="2">
+         <widget class="QLineEdit" name="emailEdit"/>
+        </item>
+        <item row="2" column="3" alignment="Qt::AlignLeft">
+         <widget class="QLabel" name="telLabel">
+          <property name="text">
+           <string>Teplephone Number</string>
+          </property>
+          <property name="buddy">
+           <cstring>telEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="6">
+         <widget class="QLabel" name="taxNumberLabel">
+          <property name="text">
+           <string>Fax Number</string>
+          </property>
+          <property name="buddy">
+           <cstring>faxEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="emailLabel">
+          <property name="text">
+           <string>E-mail Address</string>
+          </property>
+          <property name="buddy">
+           <cstring>emailEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4" colspan="2">
+         <widget class="QLineEdit" name="telEdit"/>
+        </item>
+        <item row="2" column="8" colspan="2">
+         <widget class="QLineEdit" name="faxEdit"/>
+        </item>
+        <item row="4" column="3" alignment="Qt::AlignLeft">
+         <widget class="QLabel" name="lbpLabel">
+          <property name="text">
+           <string>LBP</string>
+          </property>
+          <property name="buddy">
+           <cstring>lbpEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="shipTypeLabel">
+          <property name="text">
+           <string>Ship Type</string>
+          </property>
+          <property name="buddy">
+           <cstring>shipTypeComboBox</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QLabel" name="igtLabel">
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;International Gross Tonnage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="buddy">
+           <cstring>igtEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4" colspan="2">
+         <widget class="QLineEdit" name="igtEdit">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="8" colspan="2">
+         <widget class="QLineEdit" name="breadthMouldedEdit"/>
+        </item>
+        <item row="3" column="8" colspan="2">
+         <widget class="QLineEdit" name="intEdit"/>
+        </item>
+        <item row="5" column="1" colspan="2">
+         <widget class="QLineEdit" name="depthMouldedEdit"/>
+        </item>
+        <item row="4" column="1" colspan="2">
+         <widget class="QLineEdit" name="loaEdit"/>
+        </item>
+        <item row="4" column="0" alignment="Qt::AlignLeft">
+         <widget class="QLabel" name="loaLabel">
+          <property name="text">
+           <string>LOA</string>
+          </property>
+          <property name="buddy">
+           <cstring>loaEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="depthMoulded">
+          <property name="text">
+           <string>Depth Moulded</string>
+          </property>
+          <property name="buddy">
+           <cstring>depthMouldedEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4" colspan="2">
+         <widget class="QLineEdit" name="ecdisMakerEdit"/>
+        </item>
+        <item row="3" column="6">
+         <widget class="QLabel" name="intLabel">
+          <property name="text">
+           <string>International Net Tonnage</string>
+          </property>
+          <property name="buddy">
+           <cstring>intEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="6">
+         <widget class="QLabel" name="breadthMouldedLabel">
+          <property name="text">
+           <string>Breadth Moulded</string>
+          </property>
+          <property name="buddy">
+           <cstring>breadthMouldedEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QLabel" name="ecdisMakerLabel">
+          <property name="text">
+           <string>ECDIS Maker</string>
+          </property>
+          <property name="buddy">
+           <cstring>ecdisMakerEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1" colspan="2">
+         <widget class="QComboBox" name="shipTypeComboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>69</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4" colspan="2">
+         <widget class="QLineEdit" name="lbpEdit"/>
+        </item>
+        <item row="5" column="8" colspan="2">
+         <widget class="QLineEdit" name="modelEdit"/>
+        </item>
+        <item row="5" column="6">
+         <widget class="QLabel" name="modelLabel">
+          <property name="text">
+           <string>Model</string>
+          </property>
+          <property name="buddy">
+           <cstring>modelEdit</cstring>
+          </property>
+         </widget>
+        </item>
+       </layout>
+       <zorder>depthMouldedEdit</zorder>
+       <zorder>callSignEdit</zorder>
+       <zorder>ecdisMakerLabel</zorder>
+       <zorder>telLabel</zorder>
+       <zorder>modelLabel</zorder>
+       <zorder>imoNumberEdit</zorder>
+       <zorder>lbpLabel</zorder>
+       <zorder>breadthMouldedLabel</zorder>
+       <zorder>telEdit</zorder>
+       <zorder>companyNameEdit</zorder>
+       <zorder>loaLabel</zorder>
+       <zorder>companyNameLabel</zorder>
+       <zorder>shipTypeLabel</zorder>
+       <zorder>classSocietyLabel</zorder>
+       <zorder>emailEdit</zorder>
+       <zorder>imoNumberLabel</zorder>
+       <zorder>modelEdit</zorder>
+       <zorder>depthMoulded</zorder>
+       <zorder>loaEdit</zorder>
+       <zorder>igtLabel</zorder>
+       <zorder>ecdisMakerEdit</zorder>
+       <zorder>classSocietyEdit</zorder>
+       <zorder>lbpEdit</zorder>
+       <zorder>emailLabel</zorder>
+       <zorder>taxNumberLabel</zorder>
+       <zorder>portRegistryLabel</zorder>
+       <zorder>shipNameLabel</zorder>
+       <zorder>breadthMouldedEdit</zorder>
+       <zorder>faxEdit</zorder>
+       <zorder>shipTypeComboBox</zorder>
+       <zorder>callSignLabel</zorder>
+       <zorder>portRegistryEdit</zorder>
+       <zorder>shipNameEdit</zorder>
+       <zorder>intEdit</zorder>
+       <zorder>igtEdit</zorder>
+       <zorder>intLabel</zorder>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="questionLabel">
+         <property name="text">
+          <string>Do you maintain paper chart onboard ?</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="yesRadioBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Yes</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="noRadioBtn">
+         <property name="text">
+          <string>No</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="0">
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>M/E Particular</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="meBandLabel">
+          <property name="text">
+           <string>M/E Band</string>
+          </property>
+          <property name="buddy">
+           <cstring>meBandEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="meModelLabel">
+          <property name="text">
+           <string>M/E Model</string>
+          </property>
+          <property name="buddy">
+           <cstring>meModelEdit</cstring>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="meModelEdit"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="meBandEdit"/>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QTableWidget" name="meTableWidget">
+          <row>
+           <property name="text">
+            <string/>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>D/Slow</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Slow</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Half</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Full</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Nav.Full</string>
+           </property>
+          </row>
+          <column>
+           <property name="text">
+            <string>RPM</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ballast Speed</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ballast Slip</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Load Speed</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Load Slip</string>
+           </property>
+          </column>
+          <item row="0" column="0">
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item row="1" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="1" column="1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="1" column="2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="1" column="3">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="1" column="4">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="2" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="2" column="1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="2" column="2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="2" column="3">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="2" column="4">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="3" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="3" column="1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="3" column="2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="3" column="3">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="3" column="4">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="4" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="4" column="1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="4" column="2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="4" column="3">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="4" column="4">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="5" column="0">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="5" column="1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="5" column="2">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="5" column="3">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+          <item row="5" column="4">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flags">
+            <set>ItemIsSelectable|ItemIsEditable|ItemIsDragEnabled|ItemIsUserCheckable|ItemIsEnabled</set>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QPushButton" name="submitButton">
+         <property name="text">
+          <string>Submit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>shipNameEdit</tabstop>
+  <tabstop>callSignEdit</tabstop>
+  <tabstop>imoNumberEdit</tabstop>
+  <tabstop>portRegistryEdit</tabstop>
+  <tabstop>companyNameEdit</tabstop>
+  <tabstop>classSocietyEdit</tabstop>
+  <tabstop>emailEdit</tabstop>
+  <tabstop>telEdit</tabstop>
+  <tabstop>faxEdit</tabstop>
+  <tabstop>shipTypeComboBox</tabstop>
+  <tabstop>igtEdit</tabstop>
+  <tabstop>intEdit</tabstop>
+  <tabstop>loaEdit</tabstop>
+  <tabstop>lbpEdit</tabstop>
+  <tabstop>breadthMouldedEdit</tabstop>
+  <tabstop>depthMouldedEdit</tabstop>
+  <tabstop>ecdisMakerEdit</tabstop>
+  <tabstop>modelEdit</tabstop>
+  <tabstop>meModelEdit</tabstop>
+  <tabstop>meBandEdit</tabstop>
+  <tabstop>meTableWidget</tabstop>
+  <tabstop>yesRadioBtn</tabstop>
+  <tabstop>noRadioBtn</tabstop>
+  <tabstop>submitButton</tabstop>
+  <tabstop>cancelButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
