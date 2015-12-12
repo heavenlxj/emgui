@@ -1,7 +1,7 @@
 __author__ = 'xingjieliu'
 
 import sys
-sys.path.append('..')
+sys.path.append('../..')
 
 import QtUiFiles.objectionReport as objectionReport
 from PyQt4.QtGui import QWidget,QApplication
@@ -12,6 +12,9 @@ class ObjectionReportWidget(QWidget):
         super(ObjectionReportWidget, self).__init__()
         self.ui = objectionReport.Ui_Form()
         self.ui.setupUi(self)
+
+    def initialize(self):
+        pass
 
 
 if __name__ == "__main__":

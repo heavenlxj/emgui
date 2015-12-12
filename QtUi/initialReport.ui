@@ -261,6 +261,56 @@
             <height>20</height>
            </size>
           </property>
+          <item>
+           <property name="text">
+            <string>Bulk Carrier</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Chemical Tanker</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Container Ship</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>General Cargo</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>LNG/LPG</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>O.B.O</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Oil Tanker</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Passager Ship</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Roll On/Off</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Other</string>
+           </property>
+          </item>
          </widget>
         </item>
         <item row="4" column="4" colspan="2">
