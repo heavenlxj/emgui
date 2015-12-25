@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<initial_report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="initital.xsd">
+	<Property>
+		<ship_name/>
+		<call_sign/>
+		<imo_number/>
+		<port_registry/>
+		<company_name/>
+		<class_society/>
+		<email/>
+		<telphone/>
+		<fax/>
+		<ship_type/>
+		<international_gross_tonnage/>
+		<international_net_tonnage/>
+		<loa/>
+		<lbp/>
+		<breadth_moulded/>
+		<depth_moulded/>
+		<ecdis_maker/>
+		<model/>
+		<master_name/>
+		<master_crew_id/>
+		<maintain_paper_chart>1</maintain_paper_chart>
+		<ME_Particular>
+			<ME_Brand/>
+			<ME_Model/>
+			<ME_Table/>
+		</ME_Particular>
+	</Property>
+</initial_report>

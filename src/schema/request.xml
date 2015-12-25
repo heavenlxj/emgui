@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request_report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\admin\Desktop\request.xsd">
+	<Property>
+		<ship_name/>
+		<call_sign/>
+		<voyage_number/>
+		<date>2015-12-10</date>
+		<voyage_detail>
+			<departure>
+				<country/>
+				<port/>
+				<unlo_code/>
+				<terminal/>
+			</departure>
+			<destination>
+				<country/>
+				<port/>
+				<unlo_code/>
+				<terminal/>
+			</destination>
+		</voyage_detail>
+		<via>
+			<port/>
+		</via>
+		<use_dw_route>true</use_dw_route>
+		<maximum_draft/>
+		<load_condition/>
+		<speed_setting/>
+		<etd/>
+	</Property>
+</request_report>
