@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objection_report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="object.xsd">
+	<Property>
+		<ship_name/>
+		<call_sign/>
+		<voyage_number/>
+		<captain_name/>
+		<date>2015-12-29</date>
+		<route_id_number/>
+		<routes>
+			<route>
+				<lat>40</lat>
+				<long>30</long>
+			</route>
+		</routes>
+		<reason_objection>
+			<reason/>
+		</reason_objection>
+		<remark/>
+	</Property>
+</objection_report>
