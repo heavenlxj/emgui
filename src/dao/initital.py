@@ -2,9 +2,11 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Dec 21 23:32:26 2015 by generateDS.py version 2.17a.
+# Generated Thu Dec 31 23:40:43 2015 by generateDS.py version 2.17a.
 #
 # Command line options:
+#   ('-f', '')
+#   ('-q', '')
 #   ('--use-getter-setter', 'none')
 #   ('-o', 'D:\\GitRepo\\emgui\\src\\dao\\initital.py')
 #
@@ -12,7 +14,7 @@
 #   D:\GitRepo\emgui\src\schema\initital.xsd
 #
 # Command line:
-#   E:\Python27\Scripts\generateDS.py --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\initital.py" D:\GitRepo\emgui\src\schema\initital.xsd
+#   E:\Python27\Scripts\generateDS.py -f -q --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\initital.py" D:\GitRepo\emgui\src\schema\initital.xsd
 #
 # Current working directory (os.getcwd()):
 #   Scripts

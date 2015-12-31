@@ -22,7 +22,7 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout_9">
+     <layout class="QGridLayout" name="gridLayout_4">
       <item row="0" column="0">
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
@@ -84,199 +84,174 @@
         <property name="title">
          <string>Voyage Detail</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_8">
+        <layout class="QGridLayout" name="gridLayout_3">
          <item row="0" column="0" colspan="2">
-          <widget class="QSplitter" name="splitter">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Departure</string>
            </property>
-           <widget class="QGroupBox" name="groupBox_2">
-            <property name="title">
-             <string>Departure</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_DepartureUnloCode">
-               <property name="text">
-                <string>UNLO Code</string>
-               </property>
-               <property name="buddy">
-                <cstring>unloCodeDepartureEdit</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="terminalDepartureEdit"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_DeparturePort">
-               <property name="text">
-                <string>Port</string>
-               </property>
-               <property name="buddy">
-                <cstring>comboBoxDeparturePort</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QComboBox" name="comboBoxDeparturePort"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBoxDepartureCountry"/>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_DepartureCountry">
-               <property name="text">
-                <string>Country</string>
-               </property>
-               <property name="buddy">
-                <cstring>comboBoxDepartureCountry</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_DepartureTerminal">
-               <property name="text">
-                <string>Terminal</string>
-               </property>
-               <property name="buddy">
-                <cstring>terminalDepartureEdit</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="unloCodeDepartureEdit"/>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="title">
-             <string>Destination</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="DestinationTerminalEdit"/>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_DestinationCountry"/>
-             </item>
-             <item row="1" column="1">
-              <widget class="QComboBox" name="comboBox_DestinationPort"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_DestinationUnloCode">
-               <property name="text">
-                <string>UNLO Code</string>
-               </property>
-               <property name="buddy">
-                <cstring>DestinationUnloCodeEdit</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_DestinationPort">
-               <property name="text">
-                <string>Port</string>
-               </property>
-               <property name="buddy">
-                <cstring>comboBox_DestinationPort</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_DestinationCountry">
-               <property name="text">
-                <string>Country</string>
-               </property>
-               <property name="buddy">
-                <cstring>comboBox_DestinationCountry</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_DestinationTerminal">
-               <property name="text">
-                <string>Terminal</string>
-               </property>
-               <property name="buddy">
-                <cstring>DestinationTerminalEdit</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="DestinationUnloCodeEdit"/>
-             </item>
-            </layout>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="1">
+             <widget class="QDateEdit" name="depart_date_edit">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="label_11">
+              <property name="text">
+               <string>Departure Port</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="5">
+             <widget class="QLineEdit" name="unlo_departure_edit"/>
+            </item>
+            <item row="1" column="7">
+             <widget class="QLineEdit" name="terminal_depature"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Departure Date</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QComboBox" name="departure_port_combo"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="departure_country_combo"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_10">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Departure Country</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="6">
+             <widget class="QLabel" name="label_13">
+              <property name="text">
+               <string>Terminal</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Departure Time</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QLabel" name="label_12">
+              <property name="text">
+               <string>UNLO Code</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QTimeEdit" name="departure_time_edit">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
          <item row="1" column="0" colspan="2">
-          <widget class="QScrollArea" name="scrollArea">
-           <property name="widgetResizable">
-            <bool>true</bool>
+          <widget class="QGroupBox" name="groupBox_3">
+           <property name="title">
+            <string>Arrival</string>
            </property>
-           <widget class="QWidget" name="scrollAreaWidgetContents">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>806</width>
-              <height>144</height>
-             </rect>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_7">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_via">
-               <property name="text">
-                <string>Via</string>
-               </property>
-               <property name="buddy">
-                <cstring>via1Edit</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="via1Edit"/>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="via2Edit"/>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLineEdit" name="via3Edit"/>
-             </item>
-             <item row="0" column="4">
-              <widget class="QLineEdit" name="via4Edit"/>
-             </item>
-             <item row="0" column="5">
-              <widget class="QLineEdit" name="via4Edit_3"/>
-             </item>
-             <item row="0" column="6">
-              <widget class="QPushButton" name="pushButton">
-               <property name="text">
-                <string>Add</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="via4Edit_5"/>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLineEdit" name="via4Edit_6"/>
-             </item>
-             <item row="1" column="3">
-              <widget class="QLineEdit" name="via4Edit_7"/>
-             </item>
-             <item row="1" column="4">
-              <widget class="QLineEdit" name="via4Edit_4"/>
-             </item>
-             <item row="1" column="5">
-              <widget class="QLineEdit" name="via4Edit_8"/>
-             </item>
-            </layout>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="1" column="2">
+             <widget class="QLabel" name="label_15">
+              <property name="text">
+               <string>Arrival Port</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="5">
+             <widget class="QLineEdit" name="arrival_unlo_code"/>
+            </item>
+            <item row="1" column="7">
+             <widget class="QLineEdit" name="arrival_terminal"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="arrival_country_edit"/>
+            </item>
+            <item row="1" column="3">
+             <widget class="QComboBox" name="arrival_port_combo"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_14">
+              <property name="text">
+               <string>Arrival Country</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QLabel" name="label_16">
+              <property name="text">
+               <string>UNLO Code</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="6">
+             <widget class="QLabel" name="label_17">
+              <property name="text">
+               <string>Terminal</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Arrival Time     </string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>Arrival Time  </string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QDateEdit" name="arrival_date_edit">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QTimeEdit" name="arrival_time_edit">
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="3" column="0">
           <widget class="QFrame" name="frame_2">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -301,7 +276,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="radioButtonYes">
+               <widget class="QRadioButton" name="use_dw_route_yes_radio">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -314,7 +289,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="radioButtonNo">
+               <widget class="QRadioButton" name="use_dw_route_no_radio">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -423,31 +398,9 @@
              </layout>
             </item>
            </layout>
-           <zorder>radioButtonNo</zorder>
-           <zorder>radioButtonYes</zorder>
-           <zorder>label_loadCondition</zorder>
-           <zorder>loadConditionEdit</zorder>
-           <zorder>label_speedSetting</zorder>
-           <zorder>speedSettingEdit</zorder>
-           <zorder>etdEdit</zorder>
-           <zorder>maxiDraftEdit</zorder>
-           <zorder>label_question</zorder>
-           <zorder>label_maxDraft</zorder>
-           <zorder>label_etd</zorder>
-           <zorder>label_question</zorder>
-           <zorder>radioButtonYes</zorder>
-           <zorder>radioButtonNo</zorder>
-           <zorder>label_maxDraft</zorder>
-           <zorder>maxiDraftEdit</zorder>
-           <zorder>label_loadCondition</zorder>
-           <zorder>loadConditionEdit</zorder>
-           <zorder>label_speedSetting</zorder>
-           <zorder>speedSettingEdit</zorder>
-           <zorder>label_etd</zorder>
-           <zorder>etdEdit</zorder>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="3" column="1">
           <widget class="QFrame" name="frame_4">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -463,6 +416,72 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QScrollArea" name="scrollArea">
+           <property name="widgetResizable">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="scrollAreaWidgetContents">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>806</width>
+              <height>128</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_via">
+               <property name="text">
+                <string>Via</string>
+               </property>
+               <property name="buddy">
+                <cstring>via1Edit</cstring>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="via1Edit"/>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLineEdit" name="via2Edit"/>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLineEdit" name="via3Edit"/>
+             </item>
+             <item row="0" column="4">
+              <widget class="QLineEdit" name="via4Edit"/>
+             </item>
+             <item row="0" column="5">
+              <widget class="QLineEdit" name="via4Edit_3"/>
+             </item>
+             <item row="0" column="6">
+              <widget class="QPushButton" name="add_btn">
+               <property name="text">
+                <string>Add</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="via4Edit_5"/>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLineEdit" name="via4Edit_6"/>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLineEdit" name="via4Edit_7"/>
+             </item>
+             <item row="1" column="4">
+              <widget class="QLineEdit" name="via4Edit_4"/>
+             </item>
+             <item row="1" column="5">
+              <widget class="QLineEdit" name="via4Edit_8"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
         </layout>
        </widget>
       </item>
@@ -476,7 +495,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="cancel_btn">
           <property name="text">
            <string>Cancel</string>
           </property>
@@ -494,26 +513,18 @@
   <tabstop>callSignEdit</tabstop>
   <tabstop>voyageNumberEdit</tabstop>
   <tabstop>dateEdit</tabstop>
-  <tabstop>comboBoxDepartureCountry</tabstop>
-  <tabstop>comboBox_DestinationCountry</tabstop>
-  <tabstop>comboBoxDeparturePort</tabstop>
-  <tabstop>comboBox_DestinationPort</tabstop>
-  <tabstop>unloCodeDepartureEdit</tabstop>
-  <tabstop>DestinationUnloCodeEdit</tabstop>
-  <tabstop>terminalDepartureEdit</tabstop>
-  <tabstop>DestinationTerminalEdit</tabstop>
   <tabstop>via1Edit</tabstop>
   <tabstop>via2Edit</tabstop>
   <tabstop>via3Edit</tabstop>
   <tabstop>via4Edit</tabstop>
-  <tabstop>radioButtonYes</tabstop>
-  <tabstop>radioButtonNo</tabstop>
+  <tabstop>use_dw_route_yes_radio</tabstop>
+  <tabstop>use_dw_route_no_radio</tabstop>
   <tabstop>maxiDraftEdit</tabstop>
   <tabstop>loadConditionEdit</tabstop>
   <tabstop>speedSettingEdit</tabstop>
   <tabstop>etdEdit</tabstop>
   <tabstop>submitBtn</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>cancel_btn</tabstop>
  </tabstops>
  <resources/>
  <connections/>

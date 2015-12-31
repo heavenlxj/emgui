@@ -45,7 +45,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="ship_name_edit"/>
        </item>
        <item>
         <widget class="QLabel" name="label_2">
@@ -55,7 +55,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_2"/>
+        <widget class="QLineEdit" name="call_sign_edit"/>
        </item>
        <item>
         <widget class="QLabel" name="label_3">
@@ -65,7 +65,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_3"/>
+        <widget class="QLineEdit" name="captain_name_edit"/>
        </item>
        <item>
         <widget class="QLabel" name="label_4">
@@ -75,7 +75,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEdit_4"/>
+        <widget class="QLineEdit" name="date_edit"/>
        </item>
       </layout>
      </item>
@@ -95,7 +95,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="year_combo">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -118,7 +118,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_2"/>
+        <widget class="QComboBox" name="quarter_combo"/>
        </item>
       </layout>
      </item>
@@ -139,7 +139,7 @@
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QTableWidget" name="tableWidget_2"/>
+         <widget class="QTableWidget" name="ballast_voyage_table_widget"/>
         </item>
        </layout>
       </widget>
@@ -151,7 +151,7 @@
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <widget class="QTableWidget" name="tableWidget">
+         <widget class="QTableWidget" name="laden_table_widget">
           <property name="minimumSize">
            <size>
             <width>0</width>
