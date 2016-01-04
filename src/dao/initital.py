@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Thu Dec 31 23:40:43 2015 by generateDS.py version 2.17a.
+# Generated Sat Jan 02 13:25:02 2016 by generateDS.py version 2.18a.
 #
 # Command line options:
-#   ('-f', '')
 #   ('-q', '')
+#   ('-f', '')
 #   ('--use-getter-setter', 'none')
 #   ('-o', 'D:\\GitRepo\\emgui\\src\\dao\\initital.py')
 #
@@ -14,7 +14,7 @@
 #   D:\GitRepo\emgui\src\schema\initital.xsd
 #
 # Command line:
-#   E:\Python27\Scripts\generateDS.py -f -q --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\initital.py" D:\GitRepo\emgui\src\schema\initital.xsd
+#   D:\Python27\Scripts\generateDS.py -q -f --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\initital.py" D:\GitRepo\emgui\src\schema\initital.xsd
 #
 # Current working directory (os.getcwd()):
 #   Scripts
@@ -766,7 +766,7 @@ class Property(GeneratedsSuper):
             outfile.write('<%smaster_crew_id>%s</%smaster_crew_id>%s' % (namespace_, self.gds_format_string(quote_xml(self.master_crew_id).encode(ExternalEncoding), input_name='master_crew_id'), namespace_, eol_))
         if self.maintain_paper_chart is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%smaintain_paper_chart>%s</%smaintain_paper_chart>%s' % (namespace_, self.gds_format_integer(self.maintain_paper_chart, input_name='maintain_paper_chart'), namespace_, eol_))
+            outfile.write('<%smaintain_paper_chart>%s</%smaintain_paper_chart>%s' % (namespace_, self.gds_format_boolean(self.maintain_paper_chart, input_name='maintain_paper_chart'), namespace_, eol_))
         if self.ME_Particular is not None:
             self.ME_Particular.export(outfile, level, namespace_, name_='ME_Particular', pretty_print=pretty_print)
     def build(self, node):
@@ -861,11 +861,13 @@ class Property(GeneratedsSuper):
             self.master_crew_id = master_crew_id_
         elif nodeName_ == 'maintain_paper_chart':
             sval_ = child_.text
-            try:
-                ival_ = int(sval_)
-            except (TypeError, ValueError) as exp:
-                raise_parse_error(child_, 'requires integer: %s' % exp)
-            ival_ = self.gds_validate_integer(ival_, node, 'maintain_paper_chart')
+            if sval_ in ('true', '1'):
+                ival_ = True
+            elif sval_ in ('false', '0'):
+                ival_ = False
+            else:
+                raise_parse_error(child_, 'requires boolean')
+            ival_ = self.gds_validate_boolean(ival_, node, 'maintain_paper_chart')
             self.maintain_paper_chart = ival_
         elif nodeName_ == 'ME_Particular':
             obj_ = ME_Particular.factory()
@@ -878,9 +880,9 @@ class Property(GeneratedsSuper):
 class ME_Particular(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, ME_Brand=None, ME_Model=None, ME_Table=None):
+    def __init__(self, ME_Maker=None, ME_Model=None, ME_Table=None):
         self.original_tagname_ = None
-        self.ME_Brand = ME_Brand
+        self.ME_Maker = ME_Maker
         self.ME_Model = ME_Model
         self.ME_Table = ME_Table
     def factory(*args_, **kwargs_):
@@ -891,7 +893,7 @@ class ME_Particular(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.ME_Brand is not None or
+            self.ME_Maker is not None or
             self.ME_Model is not None or
             self.ME_Table is not None
         ):
@@ -923,9 +925,9 @@ class ME_Particular(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.ME_Brand is not None:
+        if self.ME_Maker is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sME_Brand>%s</%sME_Brand>%s' % (namespace_, self.gds_format_string(quote_xml(self.ME_Brand).encode(ExternalEncoding), input_name='ME_Brand'), namespace_, eol_))
+            outfile.write('<%sME_Maker>%s</%sME_Maker>%s' % (namespace_, self.gds_format_string(quote_xml(self.ME_Maker).encode(ExternalEncoding), input_name='ME_Maker'), namespace_, eol_))
         if self.ME_Model is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sME_Model>%s</%sME_Model>%s' % (namespace_, self.gds_format_string(quote_xml(self.ME_Model).encode(ExternalEncoding), input_name='ME_Model'), namespace_, eol_))
@@ -941,10 +943,10 @@ class ME_Particular(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'ME_Brand':
-            ME_Brand_ = child_.text
-            ME_Brand_ = self.gds_validate_string(ME_Brand_, node, 'ME_Brand')
-            self.ME_Brand = ME_Brand_
+        if nodeName_ == 'ME_Maker':
+            ME_Maker_ = child_.text
+            ME_Maker_ = self.gds_validate_string(ME_Maker_, node, 'ME_Maker')
+            self.ME_Maker = ME_Maker_
         elif nodeName_ == 'ME_Model':
             ME_Model_ = child_.text
             ME_Model_ = self.gds_validate_string(ME_Model_, node, 'ME_Model')
@@ -1040,7 +1042,7 @@ class cell(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.valueOf_
+            1 if type(self.valueOf_) in [int,float] else self.valueOf_
         ):
             return True
         else:
@@ -1058,7 +1060,7 @@ class cell(GeneratedsSuper):
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='cell')
         if self.hasContent_():
             outfile.write('>')
-            outfile.write(str(self.valueOf_).encode(ExternalEncoding))
+            outfile.write((quote_xml(self.valueOf_) if type(self.valueOf_) is str else str(self.valueOf_)).encode(ExternalEncoding))
             self.exportChildren(outfile, level + 1, namespace_='', name_='cell', pretty_print=pretty_print)
             outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
         else:

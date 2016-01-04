@@ -2,11 +2,11 @@ __author__ = 'xingjieliu'
 
 import sys
 sys.path.append('../..')
-
+import re
 import QtUiFiles.initialReport as iniReport
 from dao.initital import *
 
-from PyQt4.QtGui import *
+from PyQt4.QtGui import QWidget,QApplication
 from lxml import etree as et
 
 
@@ -36,6 +36,7 @@ class IniReportWidget(QWidget):
 
     def setTableProperty(self):
         pass
+
 
     def testTable(self):
         rows= self.ui.meTableWidget.rowCount()
@@ -79,15 +80,20 @@ class IniReportWidget(QWidget):
         property.maintain_paper_chart = self.ui.yesRadioBtn.isChecked()
 
         me_particular.ME_Table = me_table
+
         cells=[]
-        cells.append(cell('d_slow', 'rpm', 1))
-        cells.append(cell('d_slow', 'ballast_slip', 5))
-        cells.append(cell('half', 'load_speed', 10))
-        cells.append(cell('nav_full', 'load_slip', 99))
+        pattern='[./\s]'
+        for i in range(self.ui.meTableWidget.rowCount()):
+            horirental_name = self.ui.meTableWidget.horizontalHeaderItem(i).text()
+            repl_h_name = re.sub(pattern, '_', str(horirental_name))
+            for j in range(self.ui.meTableWidget.columnCount()):
+                column_name = self.ui.meTableWidget.verticalHeaderItem(j).text()
+                repl_c_name = re.sub(pattern, '_', str(column_name))
+                cells.append(cell(repl_c_name, repl_h_name, self.ui.meTableWidget.item(i,j).text()))
 
         me_table.cell = cells
         me_particular.ME_Brand = 'me_brand_test'
-        me_particular.ME_Model = 'me_model_test'
+        me_particular.ME_Maker = 'me_model_test'
 
         property.ME_Particular = me_particular
         root.Property = property

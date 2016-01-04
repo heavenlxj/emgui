@@ -8,7 +8,7 @@
 		<company_name/>
 		<class_society/>
 		<email/>
-		<telphone/>
+		<telephone/>
 		<fax/>
 		<ship_type/>
 		<international_gross_tonnage/>
@@ -23,7 +23,7 @@
 		<master_crew_id/>
 		<maintain_paper_chart>1</maintain_paper_chart>
 		<ME_Particular>
-			<ME_Brand/>
+			<ME_Maker/>
 			<ME_Model/>
 			<ME_Table/>
 		</ME_Particular>

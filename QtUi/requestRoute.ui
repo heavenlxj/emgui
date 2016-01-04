@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1030</width>
-    <height>562</height>
+    <height>693</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_5">
+  <layout class="QGridLayout" name="gridLayout_7">
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="frameShape">
@@ -22,70 +22,66 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout_4">
+     <layout class="QGridLayout" name="gridLayout_6">
       <item row="0" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
-        <item>
-         <widget class="QLabel" name="label_shipName">
-          <property name="text">
-           <string>Ship Name</string>
-          </property>
-          <property name="buddy">
-           <cstring>shipNameEdit</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="shipNameEdit"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_callSign">
-          <property name="text">
-           <string>Call Sign</string>
-          </property>
-          <property name="buddy">
-           <cstring>callSignEdit</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="callSignEdit"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_voyageNumber">
-          <property name="text">
-           <string>Voyage Number</string>
-          </property>
-          <property name="buddy">
-           <cstring>voyageNumberEdit</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="voyageNumberEdit"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_date">
-          <property name="text">
-           <string>Date</string>
-          </property>
-          <property name="buddy">
-           <cstring>dateEdit</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="dateEdit"/>
-        </item>
-       </layout>
+       <widget class="QLabel" name="label_shipName">
+        <property name="text">
+         <string>Ship Name</string>
+        </property>
+        <property name="buddy">
+         <cstring>shipNameEdit</cstring>
+        </property>
+       </widget>
       </item>
-      <item row="1" column="0">
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="shipNameEdit"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="label_callSign">
+        <property name="text">
+         <string>Call Sign</string>
+        </property>
+        <property name="buddy">
+         <cstring>callSignEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLineEdit" name="callSignEdit"/>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="label_voyageNumber">
+        <property name="text">
+         <string>Voyage Number</string>
+        </property>
+        <property name="buddy">
+         <cstring>voyageNumberEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLineEdit" name="voyageNumberEdit"/>
+      </item>
+      <item row="0" column="6">
+       <widget class="QLabel" name="label_date">
+        <property name="text">
+         <string>Date</string>
+        </property>
+        <property name="buddy">
+         <cstring>dateEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLineEdit" name="dateEdit"/>
+      </item>
+      <item row="1" column="0" colspan="8">
        <widget class="QGroupBox" name="groupBox">
         <property name="title">
          <string>Voyage Detail</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout_3">
-         <item row="0" column="0" colspan="2">
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
           <widget class="QGroupBox" name="groupBox_2">
            <property name="title">
             <string>Departure</string>
@@ -110,19 +106,6 @@
             </item>
             <item row="1" column="7">
              <widget class="QLineEdit" name="terminal_depature"/>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_6">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Departure Date</string>
-              </property>
-             </widget>
             </item>
             <item row="1" column="3">
              <widget class="QComboBox" name="departure_port_combo"/>
@@ -171,10 +154,23 @@
               </property>
              </widget>
             </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Departure Date</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
          </item>
-         <item row="1" column="0" colspan="2">
+         <item row="1" column="0">
           <widget class="QGroupBox" name="groupBox_3">
            <property name="title">
             <string>Arrival</string>
@@ -251,6 +247,65 @@
            </layout>
           </widget>
          </item>
+         <item row="2" column="0">
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="title">
+            <string>Via</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout" name="_2">
+              <item>
+               <widget class="QLineEdit" name="lineEdit">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="add_btn">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Add</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Remove</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="0" column="1">
+             <widget class="QListView" name="listView">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
          <item row="3" column="0">
           <widget class="QFrame" name="frame_2">
            <property name="frameShape">
@@ -259,7 +314,7 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <layout class="QGridLayout" name="gridLayout_6">
+           <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
@@ -278,7 +333,7 @@
               <item>
                <widget class="QRadioButton" name="use_dw_route_yes_radio">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -291,7 +346,7 @@
               <item>
                <widget class="QRadioButton" name="use_dw_route_no_radio">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -304,6 +359,36 @@
              </layout>
             </item>
             <item row="1" column="0">
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Prefered Route Category</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox">
+                <item>
+                 <property name="text">
+                  <string>Most economical route</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Most frequently ued route</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Most recently used route</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item row="2" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_5">
               <item>
                <widget class="QLabel" name="label_maxDraft">
@@ -347,7 +432,7 @@
               </item>
              </layout>
             </item>
-            <item row="2" column="0">
+            <item row="3" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_11">
               <item>
                <widget class="QLabel" name="label_speedSetting">
@@ -400,111 +485,29 @@
            </layout>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QFrame" name="frame_4">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Raised</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0" colspan="2">
-          <widget class="QScrollArea" name="scrollArea">
-           <property name="widgetResizable">
-            <bool>true</bool>
-           </property>
-           <widget class="QWidget" name="scrollAreaWidgetContents">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>806</width>
-              <height>128</height>
-             </rect>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_7">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_via">
-               <property name="text">
-                <string>Via</string>
-               </property>
-               <property name="buddy">
-                <cstring>via1Edit</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLineEdit" name="via1Edit"/>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLineEdit" name="via2Edit"/>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLineEdit" name="via3Edit"/>
-             </item>
-             <item row="0" column="4">
-              <widget class="QLineEdit" name="via4Edit"/>
-             </item>
-             <item row="0" column="5">
-              <widget class="QLineEdit" name="via4Edit_3"/>
-             </item>
-             <item row="0" column="6">
-              <widget class="QPushButton" name="add_btn">
-               <property name="text">
-                <string>Add</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="via4Edit_5"/>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLineEdit" name="via4Edit_6"/>
-             </item>
-             <item row="1" column="3">
-              <widget class="QLineEdit" name="via4Edit_7"/>
-             </item>
-             <item row="1" column="4">
-              <widget class="QLineEdit" name="via4Edit_4"/>
-             </item>
-             <item row="1" column="5">
-              <widget class="QLineEdit" name="via4Edit_8"/>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </item>
         </layout>
        </widget>
       </item>
-      <item row="2" column="1">
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QPushButton" name="submitBtn">
-          <property name="text">
-           <string>Submit</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="cancel_btn">
-          <property name="text">
-           <string>Cancel</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
      </layout>
     </widget>
+   </item>
+   <item row="1" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="submitBtn">
+       <property name="text">
+        <string>Submit</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cancel_btn">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -513,10 +516,6 @@
   <tabstop>callSignEdit</tabstop>
   <tabstop>voyageNumberEdit</tabstop>
   <tabstop>dateEdit</tabstop>
-  <tabstop>via1Edit</tabstop>
-  <tabstop>via2Edit</tabstop>
-  <tabstop>via3Edit</tabstop>
-  <tabstop>via4Edit</tabstop>
   <tabstop>use_dw_route_yes_radio</tabstop>
   <tabstop>use_dw_route_no_radio</tabstop>
   <tabstop>maxiDraftEdit</tabstop>

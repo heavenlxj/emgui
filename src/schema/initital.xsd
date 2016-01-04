@@ -11,7 +11,7 @@
 				<xs:element ref="company_name" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="class_society" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="email" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="telphone" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="telephone" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="fax" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="ship_type" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="international_gross_tonnage" minOccurs="1" maxOccurs="1"/>
@@ -30,12 +30,12 @@
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="ME_Brand" type="xs:string"/>
+	<xs:element name="ME_Maker" type="xs:string"/>
 	<xs:element name="ME_Model" type="xs:string"/>
 	<xs:element name="ME_Particular">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="ME_Brand" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="ME_Maker" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="ME_Model" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="ME_Table" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
@@ -58,22 +58,22 @@
 					<xs:attribute name="row" use="optional">
 						<xs:simpleType>
 							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="d_row"/>
-								<xs:enumeration value="slow"/>
-								<xs:enumeration value="half"/>
-								<xs:enumeration value="full"/>
-								<xs:enumeration value="nav_full"/>
+								<xs:enumeration value="D_Slow"/>
+								<xs:enumeration value="Slow"/>
+								<xs:enumeration value="Half"/>
+								<xs:enumeration value="Full"/>
+								<xs:enumeration value="Nav_full"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:attribute>
 					<xs:attribute name="column" use="optional">
 						<xs:simpleType>
 							<xs:restriction base="xs:NMTOKEN">
-								<xs:enumeration value="rpm"/>
-								<xs:enumeration value="ballast_speed"/>
-								<xs:enumeration value="ballast_slip"/>
-								<xs:enumeration value="load_speed"/>
-								<xs:enumeration value="load_slip"/>
+								<xs:enumeration value="RPM"/>
+								<xs:enumeration value="Ballast_Speed"/>
+								<xs:enumeration value="Ballast_Slip"/>
+								<xs:enumeration value="Load_Speed"/>
+								<xs:enumeration value="Load_Slip"/>
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:attribute>
@@ -99,12 +99,12 @@
 	<xs:element name="international_net_tonnage" type="xs:string"/>
 	<xs:element name="lbp" type="xs:string"/>
 	<xs:element name="loa" type="xs:string"/>
-	<xs:element name="maintain_paper_chart" type="xs:short"/>
+	<xs:element name="maintain_paper_chart" type="xs:boolean"/>
 	<xs:element name="master_crew_id" type="xs:string"/>
 	<xs:element name="master_name" type="xs:string"/>
 	<xs:element name="model" type="xs:string"/>
 	<xs:element name="port_registry" type="xs:string"/>
 	<xs:element name="ship_name" type="xs:string"/>
 	<xs:element name="ship_type" type="xs:string"/>
-	<xs:element name="telphone" type="xs:string"/>
+	<xs:element name="telephone" type="xs:string"/>
 </xs:schema>

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>254</width>
+    <width>256</width>
     <height>326</height>
    </rect>
   </property>
@@ -66,23 +66,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="fmrBtn">
+      <widget class="QPushButton" name="planBtn">
        <property name="text">
-        <string>Fleet Management Report</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="licenseBtn">
-       <property name="text">
-        <string>License</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="quartelyReportBtn">
-       <property name="text">
-        <string>Quartely Report</string>
+        <string>Passage Plan Generator</string>
        </property>
       </widget>
      </item>
@@ -113,7 +99,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>254</width>
+     <width>256</width>
      <height>23</height>
     </rect>
    </property>
@@ -147,8 +133,7 @@
   <tabstop>loadRouteBtn</tabstop>
   <tabstop>shareRouteBtn</tabstop>
   <tabstop>objectionReportBtn</tabstop>
-  <tabstop>fmrBtn</tabstop>
-  <tabstop>licenseBtn</tabstop>
+  <tabstop>planBtn</tabstop>
   <tabstop>exitBtn</tabstop>
  </tabstops>
  <resources/>
