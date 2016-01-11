@@ -89,6 +89,12 @@
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="1">
              <widget class="QDateEdit" name="depart_date_edit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="calendarPopup">
                <bool>true</bool>
               </property>
@@ -96,16 +102,36 @@
             </item>
             <item row="1" column="2">
              <widget class="QLabel" name="label_11">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Departure Port</string>
               </property>
              </widget>
             </item>
             <item row="1" column="5">
-             <widget class="QLineEdit" name="unlo_departure_edit"/>
+             <widget class="QLineEdit" name="departure_unlo_edit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="1" column="7">
-             <widget class="QLineEdit" name="terminal_depature"/>
+             <widget class="QLineEdit" name="depature_terminal">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="1" column="3">
              <widget class="QComboBox" name="departure_port_combo"/>
@@ -116,7 +142,7 @@
             <item row="1" column="0">
              <widget class="QLabel" name="label_10">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -128,6 +154,12 @@
             </item>
             <item row="1" column="6">
              <widget class="QLabel" name="label_13">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Terminal</string>
               </property>
@@ -135,6 +167,12 @@
             </item>
             <item row="0" column="2">
              <widget class="QLabel" name="label_7">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Departure Time</string>
               </property>
@@ -142,6 +180,12 @@
             </item>
             <item row="1" column="4">
              <widget class="QLabel" name="label_12">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>UNLO Code</string>
               </property>
@@ -149,6 +193,12 @@
             </item>
             <item row="0" column="3">
              <widget class="QTimeEdit" name="departure_time_edit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="calendarPopup">
                <bool>true</bool>
               </property>
@@ -157,7 +207,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="label_6">
               <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
@@ -178,25 +228,51 @@
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="1" column="2">
              <widget class="QLabel" name="label_15">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Arrival Port</string>
               </property>
              </widget>
             </item>
             <item row="1" column="5">
-             <widget class="QLineEdit" name="arrival_unlo_code"/>
+             <widget class="QLineEdit" name="arrival_unlo_edit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="1" column="7">
-             <widget class="QLineEdit" name="arrival_terminal"/>
+             <widget class="QLineEdit" name="arrival_terminal">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QComboBox" name="arrival_country_edit"/>
+             <widget class="QComboBox" name="arrival_country_combo"/>
             </item>
             <item row="1" column="3">
              <widget class="QComboBox" name="arrival_port_combo"/>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_14">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Arrival Country</string>
               </property>
@@ -204,6 +280,12 @@
             </item>
             <item row="1" column="4">
              <widget class="QLabel" name="label_16">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>UNLO Code</string>
               </property>
@@ -211,6 +293,12 @@
             </item>
             <item row="1" column="6">
              <widget class="QLabel" name="label_17">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Terminal</string>
               </property>
@@ -218,6 +306,12 @@
             </item>
             <item row="0" column="0">
              <widget class="QLabel" name="label_8">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Arrival Time     </string>
               </property>
@@ -225,6 +319,12 @@
             </item>
             <item row="0" column="2">
              <widget class="QLabel" name="label_9">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Arrival Time  </string>
               </property>
@@ -232,6 +332,12 @@
             </item>
             <item row="0" column="1">
              <widget class="QDateEdit" name="arrival_date_edit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="calendarPopup">
                <bool>true</bool>
               </property>
@@ -239,6 +345,12 @@
             </item>
             <item row="0" column="3">
              <widget class="QTimeEdit" name="arrival_time_edit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="calendarPopup">
                <bool>true</bool>
               </property>
@@ -256,7 +368,7 @@
             <item row="0" column="0">
              <layout class="QVBoxLayout" name="_2">
               <item>
-               <widget class="QLineEdit" name="lineEdit">
+               <widget class="QLineEdit" name="via_name_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -266,7 +378,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="add_btn">
+               <widget class="QPushButton" name="add_via_btn">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -279,7 +391,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="remove_via_btn">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -294,7 +406,7 @@
              </layout>
             </item>
             <item row="0" column="1">
-             <widget class="QListView" name="listView">
+             <widget class="QListView" name="via_listview">
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                 <horstretch>0</horstretch>
@@ -333,7 +445,7 @@
               <item>
                <widget class="QRadioButton" name="use_dw_route_yes_radio">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -346,7 +458,7 @@
               <item>
                <widget class="QRadioButton" name="use_dw_route_no_radio">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>

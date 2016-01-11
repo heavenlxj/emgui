@@ -4,10 +4,8 @@ import sys
 sys.path.append('../..')
 import re
 import QtUiFiles.initialReport as iniReport
-from dao.initital import *
-
 from PyQt4.QtGui import QWidget,QApplication
-from lxml import etree as et
+from dao.initital import *
 
 
 class IniReportWidget(QWidget):
@@ -24,15 +22,6 @@ class IniReportWidget(QWidget):
         #self.ui.shipNameEdit.textChanged(self.ship_name)
 
         self.ui.submitButton.clicked.connect(self.generateXml)
-    def printT(self):
-        self.ship_name = self.ui.shipNameEdit.text()
-        self.portRegistry = self.ui.portRegistryEdit.text()
-        self.email = self.ui.emailEdit.text()
-        # self.ui.emailEdit.setValidator()
-        # QRegExpValidator()
-        print 'PRINT ship name=%s' % self.ship_name
-        print 'PRINT REGISTRY name=%s' % self.portRegistry
-        print 'PRINT email name=%s' % self.email
 
     def setTableProperty(self):
         pass
