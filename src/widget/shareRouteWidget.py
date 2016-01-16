@@ -1,9 +1,11 @@
 __author__ = 'xingjieliu'
 
 import sys
+import os
 sys.path.append('../..')
 import QtUiFiles.shareRoute as shareReport
 from PyQt4.QtGui import *
+from PyQt4.QtCore import *
 from lib.utils import Utils
 from dao.share import *
 
@@ -13,9 +15,18 @@ class ShareReportWidget(QWidget):
         super(ShareReportWidget, self).__init__()
         self.ui = shareReport.Ui_Form()
         self.ui.setupUi(self)
+        self.initialize()
 
     def initialize(self):
-        pass
+        self.ui.attach_ecdis_browse_btn.clicked.connect(self.set_route_file_path)
+        self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
+
+        self.ui.via_add_btn.clicked.connect(self.addListItem)
+        self.ui.via_remove_btn.clicked.connect(self.removeListItem)
+        self.ui.load_btn.clicked.connect(self.loadConfig)
+        self.ui.load_btn.clicked.connect(self.loadConfig)
+
+        self.loadCountryPorts()
 
     def loadCountryPorts(self):
         self.country_ports = Utils.getCountryPortsMapper()
@@ -57,6 +68,43 @@ class ShareReportWidget(QWidget):
         root.export(f, 1, namespacedef_='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
         print 'generate xml successfully'
 
+    def set_route_file_path(self):
+        fn = QFileDialog.getOpenFileName(self, "Open Files",
+                QDir.currentPath(), ".xml(*.xml)")
+        abs_fn = os.path.abspath(fn)
+        self.ui.attach_ecdis_route_file_edit.setText(abs_fn)
+
+    def set_wp_plan_path(self):
+        fn = QFileDialog.getOpenFileName(self, "Open Files",
+                QDir.currentPath(), ".xml(*.xml)")
+        abs_fn = os.path.abspath(fn)
+        self.ui.attach_wp_plan_edit.setText(abs_fn)
+
+    def addListItem(self):
+        via_name = self.ui.via_name_edit.text()
+        if via_name!='':
+            self.ui.via_listWidget.addItem(via_name)
+        else:
+            msg_box = QMessageBox(QMessageBox.Warning, "Warning", 'Empty port name in the blank')
+            msg_box.exec_()
+
+    def removeListItem(self):
+        selected_item = self.ui.via_listWidget.selectedItems()
+
+        if len(selected_item) !=0:
+            for item in selected_item:
+                print item
+        else:
+            print 'No Item selected'
+
+    def loadConfig(self):
+        configs = Utils.readGeneralConfigFromXml()
+        if configs is not None and len(configs) !=0:
+            print 'hello'
+            pass
+        else:
+            msg_box = QMessageBox(QMessageBox.Warning, "Warning", 'General data could not be loaded due to the initial configs not generated')
+            msg_box.exec_()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

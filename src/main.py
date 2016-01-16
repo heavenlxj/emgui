@@ -32,7 +32,13 @@ class RootWindow(QMainWindow):
         self.root.objectionReportBtn.clicked.connect(self.objectionReport.show)
         #self.root.quartelyReportBtn.clicked.connect(self.quartelyReport.show)
         self.root.planBtn.clicked.connect(self.planGenerator.show)
+        self.root.exitBtn.clicked.connect(self.exit)
 
+    def exit(self):
+        try:
+            window.close()
+        except:
+            sys.exit(0)
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = RootWindow()

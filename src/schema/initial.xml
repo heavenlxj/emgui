@@ -1,31 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<initial_report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="initital.xsd">
-	<Property>
-		<ship_name/>
-		<call_sign/>
-		<imo_number/>
-		<port_registry/>
-		<company_name/>
-		<class_society/>
-		<email/>
-		<telephone/>
-		<fax/>
-		<ship_type/>
-		<international_gross_tonnage/>
-		<international_net_tonnage/>
-		<loa/>
-		<lbp/>
-		<breadth_moulded/>
-		<depth_moulded/>
-		<ecdis_maker/>
-		<model/>
-		<master_name/>
-		<master_crew_id/>
-		<maintain_paper_chart>1</maintain_paper_chart>
-		<ME_Particular>
-			<ME_Maker/>
-			<ME_Model/>
-			<ME_Table/>
-		</ME_Particular>
-	</Property>
-</initial_report>
+    <initial_report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Property>
+            <ship_name>ship_name</ship_name>
+            <call_sign>call_sign</call_sign>
+            <imo_number>imo_number</imo_number>
+            <port_registry>port_registry</port_registry>
+            <company_name>company_name</company_name>
+            <class_society>class_society</class_society>
+            <email>email</email>
+            <telephone>telphone</telephone>
+            <fax>fax_number</fax>
+            <ship_type>Bulk Carrier</ship_type>
+            <international_gross_tonnage>igt</international_gross_tonnage>
+            <international_net_tonnage>int</international_net_tonnage>
+            <loa>loa</loa>
+            <lbp>lbp</lbp>
+            <breadth_moulded>breadth_moulded</breadth_moulded>
+            <depth_moulded>deplth_moulded</depth_moulded>
+            <ecdis_maker>ecdis_maker</ecdis_maker>
+            <model>deplth_moulded</model>
+            <maintain_paper_chart>true</maintain_paper_chart>
+            <ME_Particular>
+                <ME_Maker>me_model_row</ME_Maker>
+                <ME_Table>
+                    <cell row="RPM" column="D_Slow">1</cell>
+                    <cell row="RPM" column="Slow">2</cell>
+                    <cell row="RPM" column="Half">3</cell>
+                    <cell row="RPM" column="Full">4</cell>
+                    <cell row="RPM" column="Nav_Full">5</cell>
+                    <cell row="Ballast_Speed" column="D_Slow">6</cell>
+                    <cell row="Ballast_Speed" column="Slow">7</cell>
+                    <cell row="Ballast_Speed" column="Half">8</cell>
+                    <cell row="Ballast_Speed" column="Full">9</cell>
+                    <cell row="Ballast_Speed" column="Nav_Full">10</cell>
+                    <cell row="Ballast_Slip" column="D_Slow">11</cell>
+                    <cell row="Ballast_Slip" column="Slow">12</cell>
+                    <cell row="Ballast_Slip" column="Half">13</cell>
+                    <cell row="Ballast_Slip" column="Full">14</cell>
+                    <cell row="Ballast_Slip" column="Nav_Full">15</cell>
+                    <cell row="Load_Speed" column="D_Slow">16</cell>
+                    <cell row="Load_Speed" column="Slow">17</cell>
+                    <cell row="Load_Speed" column="Half">18</cell>
+                    <cell row="Load_Speed" column="Full">19</cell>
+                    <cell row="Load_Speed" column="Nav_Full">20</cell>
+                    <cell row="Load_Slip" column="D_Slow">21</cell>
+                    <cell row="Load_Slip" column="Slow">22</cell>
+                    <cell row="Load_Slip" column="Half">23</cell>
+                    <cell row="Load_Slip" column="Full">24</cell>
+                    <cell row="Load_Slip" column="Nav_Full">25</cell>
+                </ME_Table>
+            </ME_Particular>
+        </Property>
+    </initial_report>

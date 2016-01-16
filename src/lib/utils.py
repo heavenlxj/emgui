@@ -1,5 +1,7 @@
+
 from conf.environ import *
 from collections import OrderedDict
+from dao.initital import parse
 
 class Utils():
 
@@ -28,4 +30,12 @@ class Utils():
 
         return mapper
 
-
+    @staticmethod
+    def readGeneralConfigFromXml():
+        config = {}
+        config_file = SCHEMA_PATH + '/initial.xml'
+        if os.path.exists(config_file):
+            root = parse(config_file)
+            print root
+        else:
+            return None
