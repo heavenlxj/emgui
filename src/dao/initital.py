@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Sat Jan 02 13:25:02 2016 by generateDS.py version 2.18a.
+# Generated Wed Jan 20 23:10:25 2016 by generateDS.py version 2.17a.
 #
 # Command line options:
-#   ('-q', '')
 #   ('-f', '')
+#   ('-q', '')
 #   ('--use-getter-setter', 'none')
 #   ('-o', 'D:\\GitRepo\\emgui\\src\\dao\\initital.py')
 #
@@ -14,7 +14,7 @@
 #   D:\GitRepo\emgui\src\schema\initital.xsd
 #
 # Command line:
-#   D:\Python27\Scripts\generateDS.py -q -f --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\initital.py" D:\GitRepo\emgui\src\schema\initital.xsd
+#   E:\Python27\Scripts\generateDS.py -f -q --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\initital.py" D:\GitRepo\emgui\src\schema\initital.xsd
 #
 # Current working directory (os.getcwd()):
 #   Scripts
@@ -621,7 +621,7 @@ def _cast(typ, value):
 class Property(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, ship_name=None, call_sign=None, imo_number=None, port_registry=None, company_name=None, class_society=None, email=None, telphone=None, fax=None, ship_type=None, international_gross_tonnage=None, international_net_tonnage=None, loa=None, lbp=None, breadth_moulded=None, depth_moulded=None, ecdis_maker=None, model=None, master_name=None, master_crew_id=None, maintain_paper_chart=None, ME_Particular=None):
+    def __init__(self, ship_name=None, call_sign=None, imo_number=None, port_registry=None, company_name=None, class_society=None, email=None, telephone=None, fax=None, ship_type=None, international_gross_tonnage=None, international_net_tonnage=None, loa=None, lbp=None, breadth_moulded=None, depth_moulded=None, ecdis_maker=None, ecdis_model=None, master_name=None, master_crew_id=None, maintain_paper_chart=None, ME_Particular=None):
         self.original_tagname_ = None
         self.ship_name = ship_name
         self.call_sign = call_sign
@@ -630,7 +630,7 @@ class Property(GeneratedsSuper):
         self.company_name = company_name
         self.class_society = class_society
         self.email = email
-        self.telphone = telphone
+        self.telephone = telephone
         self.fax = fax
         self.ship_type = ship_type
         self.international_gross_tonnage = international_gross_tonnage
@@ -640,7 +640,7 @@ class Property(GeneratedsSuper):
         self.breadth_moulded = breadth_moulded
         self.depth_moulded = depth_moulded
         self.ecdis_maker = ecdis_maker
-        self.model = model
+        self.ecdis_model = ecdis_model
         self.master_name = master_name
         self.master_crew_id = master_crew_id
         self.maintain_paper_chart = maintain_paper_chart
@@ -660,7 +660,7 @@ class Property(GeneratedsSuper):
             self.company_name is not None or
             self.class_society is not None or
             self.email is not None or
-            self.telphone is not None or
+            self.telephone is not None or
             self.fax is not None or
             self.ship_type is not None or
             self.international_gross_tonnage is not None or
@@ -670,7 +670,7 @@ class Property(GeneratedsSuper):
             self.breadth_moulded is not None or
             self.depth_moulded is not None or
             self.ecdis_maker is not None or
-            self.model is not None or
+            self.ecdis_model is not None or
             self.master_name is not None or
             self.master_crew_id is not None or
             self.maintain_paper_chart is not None or
@@ -725,9 +725,9 @@ class Property(GeneratedsSuper):
         if self.email is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%semail>%s</%semail>%s' % (namespace_, self.gds_format_string(quote_xml(self.email).encode(ExternalEncoding), input_name='email'), namespace_, eol_))
-        if self.telphone is not None:
+        if self.telephone is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%stelphone>%s</%stelphone>%s' % (namespace_, self.gds_format_string(quote_xml(self.telphone).encode(ExternalEncoding), input_name='telphone'), namespace_, eol_))
+            outfile.write('<%stelephone>%s</%stelephone>%s' % (namespace_, self.gds_format_string(quote_xml(self.telephone).encode(ExternalEncoding), input_name='telephone'), namespace_, eol_))
         if self.fax is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sfax>%s</%sfax>%s' % (namespace_, self.gds_format_string(quote_xml(self.fax).encode(ExternalEncoding), input_name='fax'), namespace_, eol_))
@@ -755,9 +755,9 @@ class Property(GeneratedsSuper):
         if self.ecdis_maker is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%secdis_maker>%s</%secdis_maker>%s' % (namespace_, self.gds_format_string(quote_xml(self.ecdis_maker).encode(ExternalEncoding), input_name='ecdis_maker'), namespace_, eol_))
-        if self.model is not None:
+        if self.ecdis_model is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%smodel>%s</%smodel>%s' % (namespace_, self.gds_format_string(quote_xml(self.model).encode(ExternalEncoding), input_name='model'), namespace_, eol_))
+            outfile.write('<%secdis_model>%s</%secdis_model>%s' % (namespace_, self.gds_format_string(quote_xml(self.ecdis_model).encode(ExternalEncoding), input_name='ecdis_model'), namespace_, eol_))
         if self.master_name is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%smaster_name>%s</%smaster_name>%s' % (namespace_, self.gds_format_string(quote_xml(self.master_name).encode(ExternalEncoding), input_name='master_name'), namespace_, eol_))
@@ -807,10 +807,10 @@ class Property(GeneratedsSuper):
             email_ = child_.text
             email_ = self.gds_validate_string(email_, node, 'email')
             self.email = email_
-        elif nodeName_ == 'telphone':
-            telphone_ = child_.text
-            telphone_ = self.gds_validate_string(telphone_, node, 'telphone')
-            self.telphone = telphone_
+        elif nodeName_ == 'telephone':
+            telephone_ = child_.text
+            telephone_ = self.gds_validate_string(telephone_, node, 'telephone')
+            self.telephone = telephone_
         elif nodeName_ == 'fax':
             fax_ = child_.text
             fax_ = self.gds_validate_string(fax_, node, 'fax')
@@ -847,10 +847,10 @@ class Property(GeneratedsSuper):
             ecdis_maker_ = child_.text
             ecdis_maker_ = self.gds_validate_string(ecdis_maker_, node, 'ecdis_maker')
             self.ecdis_maker = ecdis_maker_
-        elif nodeName_ == 'model':
-            model_ = child_.text
-            model_ = self.gds_validate_string(model_, node, 'model')
-            self.model = model_
+        elif nodeName_ == 'ecdis_model':
+            ecdis_model_ = child_.text
+            ecdis_model_ = self.gds_validate_string(ecdis_model_, node, 'ecdis_model')
+            self.ecdis_model = ecdis_model_
         elif nodeName_ == 'master_name':
             master_name_ = child_.text
             master_name_ = self.gds_validate_string(master_name_, node, 'master_name')
@@ -1042,7 +1042,7 @@ class cell(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            1 if type(self.valueOf_) in [int,float] else self.valueOf_
+            self.valueOf_
         ):
             return True
         else:
@@ -1060,7 +1060,7 @@ class cell(GeneratedsSuper):
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='cell')
         if self.hasContent_():
             outfile.write('>')
-            outfile.write((quote_xml(self.valueOf_) if type(self.valueOf_) is str else str(self.valueOf_)).encode(ExternalEncoding))
+            outfile.write(str(self.valueOf_).encode(ExternalEncoding))
             self.exportChildren(outfile, level + 1, namespace_='', name_='cell', pretty_print=pretty_print)
             outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
         else:

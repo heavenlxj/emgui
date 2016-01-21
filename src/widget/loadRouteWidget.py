@@ -25,6 +25,10 @@ class LoadRouteWidget(QWidget):
         self.ui.attach_ecdis_browse_btn.clicked.connect(self.set_route_file_path)
         self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
 
+        self.ui.depart_date_edit.calendarWidget()
+        self.ui.load_btn.clicked.connect(self.loadConfig)
+        self.ui.cancel_btn.clicked.connect(self.close)
+
     def setViaListView(self):
         self.ui.via_add_btn.clicked.connect(self.addListItem)
         self.ui.via_remove_btn.clicked.connect(self.removeListItem)
@@ -53,12 +57,8 @@ class LoadRouteWidget(QWidget):
             keys.sort()
             self.ui.departure_country_combo.addItems(keys)
             self.ui.arrival_country_combo.addItems(keys)
-            self.ui.departure_country_combo.setEditable(True)
-            self.ui.departure_port_combo.setEditable(True)
-            self.ui.arrival_country_combo.setEditable(True)
-            self.ui.arrival_port_combo.setEditable(True)
-            self.ui.departure_country_combo.activated.connect(self.activateDeparturePorts)
-            self.ui.arrival_country_combo.activated.connect(self.activateArrvialPorts)
+            self.ui.departure_country_combo.currentIndexChanged.connect(self.activateDeparturePorts)
+            self.ui.arrival_country_combo.currentIndexChanged.connect(self.activateArrvialPorts)
         else:
             #TODO ADD prompt dialog
             msg_box = QMessageBox(QMessageBox.Critical, "Error", "Load Country/Ports from config file failed when start Load Route Dialog")
@@ -68,11 +68,13 @@ class LoadRouteWidget(QWidget):
     def activateDeparturePorts(self, country_index):
         country_name = self.ui.departure_country_combo.itemText(country_index)
         country_name = unicode(country_name)
+        self.ui.departure_port_combo.clear()
         self.ui.departure_port_combo.addItems(self.country_ports[country_name])
 
     def activateArrvialPorts(self, country_index):
         country_name = self.ui.arrival_country_combo.itemText(country_index)
         country_name = unicode(country_name)
+        self.ui.arrival_port_combo.clear()
         self.ui.arrival_port_combo.addItems(self.country_ports[country_name])
 
 
@@ -100,6 +102,18 @@ class LoadRouteWidget(QWidget):
     def readConfigFromXML(self):
         pass
 
+    def loadConfig(self):
+        configs, msg = Utils.readGeneralConfigFromXml()
+        if configs is not None and len(configs) !=0:
+            self.ui.ship_name_edit.setText(configs['ship_name'])
+            self.ui.call_sign_edit.setText(configs['call_sign'])
+            self.ui.voyage_number_edit.setText(configs['voyage_number'])
+            self.ui.captain_name_edit.setText(configs['captain_name'])
+            self.ui.date_edit.setText(configs['date'])
+            pass
+        else:
+            msg_box = QMessageBox(QMessageBox.Warning, "Warning", msg)
+            msg_box.exec_()
 
 
 if __name__ == "__main__":

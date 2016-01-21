@@ -8,12 +8,16 @@
 				<xs:element ref="ship_name"/>
 				<xs:element ref="call_sign"/>
 				<xs:element ref="voyage_number"/>
+				<xs:element ref="captain_name"/>
 				<xs:element ref="date"/>
 				<xs:element ref="voyage_detail"/>
 				<xs:element ref="via"/>
 				<xs:element ref="use_dw_route"/>
 				<xs:element ref="use_critial_point"/>
 				<xs:element ref="critial_point"/>
+				<xs:element ref="route_number"/>
+				<xs:element ref="modify_route"/>
+				<xs:element ref="modify_reason"/>
 				<xs:element ref="paper_chart"/>
 				<xs:element ref="voyage_data"/>
 				<xs:element ref="total_bunker_consumption"/>
@@ -22,11 +26,45 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="arrival">
+	<xs:element name="average_me_rmp" type="xs:string"/>
+	<xs:element name="average_slip" type="xs:string"/>
+	<xs:element name="average_speed" type="xs:string"/>
+	<xs:element name="call_sign" type="xs:string"/>
+	<xs:element name="cargo_shipped" type="xs:string"/>
+	<xs:element name="country" type="xs:string"/>
+	<xs:element name="departure_date" type="xs:date"/>
+	<xs:element name="departure_time" type="xs:time"/>
+	<xs:element name="arrival_date" type="xs:date"/>
+	<xs:element name="arrival_time" type="xs:time"/>
+	<xs:element name="displacement" type="xs:string"/>
+	<xs:element name="ifo" type="xs:string"/>
+	<xs:element name="load_condition" type="xs:string"/>
+	<xs:element name="lsfo" type="xs:string"/>
+	<xs:element name="lsmdo" type="xs:string"/>
+	<xs:element name="maximum_draft" type="xs:string"/>
+	<xs:element name="mdo" type="xs:string"/>
+	<xs:element name="me_revolution_distance" type="xs:string"/>
+	<xs:element name="minimum_ukc" type="xs:string"/>
+	<xs:element name="latitude" type="xs:float"/>
+	<xs:element name="longtitude" type="xs:float"/>
+	<xs:element name="route_number" type="xs:int"/>
+	<xs:element name="modify_route" type="xs:boolean"/>
+	<xs:element name="modify_reason" type="xs:string"/>
+	<xs:element name="ship_name" type="xs:string"/>
+	<xs:element name="terminal" type="xs:string"/>
+	<xs:element name="total_distance" type="xs:string"/>
+	<xs:element name="total_streaming_time" type="xs:string"/>
+	<xs:element name="unlo_code" type="xs:string"/>
+	<xs:element name="use_critial_point" type="xs:boolean"/>
+	<xs:element name="use_dw_route" type="xs:boolean"/>
+	<xs:element name="voyage_number" type="xs:string"/>
+	<xs:element name="captain_name" type="xs:string"/>
+	<xs:element name="date" type="xs:date"/>
+		<xs:element name="arrival">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="departure_date"/>
-				<xs:element ref="departure_time"/>
+				<xs:element ref="arrival_date"/>
+				<xs:element ref="arrival_time"/>
 				<xs:element ref="country"/>
 				<xs:element ref="port"/>
 				<xs:element ref="unlo_code"/>
@@ -44,12 +82,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="average_me_rmp" type="xs:string"/>
-	<xs:element name="average_slip" type="xs:string"/>
-	<xs:element name="average_speed" type="xs:string"/>
-	<xs:element name="call_sign" type="xs:string"/>
-	<xs:element name="cargo_shipped" type="xs:string"/>
-	<xs:element name="country" type="xs:string"/>
 	<xs:element name="critial_point">
 		<xs:complexType>
 			<xs:sequence>
@@ -57,7 +89,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="date" type="xs:date"/>
 	<xs:element name="departure">
 		<xs:complexType>
 			<xs:sequence>
@@ -70,17 +101,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="departure_date" type="xs:date"/>
-	<xs:element name="departure_time" type="xs:time"/>
-	<xs:element name="displacement" type="xs:string"/>
-	<xs:element name="ifo" type="xs:string"/>
-	<xs:element name="load_condition" type="xs:string"/>
-	<xs:element name="lsfo" type="xs:string"/>
-	<xs:element name="lsmdo" type="xs:string"/>
-	<xs:element name="maximum_draft" type="xs:string"/>
-	<xs:element name="mdo" type="xs:string"/>
-	<xs:element name="me_revolution_distance" type="xs:string"/>
-	<xs:element name="minimum_ukc" type="xs:string"/>
 	<xs:element name="paper">
 		<xs:complexType/>
 	</xs:element>
@@ -92,21 +112,24 @@
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="point">
-		<xs:complexType/>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="latitude"/>
+				<xs:element ref="longtitude"/>
+			</xs:sequence>
+		</xs:complexType>
 	</xs:element>
 	<xs:element name="port">
 		<xs:complexType/>
 	</xs:element>
 	<xs:element name="remark" type="xs:string"/>
-	<xs:element name="share_report">
+	<xs:element name="revert_report">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Property"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="ship_name" type="xs:string"/>
-	<xs:element name="terminal" type="xs:string"/>
 	<xs:element name="total_bunker_consumption">
 		<xs:complexType>
 			<xs:sequence>
@@ -117,11 +140,6 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="total_distance" type="xs:string"/>
-	<xs:element name="total_streaming_time" type="xs:string"/>
-	<xs:element name="unlo_code" type="xs:string"/>
-	<xs:element name="use_critial_point" type="xs:boolean"/>
-	<xs:element name="use_dw_route" type="xs:boolean"/>
 	<xs:element name="via">
 		<xs:complexType>
 			<xs:sequence>
@@ -154,5 +172,5 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="voyage_number" type="xs:string"/>
+
 </xs:schema>

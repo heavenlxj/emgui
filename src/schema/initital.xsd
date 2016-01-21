@@ -21,7 +21,7 @@
 				<xs:element ref="breadth_moulded" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="depth_moulded" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="ecdis_maker" minOccurs="1" maxOccurs="1"/>
-				<xs:element ref="model" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="ecdis_model" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="master_name" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="master_crew_id" minOccurs="1" maxOccurs="1"/>
 				<xs:element ref="maintain_paper_chart" minOccurs="1" maxOccurs="1"/>
@@ -102,7 +102,7 @@
 	<xs:element name="maintain_paper_chart" type="xs:boolean"/>
 	<xs:element name="master_crew_id" type="xs:string"/>
 	<xs:element name="master_name" type="xs:string"/>
-	<xs:element name="model" type="xs:string"/>
+	<xs:element name="ecdis_model" type="xs:string"/>
 	<xs:element name="port_registry" type="xs:string"/>
 	<xs:element name="ship_name" type="xs:string"/>
 	<xs:element name="ship_type" type="xs:string"/>

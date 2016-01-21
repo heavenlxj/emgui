@@ -7,7 +7,7 @@ from PyQt4.QtGui import *
 sys.path.append('..')
 import QtUiFiles.mainWindow as MainWindow
 from src.widget import requestRouteWidget, objectionReportWidget, \
-    initialWidget, shareRouteWidget, loadRouteWidget, generatePlanWidget
+    initialWidget, revertRouteWidget, loadRouteWidget, generatePlanWidget
 
 
 class RootWindow(QMainWindow):
@@ -18,9 +18,8 @@ class RootWindow(QMainWindow):
         self.iniReport = initialWidget.IniReportWidget()
         self.reqReport = requestRouteWidget.ReqReportWidget()
         self.loadRoute = loadRouteWidget.LoadRouteWidget()
-        self.shareRoute = shareRouteWidget.ShareReportWidget()
+        self.revertRoute = revertRouteWidget.RevertReportWidget()
         self.objectionReport = objectionReportWidget.ObjectionReportWidget()
-        #self.quartelyReport = quartelyReportWidget.QuartelyReportWidget()
         self.planGenerator = generatePlanWidget.planGenerateWidget()
         self.buttonConnect()
 
@@ -28,9 +27,8 @@ class RootWindow(QMainWindow):
         self.root.initialReportBtn.clicked.connect(self.iniReport.show)
         self.root.requestRouteBtn.clicked.connect(self.reqReport.show)
         self.root.loadRouteBtn.clicked.connect(self.loadRoute.show)
-        self.root.shareRouteBtn.clicked.connect(self.shareRoute.show)
+        self.root.revertRouteBtn.clicked.connect(self.revertRoute.show)
         self.root.objectionReportBtn.clicked.connect(self.objectionReport.show)
-        #self.root.quartelyReportBtn.clicked.connect(self.quartelyReport.show)
         self.root.planBtn.clicked.connect(self.planGenerator.show)
         self.root.exitBtn.clicked.connect(self.exit)
 

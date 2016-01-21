@@ -13,9 +13,11 @@ class ReqReportWidget(QWidget):
         super(ReqReportWidget, self).__init__()
         self.ui = reqReport.Ui_Form()
         self.ui.setupUi(self)
+        self.initialize()
 
     def initialize(self):
-        pass
+        self.ui.submit_btn.clicked.connect(self.generateXml)
+        self.ui.cancel_btn.clicked.connect(self.close)
 
     def loadCountryPorts(self):
         self.country_ports = Utils.getCountryPortsMapper()
