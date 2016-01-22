@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Request Route</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
   </property>
   <layout class="QGridLayout" name="gridLayout_7">
    <item row="0" column="0">
@@ -27,16 +33,22 @@
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QLabel" name="label_shipName">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>Ship Name</string>
           </property>
           <property name="buddy">
-           <cstring>shipNameEdit</cstring>
+           <cstring>ship_name_edit</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="shipNameEdit">
+         <widget class="QLineEdit" name="ship_name_edit">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -50,16 +62,22 @@
         </item>
         <item>
          <widget class="QLabel" name="label_callSign">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>Call Sign</string>
           </property>
           <property name="buddy">
-           <cstring>callSignEdit</cstring>
+           <cstring>call_signe_edit</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="callSignEdit">
+         <widget class="QLineEdit" name="call_signe_edit">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -73,16 +91,22 @@
         </item>
         <item>
          <widget class="QLabel" name="label_date">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>Date</string>
           </property>
           <property name="buddy">
-           <cstring>dateEdit</cstring>
+           <cstring>date_edit</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="dateEdit">
+         <widget class="QLineEdit" name="date_edit">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -96,16 +120,22 @@
         </item>
         <item>
          <widget class="QLabel" name="label_voyageNumber">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="text">
            <string>Voyage Number</string>
           </property>
           <property name="buddy">
-           <cstring>voyageNumberEdit</cstring>
+           <cstring>voyage_number_edit</cstring>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="voyageNumberEdit">
+         <widget class="QLineEdit" name="voyage_number_edit">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -128,6 +158,19 @@
             <string>Departure</string>
            </property>
            <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Departure Date</string>
+              </property>
+             </widget>
+            </item>
             <item row="0" column="1">
              <widget class="QDateEdit" name="depart_date_edit">
               <property name="sizePolicy">
@@ -136,57 +179,11 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="displayFormat">
+               <string>yyyy/MM/dd</string>
+              </property>
               <property name="calendarPopup">
                <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="label_11">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Departure Port</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="3">
-             <widget class="QComboBox" name="departure_port_combo">
-              <property name="editable">
-               <bool>true</bool>
-              </property>
-              <property name="insertPolicy">
-               <enum>QComboBox::InsertAlphabetically</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QComboBox" name="departure_country_combo">
-              <property name="editable">
-               <bool>true</bool>
-              </property>
-              <property name="maxVisibleItems">
-               <number>15</number>
-              </property>
-              <property name="insertPolicy">
-               <enum>QComboBox::InsertAlphabetically</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_10">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Departure Country</string>
               </property>
              </widget>
             </item>
@@ -213,19 +210,6 @@
               </property>
               <property name="calendarPopup">
                <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_6">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Departure Date</string>
               </property>
              </widget>
             </item>
@@ -272,6 +256,61 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_10">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Departure Country</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="departure_country_combo">
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+              <property name="maxVisibleItems">
+               <number>15</number>
+              </property>
+              <property name="insertPolicy">
+               <enum>QComboBox::InsertAlphabetically</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="label_11">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Departure Port</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QComboBox" name="departure_port_combo">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+              <property name="insertPolicy">
+               <enum>QComboBox::InsertAlphabetically</enum>
               </property>
              </widget>
             </item>
@@ -363,6 +402,9 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="displayFormat">
+               <string>yyyy/MM/dd</string>
               </property>
               <property name="calendarPopup">
                <bool>true</bool>
@@ -577,12 +619,12 @@
               <item>
                <widget class="QLabel" name="label">
                 <property name="text">
-                 <string>Prefered Route Category</string>
+                 <string>Prefered Route Type</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBox">
+               <widget class="QComboBox" name="prefer_route_type_combo">
                 <item>
                  <property name="text">
                   <string>Most economical route</string>
@@ -615,12 +657,12 @@
                  <string>Maximum Draft</string>
                 </property>
                 <property name="buddy">
-                 <cstring>maxiDraftEdit</cstring>
+                 <cstring>maximum_draft_edit</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="maxiDraftEdit">
+               <widget class="QLineEdit" name="maximum_draft_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -635,12 +677,12 @@
                  <string>Load Condition</string>
                 </property>
                 <property name="buddy">
-                 <cstring>loadConditionEdit</cstring>
+                 <cstring>load_condition_edit</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="loadConditionEdit">
+               <widget class="QLineEdit" name="load_condition_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -659,12 +701,12 @@
                  <string>Speed Setting</string>
                 </property>
                 <property name="buddy">
-                 <cstring>speedSettingEdit</cstring>
+                 <cstring>speed_setting_edit</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="speedSettingEdit">
+               <widget class="QLineEdit" name="speed_setting_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -685,12 +727,12 @@
                  <string>ETD           </string>
                 </property>
                 <property name="buddy">
-                 <cstring>etdEdit</cstring>
+                 <cstring>etd_edit</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="etdEdit">
+               <widget class="QLineEdit" name="etd_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -713,7 +755,20 @@
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="submitBtn">
+      <widget class="QPushButton" name="reload_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Reload</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="submit_btn">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -743,16 +798,16 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>shipNameEdit</tabstop>
-  <tabstop>callSignEdit</tabstop>
-  <tabstop>voyageNumberEdit</tabstop>
+  <tabstop>ship_name_edit</tabstop>
+  <tabstop>call_signe_edit</tabstop>
+  <tabstop>voyage_number_edit</tabstop>
   <tabstop>use_dw_route_yes_radio</tabstop>
   <tabstop>use_dw_route_no_radio</tabstop>
-  <tabstop>maxiDraftEdit</tabstop>
-  <tabstop>loadConditionEdit</tabstop>
-  <tabstop>speedSettingEdit</tabstop>
-  <tabstop>etdEdit</tabstop>
-  <tabstop>submitBtn</tabstop>
+  <tabstop>maximum_draft_edit</tabstop>
+  <tabstop>load_condition_edit</tabstop>
+  <tabstop>speed_setting_edit</tabstop>
+  <tabstop>etd_edit</tabstop>
+  <tabstop>submit_btn</tabstop>
   <tabstop>cancel_btn</tabstop>
  </tabstops>
  <resources/>

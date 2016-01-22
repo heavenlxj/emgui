@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Wed Jan 20 23:10:25 2016 by generateDS.py version 2.17a.
+# Generated Fri Jan 22 16:44:29 2016 by generateDS.py version 2.17a.
 #
 # Command line options:
 #   ('-f', '')
@@ -621,7 +621,7 @@ def _cast(typ, value):
 class Property(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, ship_name=None, call_sign=None, imo_number=None, port_registry=None, company_name=None, class_society=None, email=None, telephone=None, fax=None, ship_type=None, international_gross_tonnage=None, international_net_tonnage=None, loa=None, lbp=None, breadth_moulded=None, depth_moulded=None, ecdis_maker=None, ecdis_model=None, master_name=None, master_crew_id=None, maintain_paper_chart=None, ME_Particular=None):
+    def __init__(self, ship_name=None, call_sign=None, imo_number=None, port_registry=None, company_name=None, class_society=None, email=None, telephone=None, fax=None, ship_type=None, international_gross_tonnage=None, international_net_tonnage=None, loa=None, lbp=None, breadth_moulded=None, depth_moulded=None, ecdis_maker=None, ecdis_model=None, captain_name=None, captain_crew_id=None, maintain_paper_chart=None, ME_Particular=None):
         self.original_tagname_ = None
         self.ship_name = ship_name
         self.call_sign = call_sign
@@ -641,8 +641,8 @@ class Property(GeneratedsSuper):
         self.depth_moulded = depth_moulded
         self.ecdis_maker = ecdis_maker
         self.ecdis_model = ecdis_model
-        self.master_name = master_name
-        self.master_crew_id = master_crew_id
+        self.captain_name = captain_name
+        self.captain_crew_id = captain_crew_id
         self.maintain_paper_chart = maintain_paper_chart
         self.ME_Particular = ME_Particular
     def factory(*args_, **kwargs_):
@@ -671,8 +671,8 @@ class Property(GeneratedsSuper):
             self.depth_moulded is not None or
             self.ecdis_maker is not None or
             self.ecdis_model is not None or
-            self.master_name is not None or
-            self.master_crew_id is not None or
+            self.captain_name is not None or
+            self.captain_crew_id is not None or
             self.maintain_paper_chart is not None or
             self.ME_Particular is not None
         ):
@@ -758,12 +758,12 @@ class Property(GeneratedsSuper):
         if self.ecdis_model is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%secdis_model>%s</%secdis_model>%s' % (namespace_, self.gds_format_string(quote_xml(self.ecdis_model).encode(ExternalEncoding), input_name='ecdis_model'), namespace_, eol_))
-        if self.master_name is not None:
+        if self.captain_name is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%smaster_name>%s</%smaster_name>%s' % (namespace_, self.gds_format_string(quote_xml(self.master_name).encode(ExternalEncoding), input_name='master_name'), namespace_, eol_))
-        if self.master_crew_id is not None:
+            outfile.write('<%scaptain_name>%s</%scaptain_name>%s' % (namespace_, self.gds_format_string(quote_xml(self.captain_name).encode(ExternalEncoding), input_name='captain_name'), namespace_, eol_))
+        if self.captain_crew_id is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%smaster_crew_id>%s</%smaster_crew_id>%s' % (namespace_, self.gds_format_string(quote_xml(self.master_crew_id).encode(ExternalEncoding), input_name='master_crew_id'), namespace_, eol_))
+            outfile.write('<%scaptain_crew_id>%s</%scaptain_crew_id>%s' % (namespace_, self.gds_format_string(quote_xml(self.captain_crew_id).encode(ExternalEncoding), input_name='captain_crew_id'), namespace_, eol_))
         if self.maintain_paper_chart is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%smaintain_paper_chart>%s</%smaintain_paper_chart>%s' % (namespace_, self.gds_format_boolean(self.maintain_paper_chart, input_name='maintain_paper_chart'), namespace_, eol_))
@@ -851,14 +851,14 @@ class Property(GeneratedsSuper):
             ecdis_model_ = child_.text
             ecdis_model_ = self.gds_validate_string(ecdis_model_, node, 'ecdis_model')
             self.ecdis_model = ecdis_model_
-        elif nodeName_ == 'master_name':
-            master_name_ = child_.text
-            master_name_ = self.gds_validate_string(master_name_, node, 'master_name')
-            self.master_name = master_name_
-        elif nodeName_ == 'master_crew_id':
-            master_crew_id_ = child_.text
-            master_crew_id_ = self.gds_validate_string(master_crew_id_, node, 'master_crew_id')
-            self.master_crew_id = master_crew_id_
+        elif nodeName_ == 'captain_name':
+            captain_name_ = child_.text
+            captain_name_ = self.gds_validate_string(captain_name_, node, 'captain_name')
+            self.captain_name = captain_name_
+        elif nodeName_ == 'captain_crew_id':
+            captain_crew_id_ = child_.text
+            captain_crew_id_ = self.gds_validate_string(captain_crew_id_, node, 'captain_crew_id')
+            self.captain_crew_id = captain_crew_id_
         elif nodeName_ == 'maintain_paper_chart':
             sval_ = child_.text
             if sval_ in ('true', '1'):

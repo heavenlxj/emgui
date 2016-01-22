@@ -9,6 +9,8 @@ import QtUiFiles.mainWindow as MainWindow
 from src.widget import requestRouteWidget, objectionReportWidget, \
     initialWidget, revertRouteWidget, loadRouteWidget, generatePlanWidget
 
+from PyQt4.QtCore import QString
+
 
 class RootWindow(QMainWindow):
     def __init__(self):

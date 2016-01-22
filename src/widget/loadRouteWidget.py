@@ -26,7 +26,7 @@ class LoadRouteWidget(QWidget):
         self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
 
         self.ui.depart_date_edit.calendarWidget()
-        self.ui.load_btn.clicked.connect(self.loadConfig)
+        #self.ui.load_btn.clicked.connect(self.loadConfig)
         self.ui.cancel_btn.clicked.connect(self.close)
 
     def setViaListView(self):
@@ -102,18 +102,6 @@ class LoadRouteWidget(QWidget):
     def readConfigFromXML(self):
         pass
 
-    def loadConfig(self):
-        configs, msg = Utils.readGeneralConfigFromXml()
-        if configs is not None and len(configs) !=0:
-            self.ui.ship_name_edit.setText(configs['ship_name'])
-            self.ui.call_sign_edit.setText(configs['call_sign'])
-            self.ui.voyage_number_edit.setText(configs['voyage_number'])
-            self.ui.captain_name_edit.setText(configs['captain_name'])
-            self.ui.date_edit.setText(configs['date'])
-            pass
-        else:
-            msg_box = QMessageBox(QMessageBox.Warning, "Warning", msg)
-            msg_box.exec_()
 
 
 if __name__ == "__main__":

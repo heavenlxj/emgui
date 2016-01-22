@@ -4,7 +4,8 @@ import sys
 sys.path.append('../..')
 import re
 import QtUiFiles.initialReport as iniReport
-from PyQt4.QtGui import QWidget,QApplication,QMessageBox
+from PyQt4.QtGui import QWidget,QApplication,QMessageBox,QStatusBar
+from PyQt4.QtCore import QString
 from dao.initital import *
 from conf.environ import *
 
@@ -16,6 +17,7 @@ class IniReportWidget(QWidget):
         self.ui = iniReport.Ui_Form()
         self.ui.setupUi(self)
         self.initialize()
+
 
 
     def initialize(self):
@@ -49,8 +51,8 @@ class IniReportWidget(QWidget):
             property.depth_moulded = self.ui.depthMouldedEdit.text()
             property.ecdis_maker = self.ui.ecdisMakerEdit.text()
             property.ecdis_model = self.ui.depthMouldedEdit.text()
-            property.master_name = self.ui.master_name_edit.text()
-            property.master_crew_id = self.ui.master_crew_id_edit.text()
+            property.captain_name = self.ui.captain_name_edit.text()
+            property.captain_crew_id = self.ui.captain_crew_id_edit.text()
             property.maintain_paper_chart = self.ui.yesRadioBtn.isChecked()
 
             me_particular.ME_Table = me_table

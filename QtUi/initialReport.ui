@@ -31,6 +31,9 @@
      <property name="title">
       <string>Initial Report</string>
      </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
        <widget class="QLabel" name="shipNameLabel">
@@ -227,8 +230,11 @@
       </item>
       <item row="3" column="2" colspan="2">
        <widget class="QLabel" name="igtLabel">
+        <property name="lineWidth">
+         <number>0</number>
+        </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;International Gross Tonnage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>International Gross Tonnage(t)</string>
         </property>
         <property name="buddy">
          <cstring>igtEdit</cstring>
@@ -245,7 +251,7 @@
       <item row="3" column="5">
        <widget class="QLabel" name="intLabel">
         <property name="text">
-         <string>International Net Tonnage</string>
+         <string>International Net Tonnage(t)</string>
         </property>
         <property name="buddy">
          <cstring>intEdit</cstring>
@@ -258,7 +264,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="loaLabel">
         <property name="text">
-         <string>LOA</string>
+         <string>LOA (m)</string>
         </property>
         <property name="buddy">
          <cstring>loaEdit</cstring>
@@ -271,7 +277,7 @@
       <item row="4" column="2">
        <widget class="QLabel" name="lbpLabel">
         <property name="text">
-         <string>LBP</string>
+         <string>LBP (m)</string>
         </property>
         <property name="buddy">
          <cstring>lbpEdit</cstring>
@@ -284,7 +290,7 @@
       <item row="4" column="5">
        <widget class="QLabel" name="breadthMouldedLabel">
         <property name="text">
-         <string>Breadth Moulded</string>
+         <string>Breadth Moulded (m)</string>
         </property>
         <property name="buddy">
          <cstring>breadthMouldedEdit</cstring>
@@ -297,7 +303,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="depthMoulded">
         <property name="text">
-         <string>Depth Moulded</string>
+         <string>Depth Moulded (m)</string>
         </property>
         <property name="buddy">
          <cstring>depthMouldedEdit</cstring>
@@ -336,22 +342,28 @@
       <item row="6" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Master's Name</string>
+         <string>Captain Name</string>
+        </property>
+        <property name="buddy">
+         <cstring>captain_name_edit</cstring>
         </property>
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="QLineEdit" name="master_name_edit"/>
+       <widget class="QLineEdit" name="captain_name_edit"/>
       </item>
       <item row="6" column="2">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Master's Crew ID</string>
+         <string>Captain Crew ID</string>
+        </property>
+        <property name="buddy">
+         <cstring>captain_crew_id_edit</cstring>
         </property>
        </widget>
       </item>
       <item row="6" column="4">
-       <widget class="QLineEdit" name="master_crew_id_edit"/>
+       <widget class="QLineEdit" name="captain_crew_id_edit"/>
       </item>
      </layout>
      <zorder>depthMouldedEdit</zorder>
@@ -391,9 +403,9 @@
      <zorder>igtEdit</zorder>
      <zorder>intLabel</zorder>
      <zorder>label</zorder>
-     <zorder>master_name_edit</zorder>
+     <zorder>captain_name_edit</zorder>
      <zorder>label_2</zorder>
-     <zorder>master_crew_id_edit</zorder>
+     <zorder>captain_crew_id_edit</zorder>
     </widget>
    </item>
    <item row="1" column="0">
@@ -785,11 +797,13 @@
   <tabstop>depthMouldedEdit</tabstop>
   <tabstop>ecdisMakerEdit</tabstop>
   <tabstop>modelEdit</tabstop>
-  <tabstop>meModelEdit</tabstop>
-  <tabstop>meMakerEdit</tabstop>
-  <tabstop>meTableWidget</tabstop>
+  <tabstop>captain_name_edit</tabstop>
+  <tabstop>captain_crew_id_edit</tabstop>
   <tabstop>yesRadioBtn</tabstop>
   <tabstop>noRadioBtn</tabstop>
+  <tabstop>meMakerEdit</tabstop>
+  <tabstop>meModelEdit</tabstop>
+  <tabstop>meTableWidget</tabstop>
   <tabstop>submitButton</tabstop>
   <tabstop>cancelButton</tabstop>
  </tabstops>

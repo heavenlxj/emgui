@@ -39,12 +39,10 @@ class Utils():
                 root = parse(config_file)
                 config['ship_name'] = root.Property.ship_name
                 config['call_sign'] = root.Property.call_sign
-                config['voyage_number'] = root.Property.voyage_number
                 config['captain_name'] = root.Property.captain_name
-                config['date'] = root.Property.date
             except Exception, ex:
                 return None, 'Parse config file failed, please check the schema. \n' + str(ex)
 
-            return root, 'Load general data successfully'
+            return config, 'Load general data successfully'
         else:
             return None, 'General data could not be loaded due to the initial configs not generated'
