@@ -1,13 +1,15 @@
 __author__ = 'xingjieliu'
 
-import sys
-sys.path.append('../..')
 import re
+import sys
+import logging
+
+from PyQt4.QtGui import QWidget,QApplication,QMessageBox
+
 import QtUiFiles.initialReport as iniReport
-from PyQt4.QtGui import QWidget,QApplication,QMessageBox,QStatusBar
-from PyQt4.QtCore import QString
 from dao.initital import *
-from conf.environ import *
+from lib.environ import *
+from lib.utils import Utils
 
 
 class IniReportWidget(QWidget):
@@ -16,6 +18,7 @@ class IniReportWidget(QWidget):
         super(IniReportWidget, self).__init__()
         self.ui = iniReport.Ui_Form()
         self.ui.setupUi(self)
+        self.logger = logging.getLogger('emgui')
         self.initialize()
 
 
@@ -23,9 +26,6 @@ class IniReportWidget(QWidget):
     def initialize(self):
         self.ui.submitButton.clicked.connect(self.generateXml)
         self.ui.cancelButton.clicked.connect(self.close)
-
-    def setTableProperty(self):
-        pass
 
     def generateXml(self):
         try:
@@ -60,10 +60,10 @@ class IniReportWidget(QWidget):
             cells=[]
             pattern='[./\s]'
             for i in range(self.ui.meTableWidget.rowCount()):
-                horirental_name = self.ui.meTableWidget.horizontalHeaderItem(i).text()
+                horirental_name = self.ui.meTableWidget.verticalHeaderItem(i).text()
                 repl_h_name = re.sub(pattern, '_', str(horirental_name))
                 for j in range(self.ui.meTableWidget.columnCount()):
-                    column_name = self.ui.meTableWidget.verticalHeaderItem(j).text()
+                    column_name = self.ui.meTableWidget.horizontalHeaderItem(j).text()
                     repl_c_name = re.sub(pattern, '_', str(column_name))
                     cells.append(cell(repl_c_name, repl_h_name, self.ui.meTableWidget.item(i,j).text()))
 
@@ -73,7 +73,9 @@ class IniReportWidget(QWidget):
 
             property.ME_Particular = me_particular
             root.Property = property
-            fn_path = abs_lambda(os.path.join(SCHEMA_PATH , 'initial.xml'))
+
+            data_dir = Utils.create_date_dir()
+            fn_path = abs_lambda(os.path.join(data_dir , 'initial.xml'))
             with open(fn_path, 'w') as f:
                 f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')
                 root.export(f, 1, namespacedef_='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
@@ -81,6 +83,8 @@ class IniReportWidget(QWidget):
             msg_box = QMessageBox(QMessageBox.Information, "Success", "Initial Report config file generated successfully")
             msg_box.exec_()
         except Exception,ex:
+            self.logger.error('Generate the initial report config file failed')
+            self.logger.error(ex)
             msg_box = QMessageBox(QMessageBox.Warning, "Warning", "Initial Report config file generated failed \n" + str(ex))
             msg_box.exec_()
 

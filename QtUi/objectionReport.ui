@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>659</width>
+    <width>836</width>
     <height>711</height>
    </rect>
   </property>
@@ -150,7 +150,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QDateEdit" name="date_edit">
+      <widget class="QLineEdit" name="date_edit">
        <property name="enabled">
         <bool>false</bool>
        </property>

@@ -91,7 +91,7 @@
 	<xs:element name="initial_report">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="Property"/>
+				<xs:element ref="Property" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

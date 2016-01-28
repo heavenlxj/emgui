@@ -28,10 +28,16 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QGroupBox" name="groupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="title">
          <string>Voyage Data</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
@@ -45,15 +51,18 @@
              <property name="text">
               <string>Ship Name</string>
              </property>
+             <property name="buddy">
+              <cstring>ship_name_edit</cstring>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="ship_name_edit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -71,32 +80,24 @@
              <property name="text">
               <string>Voyage Number</string>
              </property>
+             <property name="buddy">
+              <cstring>voyage_number_edit</cstring>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="voyage_number_edit">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QPushButton" name="reload_btn">
-             <property name="text">
-              <string>Reload</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
             <widget class="QLabel" name="label_3">
              <property name="sizePolicy">
@@ -108,12 +109,15 @@
              <property name="text">
               <string>From</string>
              </property>
+             <property name="buddy">
+              <cstring>from_edit</cstring>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="from_edit">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -131,12 +135,15 @@
              <property name="text">
               <string>To</string>
              </property>
+             <property name="buddy">
+              <cstring>to_edit</cstring>
+             </property>
             </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="to_edit">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -145,6 +152,15 @@
            </item>
           </layout>
          </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>GroupBox</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
@@ -198,160 +214,160 @@
            </item>
           </layout>
          </item>
+         <item>
+          <widget class="QTableWidget" name="calculate_form_table_widget">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <attribute name="horizontalHeaderCascadingSectionResizes">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="horizontalHeaderMinimumSectionSize">
+            <number>32</number>
+           </attribute>
+           <attribute name="horizontalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderVisible">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderCascadingSectionResizes">
+            <bool>true</bool>
+           </attribute>
+           <attribute name="verticalHeaderStretchLastSection">
+            <bool>true</bool>
+           </attribute>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <row>
+            <property name="text">
+             <string>新建行</string>
+            </property>
+           </row>
+           <column>
+            <property name="text">
+             <string>WP No.</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Latitude</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Longtitude</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>GC/RL</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Course</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Distance</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Total DTG(nm)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>UKC(m)</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Master's Instruction, Danger&amp;Hazards Remarks</string>
+            </property>
+           </column>
+          </widget>
+         </item>
         </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTableWidget" name="calculate_form_table_widget">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <attribute name="horizontalHeaderCascadingSectionResizes">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="horizontalHeaderMinimumSectionSize">
-         <number>32</number>
-        </attribute>
-        <attribute name="horizontalHeaderStretchLastSection">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="verticalHeaderVisible">
-         <bool>false</bool>
-        </attribute>
-        <attribute name="verticalHeaderCascadingSectionResizes">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="verticalHeaderStretchLastSection">
-         <bool>true</bool>
-        </attribute>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <row>
-         <property name="text">
-          <string>新建行</string>
-         </property>
-        </row>
-        <column>
-         <property name="text">
-          <string>WP No.</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Latitude</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Longtitude</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>GC/RL</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Course</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Distance</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Total DTG(nm)</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>UKC(m)</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Master's Instruction, Danger&amp;Hazards Remarks</string>
-         </property>
-        </column>
        </widget>
       </item>
      </layout>
@@ -359,6 +375,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>ship_name_edit</tabstop>
+  <tabstop>voyage_number_edit</tabstop>
+  <tabstop>from_edit</tabstop>
+  <tabstop>to_edit</tabstop>
+  <tabstop>add_row_btn</tabstop>
+  <tabstop>csv_edit</tabstop>
+  <tabstop>browse_btn</tabstop>
+  <tabstop>export_esv_btn</tabstop>
+  <tabstop>calculate_form_table_widget</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

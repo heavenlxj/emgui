@@ -1,15 +1,13 @@
 __author__ = 'xingjieliu'
 
 import sys
-sys.path.append('../..')
-
 import QtUiFiles.planGenerator as planGenerator
-from PyQt4.QtGui import *
+from PyQt4.QtGui import QWidget,QApplication,QMessageBox
 from lib.utils import *
 
-class planGenerateWidget(QWidget):
+class PlanGenerateWidget(QWidget):
     def __init__(self):
-        super(planGenerateWidget, self).__init__()
+        super(PlanGenerateWidget, self).__init__()
         self.ui = planGenerator.Ui_Form()
         self.ui.setupUi(self)
         self.initialize()
@@ -35,7 +33,7 @@ class planGenerateWidget(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = planGenerateWidget()
+    window = PlanGenerateWidget()
     window.show()
     sys.exit(app.exec_())
     pass

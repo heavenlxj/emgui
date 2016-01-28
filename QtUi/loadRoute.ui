@@ -100,6 +100,9 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="displayFormat">
+             <string>yyyy/MM/dd</string>
+            </property>
             <property name="calendarPopup">
              <bool>true</bool>
             </property>
@@ -320,6 +323,9 @@
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy/MM/dd</string>
             </property>
             <property name="calendarPopup">
              <bool>true</bool>
@@ -773,8 +779,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>807</width>
-               <height>210</height>
+               <width>98</width>
+               <height>89</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">

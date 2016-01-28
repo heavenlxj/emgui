@@ -26,7 +26,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName(_fromUtf8("Form"))
         Form.setWindowModality(QtCore.Qt.ApplicationModal)
-        Form.resize(659, 711)
+        Form.resize(836, 711)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -116,7 +116,7 @@ class Ui_Form(object):
         self.label_6.setSizePolicy(sizePolicy)
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.horizontalLayout_2.addWidget(self.label_6)
-        self.date_edit = QtGui.QDateEdit(Form)
+        self.date_edit = QtGui.QLineEdit(Form)
         self.date_edit.setEnabled(False)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)

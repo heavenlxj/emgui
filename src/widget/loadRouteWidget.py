@@ -1,12 +1,12 @@
 __author__ = 'xingjieliu'
 
 import sys
-sys.path.append('../..')
+
+from PyQt4.QtGui import QWidget,QApplication,QMessageBox, QFileDialog
+from PyQt4.QtCore import QDir
 
 import QtUiFiles.loadRoute as loadRoute
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-from conf.environ import *
+from lib.environ import *
 from lib.utils import Utils
 from dao.load import *
 
@@ -19,7 +19,7 @@ class LoadRouteWidget(QWidget):
         self.initialize()
 
     def initialize(self):
-        self.loadCountryPorts()
+        #self.loadCountryPorts()
         self.setViaListView()
 
         self.ui.attach_ecdis_browse_btn.clicked.connect(self.set_route_file_path)
@@ -82,10 +82,15 @@ class LoadRouteWidget(QWidget):
         root = load_report()
         property = Property()
         root.Property = property
-        f= open(r'd:\test.xml', 'w')
-        f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')
-        root.export(f, 1, namespacedef_='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-        print 'generate xml successfully'
+
+
+        data_dir = Utils.create_date_dir()
+        fn_path = abs_lambda(os.path.join(data_dir , 'load.xml'))
+        with open(fn_path, 'w') as f:
+            f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')
+            root.export(f, 1, namespacedef_='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+        msg_box = QMessageBox(QMessageBox.Information, "Success", "Load Route config file generated successfully")
+        msg_box.exec_()
 
     def set_route_file_path(self):
         fn = QFileDialog.getOpenFileName(self, "Open Files",

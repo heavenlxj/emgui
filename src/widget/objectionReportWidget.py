@@ -1,11 +1,11 @@
 __author__ = 'xingjieliu'
 
 import sys
-sys.path.append('../..')
-
 import QtUiFiles.objectionReport as objectionReport
 from PyQt4.QtGui import QWidget,QApplication,QMessageBox
 from lib.utils import *
+from dao.object import *
+import time
 
 
 class ObjectionReportWidget(QWidget):
@@ -27,7 +27,17 @@ class ObjectionReportWidget(QWidget):
         self.ui.route_table_widget.setSpan()
 
     def generateXml(self):
-        pass
+        root = objection_report()
+        property = Property()
+        root.Property = property
+
+        data_dir = Utils.create_date_dir()
+        fn_path = abs_lambda(os.path.join(data_dir , 'object.xml'))
+        with open(fn_path, 'w') as f:
+            f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')
+            root.export(f, 1, namespacedef_='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+        msg_box = QMessageBox(QMessageBox.Information, "Success", "Objection Report config file generated successfully")
+        msg_box.exec_()
 
     def loadConfig(self):
         configs, msg = Utils.readGeneralConfigFromXml()
@@ -35,12 +45,12 @@ class ObjectionReportWidget(QWidget):
             self.ui.ship_name_edit.setText(configs['ship_name'])
             self.ui.call_sign_edit.setText(configs['call_sign'])
             self.ui.captain_name_edit.setText(configs['captain_name'])
-            self.ui.date_edit.setText(configs['date'])
+            cur_time = time.strftime('%Y/%m/%d',time.localtime(time.time()))
+            self.ui.date_edit.setText(cur_time)
             pass
         else:
             msg_box = QMessageBox(QMessageBox.Warning, "Warning", msg)
             msg_box.exec_()
-
 
 
 
