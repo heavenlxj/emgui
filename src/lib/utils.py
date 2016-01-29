@@ -14,6 +14,8 @@ class Utils():
     def __init__(self):
         pass
 
+    FORMAT_PATTERN = '(([0-9][0-9]|1[0-9][0-9])-[0-9][0-9]\.[0-9][0-9][0-9] (N|S|W|E))'
+
     @staticmethod
     def getCountryPortsMapper():
         mapper=OrderedDict()

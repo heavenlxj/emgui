@@ -158,7 +158,7 @@
       <item>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="title">
-         <string>GroupBox</string>
+         <string>Calculate</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
@@ -222,8 +222,14 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="rowCount">
+            <number>10</number>
+           </property>
            <attribute name="horizontalHeaderCascadingSectionResizes">
             <bool>true</bool>
+           </attribute>
+           <attribute name="horizontalHeaderDefaultSectionSize">
+            <number>80</number>
            </attribute>
            <attribute name="horizontalHeaderMinimumSectionSize">
             <number>32</number>
@@ -237,39 +243,12 @@
            <attribute name="verticalHeaderCascadingSectionResizes">
             <bool>true</bool>
            </attribute>
+           <attribute name="verticalHeaderDefaultSectionSize">
+            <number>40</number>
+           </attribute>
            <attribute name="verticalHeaderStretchLastSection">
             <bool>true</bool>
            </attribute>
-           <row>
-            <property name="text">
-             <string>新建行</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>新建行</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>新建行</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>新建行</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>新建行</string>
-            </property>
-           </row>
-           <row>
-            <property name="text">
-             <string>新建行</string>
-            </property>
-           </row>
            <row>
             <property name="text">
              <string>新建行</string>

@@ -11,7 +11,9 @@ import QtUiFiles.revertRoute as revertReport
 from lib.environ import *
 from lib.utils import Utils
 from dao.revert import *
-from gui.checkDelegate import CheckBoxDelegate, FORMAT_PATTERN
+from gui.checkboxDelegate import CheckBoxDelegate
+from gui.latitudeDelegate import LatitudeDelegate
+from gui.longtitudeDelegate import LongtitudeDelegate
 
 
 class RevertReportWidget(QWidget):
@@ -40,7 +42,9 @@ class RevertReportWidget(QWidget):
     def critialPointLoading(self):
         self.ui.critial_point_add_btn.clicked.connect(self.addTableItem)
         self.ui.critial_point_delete_btn.clicked.connect(self.deleteTableItem)
-        self.ui.critial_point_table_widget.setItemDelegate(CheckBoxDelegate())
+        self.ui.critial_point_table_widget.setItemDelegateForColumn(0, LatitudeDelegate(self))
+        self.ui.critial_point_table_widget.setItemDelegateForColumn(1, LongtitudeDelegate(self))
+        self.ui.critial_point_table_widget.setItemDelegateForColumn(2,CheckBoxDelegate(self))
         self.ui.critial_point_table_widget.itemDoubleClicked.connect(self.reformat)
 
     def viaListViewLoading(self):
@@ -321,7 +325,7 @@ class RevertReportWidget(QWidget):
     def convertPoint(self, text):
         formated = ''
         if not text.isEmpty() and not text.isNull():
-            if Utils.check_state(text, FORMAT_PATTERN):
+            if Utils.check_state(text, Utils.FORMAT_PATTERN):
                 orient = text[-1]
                 formated = text.replace('-','')[:-2]
                 if orient == 'S' or orient == 'W':
