@@ -19,7 +19,7 @@ class RootWindow(QMainWindow):
         super(RootWindow, self).__init__()
         self.root = MainWindow.Ui_MainWindow()
         self.root.setupUi(self)
-        self.logger = Utils.setup_logger('emgui', os.path.join(LOG_PATH, 'emgui_running.log'))
+        self.logger = Utils.setupLogger('emgui', os.path.join(LOG_PATH, 'emgui_running.log'))
 
         self.root.listWidget.setViewMode(QListView.ListMode)
         #self.root.listWidget.setIconSize(QSize(96, 84))

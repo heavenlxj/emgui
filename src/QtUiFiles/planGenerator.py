@@ -201,7 +201,7 @@ class Ui_Form(object):
         item = QtGui.QTableWidgetItem()
         self.calculate_form_table_widget.setHorizontalHeaderItem(8, item)
         self.calculate_form_table_widget.horizontalHeader().setCascadingSectionResizes(True)
-        self.calculate_form_table_widget.horizontalHeader().setDefaultSectionSize(80)
+        self.calculate_form_table_widget.horizontalHeader().setDefaultSectionSize(100)
         self.calculate_form_table_widget.horizontalHeader().setMinimumSectionSize(32)
         self.calculate_form_table_widget.horizontalHeader().setStretchLastSection(True)
         self.calculate_form_table_widget.verticalHeader().setVisible(False)

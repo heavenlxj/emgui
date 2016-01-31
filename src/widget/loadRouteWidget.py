@@ -84,7 +84,7 @@ class LoadRouteWidget(QWidget):
         root.Property = property
 
 
-        data_dir = Utils.create_date_dir()
+        data_dir = Utils.createDateDir()
         fn_path = abs_lambda(os.path.join(data_dir , 'load.xml'))
         with open(fn_path, 'w') as f:
             f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')

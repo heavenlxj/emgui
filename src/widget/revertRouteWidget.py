@@ -325,7 +325,7 @@ class RevertReportWidget(QWidget):
     def convertPoint(self, text):
         formated = ''
         if not text.isEmpty() and not text.isNull():
-            if Utils.check_state(text, Utils.FORMAT_PATTERN):
+            if Utils.checkState(text, Utils.FORMAT_PATTERN):
                 orient = text[-1]
                 formated = text.replace('-','')[:-2]
                 if orient == 'S' or orient == 'W':
@@ -456,7 +456,7 @@ class RevertReportWidget(QWidget):
         property.remark = self.ui.remark_edit.toPlainText()
 
         root.Property = property
-        data_dir = Utils.create_date_dir()
+        data_dir = Utils.createDateDir()
         fn_path = abs_lambda(os.path.join(data_dir , 'revert.xml'))
         with open(fn_path, 'w') as f:
             f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')

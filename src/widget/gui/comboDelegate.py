@@ -19,6 +19,7 @@ class ComboBoxDelegate(QItemDelegate):
             editor=QComboBox(parent)
             for item in self.items_list:
                 editor.addItem(str(item))
+
         editor.currentIndexChanged.connect(self.changeFormula)
         return editor
 

@@ -1,5 +1,6 @@
 import logging
 import logging.handlers
+import math
 from collections import OrderedDict
 
 from PyQt4.QtCore import QRegExp
@@ -59,7 +60,7 @@ class Utils():
             return None, 'General data could not be loaded due to the initial configs not generated'
 
     @staticmethod
-    def check_state(value, pattern):
+    def checkState(value, pattern):
         regexp = QRegExp(pattern)
         validator = QRegExpValidator(regexp)
         state = validator.validate(value, 0)[0]
@@ -69,7 +70,7 @@ class Utils():
             return False
 
     @staticmethod
-    def create_date_dir():
+    def createDateDir():
         #create data directory
         data_dir = os.path.join(ROOT_DIR_PATH, 'data')
         if not os.path.exists(data_dir):
@@ -78,7 +79,7 @@ class Utils():
         return data_dir
 
     @staticmethod
-    def setup_logger(name, fn=None, level=logging.DEBUG):
+    def setupLogger(name, fn=None, level=logging.DEBUG):
 
         if not os.path.exists(LOG_PATH):
             os.makedirs(LOG_PATH)
@@ -92,3 +93,28 @@ class Utils():
             logger.addHandler(handler)
 
         return logger
+
+    @staticmethod
+    def calCourseGCFormula(s_lat, s_long, d_lat, d_long):
+        pass
+
+    @staticmethod
+    def calCourseRLFormula(s_lat, s_long, d_lat, d_long):
+        pass
+
+    @staticmethod
+    def calDistanceGCFormula(s_lat, s_long, d_lat, d_long):
+        pass
+
+    @staticmethod
+    def calDistanceRLFormula(s_lat, s_long, d_lat, d_long):
+        pass
+
+    @staticmethod
+    def sign(x):
+        if x==0:
+            return 0
+        elif x<0:
+            return -1
+        else:
+            return 1

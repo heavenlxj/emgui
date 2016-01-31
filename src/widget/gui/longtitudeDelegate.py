@@ -25,7 +25,7 @@ class LongtitudeDelegate(QItemDelegate):
         if not value.isEmpty():
             pattern='(-?)(([0-9][0-9])|[0-1][0-7][0-9])([0-5][0-9])((\.[0-9]{1,3})?)'
             temp_value = str(value)
-            if Utils.check_state(value, pattern):
+            if Utils.checkState(value, pattern):
                 if temp_value.startswith('-'):
                     orient = 'W'
                 else:
@@ -54,7 +54,7 @@ class LongtitudeDelegate(QItemDelegate):
 
                 format_value = str.format('{0}-{1} {2}', str(deg), str(min), orient)
                 model.setData(index, format_value)
-            elif Utils.check_state(value, Utils.FORMAT_PATTERN):
+            elif Utils.checkState(value, Utils.FORMAT_PATTERN):
                 model.setData(index, value)
             else:
                 model.setData(index, '#VALUE!')
