@@ -211,7 +211,6 @@ class RevertReportWidget(QWidget):
 
     def deleteTableItem(self):
         row = self.ui.critial_point_table_widget.currentRow()
-        print 'current row=%s' %row
         self.ui.critial_point_table_widget.removeRow(row)
 
 
@@ -456,7 +455,7 @@ class RevertReportWidget(QWidget):
         property.remark = self.ui.remark_edit.toPlainText()
 
         root.Property = property
-        data_dir = Utils.createDateDir()
+        data_dir = Utils.createDataDir()
         fn_path = abs_lambda(os.path.join(data_dir , 'revert.xml'))
         with open(fn_path, 'w') as f:
             f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')

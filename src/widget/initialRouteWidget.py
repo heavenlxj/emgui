@@ -5,7 +5,6 @@ import sys
 import logging
 
 from PyQt4.QtGui import QWidget,QApplication,QMessageBox
-
 import QtUiFiles.initialReport as iniReport
 from dao.initital import *
 from lib.environ import *
@@ -21,11 +20,9 @@ class IniReportWidget(QWidget):
         self.logger = logging.getLogger('emgui')
         self.initialize()
 
-
-
     def initialize(self):
+        self.ui.meTableWidget.setAlternatingRowColors(True)
         self.ui.submitButton.clicked.connect(self.generateXml)
-        self.ui.cancelButton.clicked.connect(self.close)
 
     def generateXml(self):
         try:
@@ -60,8 +57,8 @@ class IniReportWidget(QWidget):
             cells=[]
             pattern='[./\s]'
             for i in range(self.ui.meTableWidget.rowCount()):
-                horirental_name = self.ui.meTableWidget.verticalHeaderItem(i).text()
-                repl_h_name = re.sub(pattern, '_', str(horirental_name))
+                vertical_name = self.ui.meTableWidget.verticalHeaderItem(i).text()
+                repl_h_name = re.sub(pattern, '_', str(vertical_name))
                 for j in range(self.ui.meTableWidget.columnCount()):
                     column_name = self.ui.meTableWidget.horizontalHeaderItem(j).text()
                     repl_c_name = re.sub(pattern, '_', str(column_name))
@@ -74,7 +71,7 @@ class IniReportWidget(QWidget):
             property.ME_Particular = me_particular
             root.Property = property
 
-            data_dir = Utils.createDateDir()
+            data_dir = Utils.createDataDir()
             fn_path = abs_lambda(os.path.join(data_dir , 'initial.xml'))
             with open(fn_path, 'w') as f:
                 f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')

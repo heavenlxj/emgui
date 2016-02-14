@@ -26,8 +26,6 @@ class LoadRouteWidget(QWidget):
         self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
 
         self.ui.depart_date_edit.calendarWidget()
-        #self.ui.load_btn.clicked.connect(self.loadConfig)
-        self.ui.cancel_btn.clicked.connect(self.close)
 
     def setViaListView(self):
         self.ui.via_add_btn.clicked.connect(self.addListItem)
@@ -84,7 +82,7 @@ class LoadRouteWidget(QWidget):
         root.Property = property
 
 
-        data_dir = Utils.createDateDir()
+        data_dir = Utils.createDataDir()
         fn_path = abs_lambda(os.path.join(data_dir , 'load.xml'))
         with open(fn_path, 'w') as f:
             f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')

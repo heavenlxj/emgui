@@ -1,6 +1,6 @@
 import logging
 import logging.handlers
-import math
+from math import *
 from collections import OrderedDict
 
 from PyQt4.QtCore import QRegExp
@@ -9,6 +9,7 @@ from PyQt4.QtGui import QValidator,QRegExpValidator,QMessageBox
 from lib.environ import *
 from dao.initital import parse
 
+E = 0.0818191908426215
 
 class Utils():
 
@@ -70,7 +71,7 @@ class Utils():
             return False
 
     @staticmethod
-    def createDateDir():
+    def createDataDir():
         #create data directory
         data_dir = os.path.join(ROOT_DIR_PATH, 'data')
         if not os.path.exists(data_dir):
@@ -96,19 +97,64 @@ class Utils():
 
     @staticmethod
     def calCourseGCFormula(s_lat, s_long, d_lat, d_long):
-        pass
+        res = ''
+        if s_lat.isEmpty() or s_long.isEmpty() or d_lat.isEmpty() or d_long.isEmpty():
+            res='END'
+        else:
+            s_lat = float(s_lat)
+            s_long = float(s_long)
+            d_lat = float(d_lat)
+            d_long = float(d_long)
+
+            dis = 180-90*((1+ Utils.sign(d_lat-s_lat))*Utils.sign(d_long-s_long))
+            mid_v = sin(radians(d_long-s_long))/(cos(radians(s_lat))*tan(radians(d_lat))-sin(radians(s_lat))*cos(radians(d_long-s_long)))
+            course= dis + degrees(atan(mid_v))
+
+            res = '%.4f' % course
+        return res
 
     @staticmethod
     def calCourseRLFormula(s_lat, s_long, d_lat, d_long):
-        pass
+        res = ''
+        if s_lat.isEmpty() or s_long.isEmpty() or d_lat.isEmpty() or d_long.isEmpty():
+            res='END'
+        else:
+            s_lat = float(s_lat)
+            s_long = float(s_long)
+            d_lat = float(d_lat)
+            d_long = float(d_long)
+
+            dis = 180-90*((1+ Utils.sign(d_lat-s_lat))*Utils.sign(d_long-s_long))
+            mid_v = 180/pi*(atan(radians(d_long-s_long)/(atanh(sin(radians(d_lat)))-atanh(sin(radians(s_lat)))-E*atanh(E*sin(radians(d_lat)))+E*atanh(E*sin(radians(s_lat))))))
+            course= dis + mid_v
+            res = '%.4f' % course
+        return res
 
     @staticmethod
     def calDistanceGCFormula(s_lat, s_long, d_lat, d_long):
-        pass
+        res = ''
+        if s_lat.isEmpty() or s_long.isEmpty() or d_lat.isEmpty() or d_long.isEmpty():
+            res='END'
+        else:
+            s_lat = float(s_lat)
+            s_long = float(s_long)
+            d_lat = float(d_lat)
+            d_long = float(d_long)
+
+            distance = 60*degrees(acos(sin(radians(s_lat))*sin(radians(d_lat))+cos(radians(s_lat))*cos(radians(d_lat))*cos(radians(d_long-s_long))))
+            res = '%.4f' % distance
+        return res
 
     @staticmethod
     def calDistanceRLFormula(s_lat, s_long, d_lat, d_long):
-        pass
+        res = ''
+        if s_lat.isEmpty() or s_long.isEmpty() or d_lat.isEmpty() or d_long.isEmpty():
+            res='END'
+        else:
+            course = float(Utils.calCourseRLFormula(s_lat, s_long, d_lat, d_long))
+            distance = (float(d_lat)-float(s_lat))*60/cos(radians(course))
+            res = '%.4f' % distance
+        return res
 
     @staticmethod
     def sign(x):

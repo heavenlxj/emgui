@@ -8,9 +8,6 @@ class ComboBoxDelegate(QItemDelegate):
         self.items_list = items_list
 
 
-    def changeFormula(self, index):
-        pass
-
     def createEditor(self, parent, option, index):
         '''
         Important, otherwise an editor is created if the user clicks in this cell.
@@ -20,7 +17,6 @@ class ComboBoxDelegate(QItemDelegate):
             for item in self.items_list:
                 editor.addItem(str(item))
 
-        editor.currentIndexChanged.connect(self.changeFormula)
         return editor
 
 

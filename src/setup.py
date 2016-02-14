@@ -21,7 +21,7 @@ if sys.platform == 'win32':
 options = {
     'build_exe': {
         'packages': ['lxml','gzip'],
-        'include_files':[('D:\GitRepo\emgui\src\conf\country_port.csv', 'country_port.csv')],
+        'include_files':[('D:\GitRepo\emgui\conf\country_port.csv', 'conf\country_port.csv')],
         'excludes': ['collections.abc']
     }
 

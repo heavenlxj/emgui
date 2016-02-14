@@ -208,7 +208,7 @@
               </sizepolicy>
              </property>
              <property name="text">
-              <string>Export To CSV</string>
+              <string>Export To Excel</string>
              </property>
             </widget>
            </item>
@@ -221,6 +221,12 @@
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="selectionMode">
+            <enum>QAbstractItemView::ExtendedSelection</enum>
+           </property>
+           <property name="selectionBehavior">
+            <enum>QAbstractItemView::SelectRows</enum>
            </property>
            <property name="rowCount">
             <number>10</number>

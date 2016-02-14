@@ -5,55 +5,62 @@
 	<xs:element name="Property">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="ship_name"/>
-				<xs:element ref="call_sign"/>
-				<xs:element ref="voyage_number"/>
-				<xs:element ref="captain_name"/>
-				<xs:element ref="date"/>
-				<xs:element ref="route_id_number"/>
-				<xs:element ref="routes"/>
-				<xs:element ref="reason_objection"/>
-				<xs:element ref="remark"/>
+				<xs:element ref="ship_name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="call_sign" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_number" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="captain_name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="date" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="route_id_number" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="routes" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="reason_objection" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="remark" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="call_sign" type="xs:string"/>
 	<xs:element name="captain_name" type="xs:string"/>
-	<xs:element name="date" type="xs:date"/>
-	<xs:element name="lat" type="xs:int"/>
-	<xs:element name="long" type="xs:int"/>
+	<xs:element name="date" type="xs:string"/>
+	<xs:element name="latitude" type="xs:string"/>
+	<xs:element name="longtitude" type="xs:string"/>
+	<xs:element name="reason" type="xs:string"/>
+	<xs:element name="route_id_number" type="xs:string"/>
+	<xs:element name="remark" type="xs:string"/>
+	<xs:element name="id" type="xs:string"/>
+	<xs:element name="ship_name" type="xs:string"/>
+	<xs:element name="voyage_number" type="xs:string"/>
+
 	<xs:element name="objection_report">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="Property"/>
+				<xs:element ref="Property" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="reason" type="xs:string"/>
+
 	<xs:element name="reason_objection">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="reason"/>
+				<xs:element ref="reason" minOccurs="1" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="remark" type="xs:string"/>
+
 	<xs:element name="route">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="lat"/>
-				<xs:element ref="long"/>
+				<xs:element ref="id" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="latitude" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="longtitude" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="route_id_number" type="xs:string"/>
+
 	<xs:element name="routes">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="route"/>
+				<xs:element ref="route" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="ship_name" type="xs:string"/>
-	<xs:element name="voyage_number" type="xs:string"/>
+
 </xs:schema>

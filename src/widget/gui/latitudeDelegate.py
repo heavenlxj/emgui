@@ -1,10 +1,12 @@
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import QItemDelegate, QLineEdit
 from lib.utils import Utils
+import logging
 
 class LatitudeDelegate(QItemDelegate):
 
     def __init__(self, parent = None):
+        self.logger = logging.getLogger('emgui')
         super(LatitudeDelegate, self).__init__(parent)
 
     def createEditor(self, parent, option, index):
@@ -22,6 +24,7 @@ class LatitudeDelegate(QItemDelegate):
     def setModelData(self, editor, model, index):
         value = editor.text()
         if not value.isEmpty():
+            try:
                 pattern='(-?[0-8][0-9][0-5][0-9])((\.[0-9]{1,3})?)'
                 temp_value = str(value)
                 if Utils.checkState(value, pattern):
@@ -46,6 +49,9 @@ class LatitudeDelegate(QItemDelegate):
                     model.setData(index, value)
                 else:
                     model.setData(index, '#VALUE!')
+            except Exception,ex:
+                self.logger.error(ex, exc_info=1)
+
         else:
             model.setData(index,  value)
 

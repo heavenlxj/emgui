@@ -59,7 +59,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="load_route_file_btn">
+          <widget class="QPushButton" name="browse_btn">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -67,7 +67,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Load Route File</string>
+            <string>Browse</string>
            </property>
           </widget>
          </item>
@@ -720,7 +720,7 @@
             <item>
              <widget class="QLabel" name="route_id_number_label">
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -750,7 +750,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>TextLabel</string>
+               <string/>
               </property>
              </widget>
             </item>
@@ -779,8 +779,8 @@
               <rect>
                <x>0</x>
                <y>0</y>
-               <width>98</width>
-               <height>89</height>
+               <width>807</width>
+               <height>210</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
@@ -1307,6 +1307,19 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
+      <widget class="QPushButton" name="load_btn">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Load</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="submit_btn">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1316,19 +1329,6 @@
        </property>
        <property name="text">
         <string>Submit</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="cancel_btn">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Cancel</string>
        </property>
       </widget>
      </item>

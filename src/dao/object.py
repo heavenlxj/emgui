@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Fri Jan 01 00:52:07 2016 by generateDS.py version 2.17a.
+# Generated Mon Feb 15 00:36:34 2016 by generateDS.py version 2.18a.
 #
 # Command line options:
 #   ('-f', '')
@@ -14,7 +14,7 @@
 #   D:\GitRepo\emgui\src\schema\object.xsd
 #
 # Command line:
-#   E:\Python27\Scripts\generateDS.py -f -q --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\object.py" D:\GitRepo\emgui\src\schema\object.xsd
+#   C:\Python27\Scripts\generateDS.py -f -q --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\object.py" D:\GitRepo\emgui\src\schema\object.xsd
 #
 # Current working directory (os.getcwd()):
 #   Scripts
@@ -627,11 +627,7 @@ class Property(GeneratedsSuper):
         self.call_sign = call_sign
         self.voyage_number = voyage_number
         self.captain_name = captain_name
-        if isinstance(date, basestring):
-            initvalue_ = datetime_.datetime.strptime(date, '%Y-%m-%d').date()
-        else:
-            initvalue_ = date
-        self.date = initvalue_
+        self.date = date
         self.route_id_number = route_id_number
         self.routes = routes
         self.reason_objection = reason_objection
@@ -696,7 +692,7 @@ class Property(GeneratedsSuper):
             outfile.write('<%scaptain_name>%s</%scaptain_name>%s' % (namespace_, self.gds_format_string(quote_xml(self.captain_name).encode(ExternalEncoding), input_name='captain_name'), namespace_, eol_))
         if self.date is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdate>%s</%sdate>%s' % (namespace_, self.gds_format_date(self.date, input_name='date'), namespace_, eol_))
+            outfile.write('<%sdate>%s</%sdate>%s' % (namespace_, self.gds_format_string(quote_xml(self.date).encode(ExternalEncoding), input_name='date'), namespace_, eol_))
         if self.route_id_number is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sroute_id_number>%s</%sroute_id_number>%s' % (namespace_, self.gds_format_string(quote_xml(self.route_id_number).encode(ExternalEncoding), input_name='route_id_number'), namespace_, eol_))
@@ -734,9 +730,9 @@ class Property(GeneratedsSuper):
             captain_name_ = self.gds_validate_string(captain_name_, node, 'captain_name')
             self.captain_name = captain_name_
         elif nodeName_ == 'date':
-            sval_ = child_.text
-            dval_ = self.gds_parse_date(sval_)
-            self.date = dval_
+            date_ = child_.text
+            date_ = self.gds_validate_string(date_, node, 'date')
+            self.date = date_
         elif nodeName_ == 'route_id_number':
             route_id_number_ = child_.text
             route_id_number_ = self.gds_validate_string(route_id_number_, node, 'route_id_number')
@@ -827,7 +823,10 @@ class reason_objection(GeneratedsSuper):
     superclass = None
     def __init__(self, reason=None):
         self.original_tagname_ = None
-        self.reason = reason
+        if reason is None:
+            self.reason = []
+        else:
+            self.reason = reason
     def factory(*args_, **kwargs_):
         if reason_objection.subclass:
             return reason_objection.subclass(*args_, **kwargs_)
@@ -836,7 +835,7 @@ class reason_objection(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.reason is not None
+            self.reason
         ):
             return True
         else:
@@ -866,9 +865,9 @@ class reason_objection(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.reason is not None:
+        for reason_ in self.reason:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sreason>%s</%sreason>%s' % (namespace_, self.gds_format_string(quote_xml(self.reason).encode(ExternalEncoding), input_name='reason'), namespace_, eol_))
+            outfile.write('<%sreason>%s</%sreason>%s' % (namespace_, self.gds_format_string(quote_xml(reason_).encode(ExternalEncoding), input_name='reason'), namespace_, eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -882,17 +881,18 @@ class reason_objection(GeneratedsSuper):
         if nodeName_ == 'reason':
             reason_ = child_.text
             reason_ = self.gds_validate_string(reason_, node, 'reason')
-            self.reason = reason_
+            self.reason.append(reason_)
 # end class reason_objection
 
 
 class route(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, lat=None, long=None):
+    def __init__(self, id=None, latitude=None, longtitude=None):
         self.original_tagname_ = None
-        self.lat = lat
-        self.long = long
+        self.id = id
+        self.latitude = latitude
+        self.longtitude = longtitude
     def factory(*args_, **kwargs_):
         if route.subclass:
             return route.subclass(*args_, **kwargs_)
@@ -901,8 +901,9 @@ class route(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.lat is not None or
-            self.long is not None
+            self.id is not None or
+            self.latitude is not None or
+            self.longtitude is not None
         ):
             return True
         else:
@@ -932,12 +933,15 @@ class route(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.lat is not None:
+        if self.id is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%slat>%s</%slat>%s' % (namespace_, self.gds_format_integer(self.lat, input_name='lat'), namespace_, eol_))
-        if self.long is not None:
+            outfile.write('<%sid>%s</%sid>%s' % (namespace_, self.gds_format_string(quote_xml(self.id).encode(ExternalEncoding), input_name='id'), namespace_, eol_))
+        if self.latitude is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%slong>%s</%slong>%s' % (namespace_, self.gds_format_integer(self.long, input_name='long'), namespace_, eol_))
+            outfile.write('<%slatitude>%s</%slatitude>%s' % (namespace_, self.gds_format_string(quote_xml(self.latitude).encode(ExternalEncoding), input_name='latitude'), namespace_, eol_))
+        if self.longtitude is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slongtitude>%s</%slongtitude>%s' % (namespace_, self.gds_format_string(quote_xml(self.longtitude).encode(ExternalEncoding), input_name='longtitude'), namespace_, eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -948,22 +952,18 @@ class route(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'lat':
-            sval_ = child_.text
-            try:
-                ival_ = int(sval_)
-            except (TypeError, ValueError) as exp:
-                raise_parse_error(child_, 'requires integer: %s' % exp)
-            ival_ = self.gds_validate_integer(ival_, node, 'lat')
-            self.lat = ival_
-        elif nodeName_ == 'long':
-            sval_ = child_.text
-            try:
-                ival_ = int(sval_)
-            except (TypeError, ValueError) as exp:
-                raise_parse_error(child_, 'requires integer: %s' % exp)
-            ival_ = self.gds_validate_integer(ival_, node, 'long')
-            self.long = ival_
+        if nodeName_ == 'id':
+            id_ = child_.text
+            id_ = self.gds_validate_string(id_, node, 'id')
+            self.id = id_
+        elif nodeName_ == 'latitude':
+            latitude_ = child_.text
+            latitude_ = self.gds_validate_string(latitude_, node, 'latitude')
+            self.latitude = latitude_
+        elif nodeName_ == 'longtitude':
+            longtitude_ = child_.text
+            longtitude_ = self.gds_validate_string(longtitude_, node, 'longtitude')
+            self.longtitude = longtitude_
 # end class route
 
 
@@ -972,7 +972,10 @@ class routes(GeneratedsSuper):
     superclass = None
     def __init__(self, route=None):
         self.original_tagname_ = None
-        self.route = route
+        if route is None:
+            self.route = []
+        else:
+            self.route = route
     def factory(*args_, **kwargs_):
         if routes.subclass:
             return routes.subclass(*args_, **kwargs_)
@@ -981,7 +984,7 @@ class routes(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.route is not None
+            self.route
         ):
             return True
         else:
@@ -1011,8 +1014,8 @@ class routes(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.route is not None:
-            self.route.export(outfile, level, namespace_, name_='route', pretty_print=pretty_print)
+        for route_ in self.route:
+            route_.export(outfile, level, namespace_, name_='route', pretty_print=pretty_print)
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1026,7 +1029,7 @@ class routes(GeneratedsSuper):
         if nodeName_ == 'route':
             obj_ = route.factory()
             obj_.build(child_)
-            self.route = obj_
+            self.route.append(obj_)
             obj_.original_tagname_ = 'route'
 # end class routes
 
