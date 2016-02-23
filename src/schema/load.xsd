@@ -5,76 +5,76 @@
 	<xs:element name="Property">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="ship_name"/>
-				<xs:element ref="call_sign"/>
-				<xs:element ref="voyage_number"/>
-				<xs:element ref="date"/>
-				<xs:element ref="voyage_detail"/>
-				<xs:element ref="via"/>
-				<xs:element ref="use_dw_route"/>
-				<xs:element ref="use_critial_point"/>
-				<xs:element ref="critial_point"/>
-				<xs:element ref="paper_chart"/>
-				<xs:element ref="route_id_number"/>
-				<xs:element ref="used_times"/>
-				<xs:element ref="voyage_data"/>
-				<xs:element ref="total_bunker_consumption"/>
-				<xs:element ref="average_bunker_consumption_per_nm"/>
-				<xs:element ref="attach_ecdis_route_file"/>
-				<xs:element ref="attach_emarine_wp_plan"/>
+				<xs:element ref="ship_name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="call_sign" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_number" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="date" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_detail" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="via" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="use_dw_route" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="use_critial_point" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="critial_point" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="paper_chart" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="route_number" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="used_times" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_data" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="total_bunker_consumption" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="average_bunker_consumption_per_nm" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_performance_efficiency" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="attach_ecdis_route_file" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="attach_emarine_wp_plan" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="arrival">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="departure_date"/>
-				<xs:element ref="departure_time"/>
-				<xs:element ref="country"/>
-				<xs:element ref="port"/>
-				<xs:element ref="unlo_code"/>
-				<xs:element ref="terminal"/>
+				<xs:element ref="arrival_date" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="arrival_time" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="country" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="port" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="unlo_code" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="terminal" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="average_bunker_consumption_per_nm">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="ifo"/>
-				<xs:element ref="mdo"/>
-				<xs:element ref="lsfo"/>
-				<xs:element ref="lsmdo"/>
+				<xs:element ref="ifo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="mdo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="lsfo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="lsmdo" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:element name="voyage_performance_efficiency">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ifo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="mdo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="lsfo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="lsmdo" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="average_me_rmp" type="xs:string"/>
 	<xs:element name="average_slip" type="xs:string"/>
 	<xs:element name="average_speed" type="xs:string"/>
 	<xs:element name="call_sign" type="xs:string"/>
-	<xs:element name="cargo_shipped" type="xs:string"/>
+	<xs:element name="cargo_carried" type="xs:string"/>
 	<xs:element name="country" type="xs:string"/>
-	<xs:element name="critial_point">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="point"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="date" type="xs:date"/>
-	<xs:element name="departure">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="departure_date"/>
-				<xs:element ref="departure_time"/>
-				<xs:element ref="country"/>
-				<xs:element ref="port"/>
-				<xs:element ref="unlo_code"/>
-				<xs:element ref="terminal"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="departure_date" type="xs:date"/>
-	<xs:element name="departure_time" type="xs:time"/>
+	<xs:element name="date" type="xs:string"/>
+	<xs:element name="voyage_number" type="xs:string"/>
+	<xs:element name="route_number" type="xs:string"/>
+	<xs:element name="used_times" type="xs:string"/>
+	<xs:element name="attach_ecdis_route_file" type="xs:string"/>
+	<xs:element name="attach_emarine_wp_plan" type="xs:string"/>
+	<xs:element name="departure_date" type="xs:string"/>
+	<xs:element name="departure_time" type="xs:string"/>
+	<xs:element name="arrival_date" type="xs:string"/>
+	<xs:element name="arrival_time" type="xs:string"/>
 	<xs:element name="displacement" type="xs:string"/>
 	<xs:element name="ifo" type="xs:string"/>
 	<xs:element name="load_condition" type="xs:string"/>
@@ -84,81 +84,107 @@
 	<xs:element name="mdo" type="xs:string"/>
 	<xs:element name="me_revolution_distance" type="xs:string"/>
 	<xs:element name="minimum_ukc" type="xs:string"/>
-	<xs:element name="paper">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="paper_chart">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="paper"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="point">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="port">
-		<xs:complexType/>
-	</xs:element>
-	<xs:element name="load_report">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="Property"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+	<xs:element name="port" type="xs:string"/>
 	<xs:element name="ship_name" type="xs:string"/>
 	<xs:element name="terminal" type="xs:string"/>
-	<xs:element name="total_bunker_consumption">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="ifo"/>
-				<xs:element ref="mdo"/>
-				<xs:element ref="lsfo"/>
-				<xs:element ref="lsmdo"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
 	<xs:element name="total_distance" type="xs:string"/>
 	<xs:element name="total_streaming_time" type="xs:string"/>
 	<xs:element name="unlo_code" type="xs:string"/>
 	<xs:element name="use_critial_point" type="xs:boolean"/>
 	<xs:element name="use_dw_route" type="xs:boolean"/>
+	<xs:element name="place_name" type="xs:string"/>
+	<xs:element name="chart_id" type="xs:string"/>
+	<xs:element name="latitude" type="xs:string"/>
+	<xs:element name="longtitude" type="xs:string"/>
+	<xs:element name="log_distance" type="xs:string"/>
+
+	<xs:element name="critial_point">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="point" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="departure">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="departure_date" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="departure_time" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="country" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="port" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="unlo_code" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="terminal" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="paper_chart">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="chart_id" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="point">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="latitude" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="longtitude" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="load_report">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Property" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="total_bunker_consumption">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ifo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="mdo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="lsfo" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="lsmdo" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="via">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="port"/>
+				<xs:element ref="place_name" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="voyage_data">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="maximum_draft"/>
-				<xs:element ref="minimum_ukc"/>
-				<xs:element ref="load_condition"/>
-				<xs:element ref="displacement"/>
-				<xs:element ref="cargo_shipped"/>
-				<xs:element ref="total_distance"/>
-				<xs:element ref="total_streaming_time"/>
-				<xs:element ref="average_speed"/>
-				<xs:element ref="average_slip"/>
-				<xs:element ref="me_revolution_distance"/>
-				<xs:element ref="average_me_rmp"/>
+				<xs:element ref="maximum_draft" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="minimum_ukc" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="load_condition" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="displacement" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="cargo_carried" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="total_distance" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="total_streaming_time" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="average_speed" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="average_slip" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="me_revolution_distance" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="average_me_rmp" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="log_distance" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="voyage_detail">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="departure"/>
-				<xs:element ref="arrival"/>
+				<xs:element ref="departure" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="arrival" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="voyage_number" type="xs:string"/>
-	<xs:element name="route_id_number" type="xs:string"/>
-	<xs:element name="used_times" type="xs:string"/>
-	<xs:element name="attach_ecdis_route_file" type="xs:string"/>
-	<xs:element name="attach_emarine_wp_plan" type="xs:string"/>
+
 </xs:schema>

@@ -1,6 +1,6 @@
 from PyQt4.QtCore import Qt
 from PyQt4.QtGui import QItemDelegate, QLineEdit
-from lib.utils import Utils
+from lib.utils import Utils, PointType
 import logging
 
 class LatitudeDelegate(QItemDelegate):
@@ -19,36 +19,15 @@ class LatitudeDelegate(QItemDelegate):
     def setEditorData(self, editor, index):
         value = index.model().data(index, Qt.EditRole).toString()
         editor.setText(value)
-
+        editor.setAlignment(Qt.AlignCenter)
 
     def setModelData(self, editor, model, index):
         value = editor.text()
         if not value.isEmpty():
             try:
-                pattern='(-?[0-8][0-9][0-5][0-9])((\.[0-9]{1,3})?)'
-                temp_value = str(value)
-                if Utils.checkState(value, pattern):
-                    if temp_value.startswith('-'):
-                        orient = 'S'
-                    else:
-                        orient = 'N'
-                    temp_value = temp_value.strip('-')
-                    deg = temp_value[:2]
-                    min = temp_value[2:]
-                    dot_index = temp_value.find('.')
-                    if dot_index != -1:
-                        float_part = str(temp_value[dot_index+1:])
-                        float_len = len(float_part)
-                        zero_pad = '0' * (3-float_len)
-                    else:
-                        zero_pad = '.000'
+                format_value = Utils.formatPoint(value, PointType.LATITUDE)
+                model.setData(index, format_value)
 
-                    format_value = str.format('{0}-{1} {2}', str(deg), str(min)+zero_pad, orient)
-                    model.setData(index, format_value)
-                elif Utils.checkState(value, Utils.FORMAT_PATTERN):
-                    model.setData(index, value)
-                else:
-                    model.setData(index, '#VALUE!')
             except Exception,ex:
                 self.logger.error(ex, exc_info=1)
 

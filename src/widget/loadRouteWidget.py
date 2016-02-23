@@ -2,26 +2,30 @@ __author__ = 'xingjieliu'
 
 import sys
 
-from PyQt4.QtGui import QWidget,QApplication,QMessageBox, QFileDialog
-from PyQt4.QtCore import QDir,Qt
+from PyQt4.QtGui import QWidget,QApplication,QMessageBox, QFileDialog,QTableWidgetItem
+from PyQt4.QtCore import Qt,QDate,QTime,QString
 
 import QtUiFiles.loadRoute as loadRoute
+from gui.latitudeDelegate import LatitudeDelegate
+from gui.longtitudeDelegate import LongtitudeDelegate
 from lib.environ import *
-from lib.utils import Utils
+from lib.utils import Utils,PointType
 from dao.load import parse
-
+import logging
 
 class LoadRouteWidget(QWidget):
     def __init__(self):
         super(LoadRouteWidget, self).__init__()
         self.ui = loadRoute.Ui_Form()
         self.ui.setupUi(self)
+        self.logger = logging.getLogger('emgui')
         self.initialize()
 
     def initialize(self):
         #self.loadCountryPorts()
         self.setViaListView()
         self.buttonConnect()
+        self.critialPointLoading()
 
 
     def buttonConnect(self):
@@ -31,6 +35,36 @@ class LoadRouteWidget(QWidget):
         self.ui.browse_btn.clicked.connect(self.browse_config_file)
         self.ui.attach_ecdis_browse_btn.clicked.connect(self.set_route_file_path)
         self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
+
+    def critialPointLoading(self):
+        self.ui.critial_point_add_btn.clicked.connect(self.addTableItem)
+        self.ui.critial_point_delete_btn.clicked.connect(self.deleteTableItem)
+        self.ui.critial_point_table_widget.setItemDelegateForColumn(0, LatitudeDelegate(self))
+        self.ui.critial_point_table_widget.setItemDelegateForColumn(1, LongtitudeDelegate(self))
+        self.ui.critial_point_table_widget.itemDoubleClicked.connect(self.reformat)
+
+    def reformat(self, item):
+        text = item.text()
+        formated = self.convertPoint(text)
+        item.setText(formated)
+
+    def convertPoint(self, text):
+        formated = ''
+        if not text.isEmpty() and not text.isNull():
+            if Utils.checkState(text, Utils.FORMAT_PATTERN):
+                orient = text[-1]
+                formated = text.replace('-','')[:-2]
+                if orient == 'S' or orient == 'W':
+                    formated.push_front('-')
+        return formated
+
+    def addTableItem(self):
+        count = self.ui.critial_point_table_widget.rowCount()
+        self.ui.critial_point_table_widget.insertRow(count)
+
+    def deleteTableItem(self):
+        row = self.ui.critial_point_table_widget.currentRow()
+        self.ui.critial_point_table_widget.removeRow(row)
 
 
     def setViaListView(self):
@@ -105,21 +139,6 @@ class LoadRouteWidget(QWidget):
         self.ui.arrival_port_combo.clear()
         self.ui.arrival_port_combo.addItems(self.country_ports[country_name])
 
-
-    # def generateXml(self):
-    #     root = load_report()
-    #     property = Property()
-    #     root.Property = property
-    #
-    #
-    #     data_dir = Utils.createDataDir()
-    #     fn_path = abs_lambda(os.path.join(data_dir , 'load.xml'))
-    #     with open(fn_path, 'w') as f:
-    #         f.write('''<?xml version="1.0" encoding="UTF-8"?>\n''')
-    #         root.export(f, 1, namespacedef_='xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
-    #     msg_box = QMessageBox(QMessageBox.Information, "Success", "Load Route config file generated successfully")
-    #     msg_box.exec_()
-
     def set_route_file_path(self):
         fn = QFileDialog.getOpenFileName(self, "Open Files",
                 DATA_PATH, ".xml(*.xml)")
@@ -148,9 +167,100 @@ class LoadRouteWidget(QWidget):
             msg_box.exec_()
             return False
         else:
-            fh = open(fn)
-            parsed_file = parse(fh)
-            pass
+            try:
+                fh = open(fn)
+                parsed_file = parse(fh, silence=True)
+
+                property = parsed_file.Property
+                self.ui.depart_date_edit.setDate(QDate.fromString(property.voyage_detail.departure.departure_date, 'yyyy/MM/dd'))
+                self.ui.departure_time_edit.setTime(QTime.fromString(property.voyage_detail.departure.departure_time, 'hh:mm:ss'))
+                self.ui.departure_unlo_edit.setText(property.voyage_detail.departure.unlo_code)
+                self.ui.depature_terminal.setText(property.voyage_detail.departure.terminal)
+                self.ui.departure_country_combo.setEditText(property.voyage_detail.departure.country)
+                self.ui.departure_port_combo.setEditText(property.voyage_detail.departure.port)
+
+                self.ui.arrival_date_edit.setDate(QDate.fromString(property.voyage_detail.arrival.arrival_date,'yyyy/MM/dd'))
+                self.ui.arrival_time_edit.setTime(QTime.fromString(property.voyage_detail.arrival.arrival_time,'hh:mm:ss'))
+                self.ui.arrival_unlo_edit.setText(property.voyage_detail.arrival.unlo_code)
+                self.ui.arrival_terminal.setText(property.voyage_detail.arrival.terminal)
+                self.ui.arrival_country_combo.setEditText(property.voyage_detail.arrival.country)
+                self.ui.arrival_port_combo.setEditText(property.voyage_detail.arrival.port)
+
+                if property.use_dw_route:
+                    self.ui.use_dw_route_yes_radio.setChecked(True)
+                else:
+                    self.ui.use_dw_route_no_radio.setChecked(True)
+
+                if property.use_critial_point:
+                    self.ui.critial_yes_radio.setChecked(True)
+                else:
+                    self.ui.critial_no_radio.setChecked(True)
+
+                for index,point in enumerate(property.critial_point.point):
+                    try:
+                        formated_latitude = Utils.formatPoint(QString(point.latitude), PointType.LATITUDE)
+                        latitude = QTableWidgetItem(formated_latitude)
+                        latitude.setTextAlignment(Qt.AlignCenter)
+                        self.ui.critial_point_table_widget.setItem(index,0, latitude)
+                        formated_longtitude = Utils.formatPoint(QString(point.longtitude), PointType.LONGTITUDE)
+                        longtitude = QTableWidgetItem(formated_longtitude)
+                        longtitude.setTextAlignment(Qt.AlignCenter)
+                        self.ui.critial_point_table_widget.setItem(index,1,longtitude)
+                    except Exception,ex:
+                        self.logger.error(ex, exc_info=1)
+
+
+                self.ui.via_listWidget.addItems(property.via.place_name)
+                self.ui.route_id_number_label.setText(property.route_number)
+                self.ui.used_times_label.setText(property.used_times)
+
+                row_count = self.ui.paper_chart_table_widget.rowCount()
+                column_count = self.ui.paper_chart_table_widget.columnCount()
+                chart_ids = property.paper_chart.chart_id
+                if len(chart_ids) > row_count*column_count:
+                    #add new row for the paper chart table
+                    self.ui.paper_chart_table_widget.insertRow(row_count)
+
+                for index,chart_id in enumerate(property.paper_chart.chart_id):
+                    row = index/column_count
+                    column = index%column_count
+                    chart_item = QTableWidgetItem(chart_id)
+                    self.ui.paper_chart_table_widget.setItem(row,column, chart_item)
+
+                self.ui.maximum_draft_edit.setText(property.voyage_data.maximum_draft)
+                self.ui.minimum_ukc_edit.setText(property.voyage_data.minimum_ukc)
+                load_index = self.ui.load_condition_combo.findText(property.voyage_data.load_condition)
+                self.ui.load_condition_combo.setCurrentIndex(load_index)
+                self.ui.displacement_edit.setText(property.voyage_data.displacement)
+                self.ui.cargo_carried.setText(property.voyage_data.cargo_carried)
+                self.ui.average_me_rmp_edit.setText(property.voyage_data.average_me_rmp)
+                self.ui.total_distance_edit.setText(property.voyage_data.total_distance)
+                self.ui.total_streaming_time_edit.setText(property.voyage_data.total_streaming_time)
+                self.ui.average_speed_edit.setText(property.voyage_data.average_speed)
+                self.ui.distance_me_revolution_edit.setText(property.voyage_data.me_revolution_distance)
+                self.ui.log_distance_edit.setText(property.voyage_data.log_distance)
+                self.ui.average_slip_edit.setText(property.voyage_data.average_slip)
+
+                bunker_list = [property.total_bunker_consumption,
+                               property.average_bunker_consumption_per_nm,
+                               property.voyage_performance_efficiency]
+
+                attr_list = ['ifo', 'mdo', 'lsfo', 'lsmdo']
+
+                for i in range(self.ui.bunker_consume_table.rowCount()):
+                    for j in range(self.ui.bunker_consume_table.columnCount()):
+                        if hasattr(bunker_list[i], attr_list[j]):
+                            item = QTableWidgetItem(getattr(bunker_list[i], attr_list[j]))
+                            self.ui.bunker_consume_table.setItem(i,j, item)
+
+                self.logger.info('Load route file %s successfully' % fn)
+                msg_box = QMessageBox(QMessageBox.Information, "Succeed", 'Load route file successfuly')
+                msg_box.exec_()
+
+            except Exception,ex:
+                self.logger.error(ex, exc_info=1)
+                msg_box = QMessageBox(QMessageBox.Warning, "Warning", 'Load route file failed. Error occurred: + \n' + str(ex))
+                msg_box.exec_()
 
 
 

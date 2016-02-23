@@ -116,7 +116,6 @@ class PlanGenerateWidget(QWidget):
                 self.updateCurrentAndPrevious(sender, cur_row_index, formula_type, True)
                 if cur_row_index !=0:
                     pre_formula_type = sender.item(cur_row_index-1, 3).text()
-                    print 'previous formula_type=%s' % pre_formula_type
                     self.updateCurrentAndPrevious(sender, cur_row_index, pre_formula_type, False)
 
         if cur_column ==3:

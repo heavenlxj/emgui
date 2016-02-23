@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Mon Jan 11 00:09:19 2016 by generateDS.py version 2.18a.
+# Generated Tue Feb 23 18:54:20 2016 by generateDS.py version 2.18a.
 #
 # Command line options:
-#   ('-q', '')
 #   ('-f', '')
+#   ('-q', '')
 #   ('--use-getter-setter', 'none')
 #   ('-o', 'D:\\GitRepo\\emgui\\src\\dao\\load.py')
 #
@@ -14,7 +14,7 @@
 #   D:\GitRepo\emgui\src\schema\load.xsd
 #
 # Command line:
-#   D:\Python27\Scripts\generateDS.py -q -f --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\load.py" D:\GitRepo\emgui\src\schema\load.xsd
+#   C:\Python27\Scripts\generateDS.py -f -q --use-getter-setter="none" -o "D:\GitRepo\emgui\src\dao\load.py" D:\GitRepo\emgui\src\schema\load.xsd
 #
 # Current working directory (os.getcwd()):
 #   Scripts
@@ -621,27 +621,24 @@ def _cast(typ, value):
 class Property(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, ship_name=None, call_sign=None, voyage_number=None, date=None, voyage_detail=None, via=None, use_dw_route=None, use_critial_point=None, critial_point=None, paper_chart=None, route_id_number=None, used_times=None, voyage_data=None, total_bunker_consumption=None, average_bunker_consumption_per_nm=None, attach_ecdis_route_file=None, attach_emarine_wp_plan=None):
+    def __init__(self, ship_name=None, call_sign=None, voyage_number=None, date=None, voyage_detail=None, via=None, use_dw_route=None, use_critial_point=None, critial_point=None, paper_chart=None, route_number=None, used_times=None, voyage_data=None, total_bunker_consumption=None, average_bunker_consumption_per_nm=None, voyage_performance_efficiency=None, attach_ecdis_route_file=None, attach_emarine_wp_plan=None):
         self.original_tagname_ = None
         self.ship_name = ship_name
         self.call_sign = call_sign
         self.voyage_number = voyage_number
-        if isinstance(date, basestring):
-            initvalue_ = datetime_.datetime.strptime(date, '%Y-%m-%d').date()
-        else:
-            initvalue_ = date
-        self.date = initvalue_
+        self.date = date
         self.voyage_detail = voyage_detail
         self.via = via
         self.use_dw_route = use_dw_route
         self.use_critial_point = use_critial_point
         self.critial_point = critial_point
         self.paper_chart = paper_chart
-        self.route_id_number = route_id_number
+        self.route_number = route_number
         self.used_times = used_times
         self.voyage_data = voyage_data
         self.total_bunker_consumption = total_bunker_consumption
         self.average_bunker_consumption_per_nm = average_bunker_consumption_per_nm
+        self.voyage_performance_efficiency = voyage_performance_efficiency
         self.attach_ecdis_route_file = attach_ecdis_route_file
         self.attach_emarine_wp_plan = attach_emarine_wp_plan
     def factory(*args_, **kwargs_):
@@ -662,11 +659,12 @@ class Property(GeneratedsSuper):
             self.use_critial_point is not None or
             self.critial_point is not None or
             self.paper_chart is not None or
-            self.route_id_number is not None or
+            self.route_number is not None or
             self.used_times is not None or
             self.voyage_data is not None or
             self.total_bunker_consumption is not None or
             self.average_bunker_consumption_per_nm is not None or
+            self.voyage_performance_efficiency is not None or
             self.attach_ecdis_route_file is not None or
             self.attach_emarine_wp_plan is not None
         ):
@@ -709,7 +707,7 @@ class Property(GeneratedsSuper):
             outfile.write('<%svoyage_number>%s</%svoyage_number>%s' % (namespace_, self.gds_format_string(quote_xml(self.voyage_number).encode(ExternalEncoding), input_name='voyage_number'), namespace_, eol_))
         if self.date is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdate>%s</%sdate>%s' % (namespace_, self.gds_format_date(self.date, input_name='date'), namespace_, eol_))
+            outfile.write('<%sdate>%s</%sdate>%s' % (namespace_, self.gds_format_string(quote_xml(self.date).encode(ExternalEncoding), input_name='date'), namespace_, eol_))
         if self.voyage_detail is not None:
             self.voyage_detail.export(outfile, level, namespace_, name_='voyage_detail', pretty_print=pretty_print)
         if self.via is not None:
@@ -724,9 +722,9 @@ class Property(GeneratedsSuper):
             self.critial_point.export(outfile, level, namespace_, name_='critial_point', pretty_print=pretty_print)
         if self.paper_chart is not None:
             self.paper_chart.export(outfile, level, namespace_, name_='paper_chart', pretty_print=pretty_print)
-        if self.route_id_number is not None:
+        if self.route_number is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sroute_id_number>%s</%sroute_id_number>%s' % (namespace_, self.gds_format_string(quote_xml(self.route_id_number).encode(ExternalEncoding), input_name='route_id_number'), namespace_, eol_))
+            outfile.write('<%sroute_number>%s</%sroute_number>%s' % (namespace_, self.gds_format_string(quote_xml(self.route_number).encode(ExternalEncoding), input_name='route_number'), namespace_, eol_))
         if self.used_times is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sused_times>%s</%sused_times>%s' % (namespace_, self.gds_format_string(quote_xml(self.used_times).encode(ExternalEncoding), input_name='used_times'), namespace_, eol_))
@@ -736,6 +734,8 @@ class Property(GeneratedsSuper):
             self.total_bunker_consumption.export(outfile, level, namespace_, name_='total_bunker_consumption', pretty_print=pretty_print)
         if self.average_bunker_consumption_per_nm is not None:
             self.average_bunker_consumption_per_nm.export(outfile, level, namespace_, name_='average_bunker_consumption_per_nm', pretty_print=pretty_print)
+        if self.voyage_performance_efficiency is not None:
+            self.voyage_performance_efficiency.export(outfile, level, namespace_, name_='voyage_performance_efficiency', pretty_print=pretty_print)
         if self.attach_ecdis_route_file is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sattach_ecdis_route_file>%s</%sattach_ecdis_route_file>%s' % (namespace_, self.gds_format_string(quote_xml(self.attach_ecdis_route_file).encode(ExternalEncoding), input_name='attach_ecdis_route_file'), namespace_, eol_))
@@ -765,9 +765,9 @@ class Property(GeneratedsSuper):
             voyage_number_ = self.gds_validate_string(voyage_number_, node, 'voyage_number')
             self.voyage_number = voyage_number_
         elif nodeName_ == 'date':
-            sval_ = child_.text
-            dval_ = self.gds_parse_date(sval_)
-            self.date = dval_
+            date_ = child_.text
+            date_ = self.gds_validate_string(date_, node, 'date')
+            self.date = date_
         elif nodeName_ == 'voyage_detail':
             obj_ = voyage_detail.factory()
             obj_.build(child_)
@@ -808,10 +808,10 @@ class Property(GeneratedsSuper):
             obj_.build(child_)
             self.paper_chart = obj_
             obj_.original_tagname_ = 'paper_chart'
-        elif nodeName_ == 'route_id_number':
-            route_id_number_ = child_.text
-            route_id_number_ = self.gds_validate_string(route_id_number_, node, 'route_id_number')
-            self.route_id_number = route_id_number_
+        elif nodeName_ == 'route_number':
+            route_number_ = child_.text
+            route_number_ = self.gds_validate_string(route_number_, node, 'route_number')
+            self.route_number = route_number_
         elif nodeName_ == 'used_times':
             used_times_ = child_.text
             used_times_ = self.gds_validate_string(used_times_, node, 'used_times')
@@ -831,6 +831,11 @@ class Property(GeneratedsSuper):
             obj_.build(child_)
             self.average_bunker_consumption_per_nm = obj_
             obj_.original_tagname_ = 'average_bunker_consumption_per_nm'
+        elif nodeName_ == 'voyage_performance_efficiency':
+            obj_ = voyage_performance_efficiency.factory()
+            obj_.build(child_)
+            self.voyage_performance_efficiency = obj_
+            obj_.original_tagname_ = 'voyage_performance_efficiency'
         elif nodeName_ == 'attach_ecdis_route_file':
             attach_ecdis_route_file_ = child_.text
             attach_ecdis_route_file_ = self.gds_validate_string(attach_ecdis_route_file_, node, 'attach_ecdis_route_file')
@@ -845,18 +850,10 @@ class Property(GeneratedsSuper):
 class arrival(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, departure_date=None, departure_time=None, country=None, port=None, unlo_code=None, terminal=None):
+    def __init__(self, arrival_date=None, arrival_time=None, country=None, port=None, unlo_code=None, terminal=None):
         self.original_tagname_ = None
-        if isinstance(departure_date, basestring):
-            initvalue_ = datetime_.datetime.strptime(departure_date, '%Y-%m-%d').date()
-        else:
-            initvalue_ = departure_date
-        self.departure_date = initvalue_
-        if isinstance(departure_time, basestring):
-            initvalue_ = datetime_.datetime.strptime(departure_time, '%H:%M:%S').time()
-        else:
-            initvalue_ = departure_time
-        self.departure_time = initvalue_
+        self.arrival_date = arrival_date
+        self.arrival_time = arrival_time
         self.country = country
         self.port = port
         self.unlo_code = unlo_code
@@ -869,8 +866,8 @@ class arrival(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.departure_date is not None or
-            self.departure_time is not None or
+            self.arrival_date is not None or
+            self.arrival_time is not None or
             self.country is not None or
             self.port is not None or
             self.unlo_code is not None or
@@ -904,17 +901,18 @@ class arrival(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.departure_date is not None:
+        if self.arrival_date is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdeparture_date>%s</%sdeparture_date>%s' % (namespace_, self.gds_format_date(self.departure_date, input_name='departure_date'), namespace_, eol_))
-        if self.departure_time is not None:
+            outfile.write('<%sarrival_date>%s</%sarrival_date>%s' % (namespace_, self.gds_format_string(quote_xml(self.arrival_date).encode(ExternalEncoding), input_name='arrival_date'), namespace_, eol_))
+        if self.arrival_time is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdeparture_time>%s</%sdeparture_time>%s' % (namespace_, self.gds_format_time(self.departure_time, input_name='departure_time'), namespace_, eol_))
+            outfile.write('<%sarrival_time>%s</%sarrival_time>%s' % (namespace_, self.gds_format_string(quote_xml(self.arrival_time).encode(ExternalEncoding), input_name='arrival_time'), namespace_, eol_))
         if self.country is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%scountry>%s</%scountry>%s' % (namespace_, self.gds_format_string(quote_xml(self.country).encode(ExternalEncoding), input_name='country'), namespace_, eol_))
         if self.port is not None:
-            self.port.export(outfile, level, namespace_, name_='port', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sport>%s</%sport>%s' % (namespace_, self.gds_format_string(quote_xml(self.port).encode(ExternalEncoding), input_name='port'), namespace_, eol_))
         if self.unlo_code is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sunlo_code>%s</%sunlo_code>%s' % (namespace_, self.gds_format_string(quote_xml(self.unlo_code).encode(ExternalEncoding), input_name='unlo_code'), namespace_, eol_))
@@ -931,23 +929,22 @@ class arrival(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'departure_date':
-            sval_ = child_.text
-            dval_ = self.gds_parse_date(sval_)
-            self.departure_date = dval_
-        elif nodeName_ == 'departure_time':
-            sval_ = child_.text
-            dval_ = self.gds_parse_time(sval_)
-            self.departure_time = dval_
+        if nodeName_ == 'arrival_date':
+            arrival_date_ = child_.text
+            arrival_date_ = self.gds_validate_string(arrival_date_, node, 'arrival_date')
+            self.arrival_date = arrival_date_
+        elif nodeName_ == 'arrival_time':
+            arrival_time_ = child_.text
+            arrival_time_ = self.gds_validate_string(arrival_time_, node, 'arrival_time')
+            self.arrival_time = arrival_time_
         elif nodeName_ == 'country':
             country_ = child_.text
             country_ = self.gds_validate_string(country_, node, 'country')
             self.country = country_
         elif nodeName_ == 'port':
-            obj_ = port.factory()
-            obj_.build(child_)
-            self.port = obj_
-            obj_.original_tagname_ = 'port'
+            port_ = child_.text
+            port_ = self.gds_validate_string(port_, node, 'port')
+            self.port = port_
         elif nodeName_ == 'unlo_code':
             unlo_code_ = child_.text
             unlo_code_ = self.gds_validate_string(unlo_code_, node, 'unlo_code')
@@ -1050,12 +1047,106 @@ class average_bunker_consumption_per_nm(GeneratedsSuper):
 # end class average_bunker_consumption_per_nm
 
 
+class voyage_performance_efficiency(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, ifo=None, mdo=None, lsfo=None, lsmdo=None):
+        self.original_tagname_ = None
+        self.ifo = ifo
+        self.mdo = mdo
+        self.lsfo = lsfo
+        self.lsmdo = lsmdo
+    def factory(*args_, **kwargs_):
+        if voyage_performance_efficiency.subclass:
+            return voyage_performance_efficiency.subclass(*args_, **kwargs_)
+        else:
+            return voyage_performance_efficiency(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def hasContent_(self):
+        if (
+            self.ifo is not None or
+            self.mdo is not None or
+            self.lsfo is not None or
+            self.lsmdo is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespace_='', name_='voyage_performance_efficiency', namespacedef_='', pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespace_, name_='voyage_performance_efficiency')
+        if self.hasContent_():
+            outfile.write('>%s' % (eol_, ))
+            self.exportChildren(outfile, level + 1, namespace_='', name_='voyage_performance_efficiency', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='voyage_performance_efficiency'):
+        pass
+    def exportChildren(self, outfile, level, namespace_='', name_='voyage_performance_efficiency', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.ifo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sifo>%s</%sifo>%s' % (namespace_, self.gds_format_string(quote_xml(self.ifo).encode(ExternalEncoding), input_name='ifo'), namespace_, eol_))
+        if self.mdo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%smdo>%s</%smdo>%s' % (namespace_, self.gds_format_string(quote_xml(self.mdo).encode(ExternalEncoding), input_name='mdo'), namespace_, eol_))
+        if self.lsfo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slsfo>%s</%slsfo>%s' % (namespace_, self.gds_format_string(quote_xml(self.lsfo).encode(ExternalEncoding), input_name='lsfo'), namespace_, eol_))
+        if self.lsmdo is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slsmdo>%s</%slsmdo>%s' % (namespace_, self.gds_format_string(quote_xml(self.lsmdo).encode(ExternalEncoding), input_name='lsmdo'), namespace_, eol_))
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        pass
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        if nodeName_ == 'ifo':
+            ifo_ = child_.text
+            ifo_ = self.gds_validate_string(ifo_, node, 'ifo')
+            self.ifo = ifo_
+        elif nodeName_ == 'mdo':
+            mdo_ = child_.text
+            mdo_ = self.gds_validate_string(mdo_, node, 'mdo')
+            self.mdo = mdo_
+        elif nodeName_ == 'lsfo':
+            lsfo_ = child_.text
+            lsfo_ = self.gds_validate_string(lsfo_, node, 'lsfo')
+            self.lsfo = lsfo_
+        elif nodeName_ == 'lsmdo':
+            lsmdo_ = child_.text
+            lsmdo_ = self.gds_validate_string(lsmdo_, node, 'lsmdo')
+            self.lsmdo = lsmdo_
+# end class voyage_performance_efficiency
+
+
 class critial_point(GeneratedsSuper):
     subclass = None
     superclass = None
     def __init__(self, point=None):
         self.original_tagname_ = None
-        self.point = point
+        if point is None:
+            self.point = []
+        else:
+            self.point = point
     def factory(*args_, **kwargs_):
         if critial_point.subclass:
             return critial_point.subclass(*args_, **kwargs_)
@@ -1064,7 +1155,7 @@ class critial_point(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.point is not None
+            self.point
         ):
             return True
         else:
@@ -1094,8 +1185,8 @@ class critial_point(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.point is not None:
-            self.point.export(outfile, level, namespace_, name_='point', pretty_print=pretty_print)
+        for point_ in self.point:
+            point_.export(outfile, level, namespace_, name_='point', pretty_print=pretty_print)
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1109,7 +1200,7 @@ class critial_point(GeneratedsSuper):
         if nodeName_ == 'point':
             obj_ = point.factory()
             obj_.build(child_)
-            self.point = obj_
+            self.point.append(obj_)
             obj_.original_tagname_ = 'point'
 # end class critial_point
 
@@ -1119,16 +1210,8 @@ class departure(GeneratedsSuper):
     superclass = None
     def __init__(self, departure_date=None, departure_time=None, country=None, port=None, unlo_code=None, terminal=None):
         self.original_tagname_ = None
-        if isinstance(departure_date, basestring):
-            initvalue_ = datetime_.datetime.strptime(departure_date, '%Y-%m-%d').date()
-        else:
-            initvalue_ = departure_date
-        self.departure_date = initvalue_
-        if isinstance(departure_time, basestring):
-            initvalue_ = datetime_.datetime.strptime(departure_time, '%H:%M:%S').time()
-        else:
-            initvalue_ = departure_time
-        self.departure_time = initvalue_
+        self.departure_date = departure_date
+        self.departure_time = departure_time
         self.country = country
         self.port = port
         self.unlo_code = unlo_code
@@ -1178,15 +1261,16 @@ class departure(GeneratedsSuper):
             eol_ = ''
         if self.departure_date is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdeparture_date>%s</%sdeparture_date>%s' % (namespace_, self.gds_format_date(self.departure_date, input_name='departure_date'), namespace_, eol_))
+            outfile.write('<%sdeparture_date>%s</%sdeparture_date>%s' % (namespace_, self.gds_format_string(quote_xml(self.departure_date).encode(ExternalEncoding), input_name='departure_date'), namespace_, eol_))
         if self.departure_time is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%sdeparture_time>%s</%sdeparture_time>%s' % (namespace_, self.gds_format_time(self.departure_time, input_name='departure_time'), namespace_, eol_))
+            outfile.write('<%sdeparture_time>%s</%sdeparture_time>%s' % (namespace_, self.gds_format_string(quote_xml(self.departure_time).encode(ExternalEncoding), input_name='departure_time'), namespace_, eol_))
         if self.country is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%scountry>%s</%scountry>%s' % (namespace_, self.gds_format_string(quote_xml(self.country).encode(ExternalEncoding), input_name='country'), namespace_, eol_))
         if self.port is not None:
-            self.port.export(outfile, level, namespace_, name_='port', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sport>%s</%sport>%s' % (namespace_, self.gds_format_string(quote_xml(self.port).encode(ExternalEncoding), input_name='port'), namespace_, eol_))
         if self.unlo_code is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sunlo_code>%s</%sunlo_code>%s' % (namespace_, self.gds_format_string(quote_xml(self.unlo_code).encode(ExternalEncoding), input_name='unlo_code'), namespace_, eol_))
@@ -1204,22 +1288,21 @@ class departure(GeneratedsSuper):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'departure_date':
-            sval_ = child_.text
-            dval_ = self.gds_parse_date(sval_)
-            self.departure_date = dval_
+            departure_date_ = child_.text
+            departure_date_ = self.gds_validate_string(departure_date_, node, 'departure_date')
+            self.departure_date = departure_date_
         elif nodeName_ == 'departure_time':
-            sval_ = child_.text
-            dval_ = self.gds_parse_time(sval_)
-            self.departure_time = dval_
+            departure_time_ = child_.text
+            departure_time_ = self.gds_validate_string(departure_time_, node, 'departure_time')
+            self.departure_time = departure_time_
         elif nodeName_ == 'country':
             country_ = child_.text
             country_ = self.gds_validate_string(country_, node, 'country')
             self.country = country_
         elif nodeName_ == 'port':
-            obj_ = port.factory()
-            obj_.build(child_)
-            self.port = obj_
-            obj_.original_tagname_ = 'port'
+            port_ = child_.text
+            port_ = self.gds_validate_string(port_, node, 'port')
+            self.port = port_
         elif nodeName_ == 'unlo_code':
             unlo_code_ = child_.text
             unlo_code_ = self.gds_validate_string(unlo_code_, node, 'unlo_code')
@@ -1231,65 +1314,15 @@ class departure(GeneratedsSuper):
 # end class departure
 
 
-class paper(GeneratedsSuper):
-    subclass = None
-    superclass = None
-    def __init__(self):
-        self.original_tagname_ = None
-    def factory(*args_, **kwargs_):
-        if paper.subclass:
-            return paper.subclass(*args_, **kwargs_)
-        else:
-            return paper(*args_, **kwargs_)
-    factory = staticmethod(factory)
-    def hasContent_(self):
-        if (
-
-        ):
-            return True
-        else:
-            return False
-    def export(self, outfile, level, namespace_='', name_='paper', namespacedef_='', pretty_print=True):
-        if pretty_print:
-            eol_ = '\n'
-        else:
-            eol_ = ''
-        if self.original_tagname_ is not None:
-            name_ = self.original_tagname_
-        showIndent(outfile, level, pretty_print)
-        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
-        already_processed = set()
-        self.exportAttributes(outfile, level, already_processed, namespace_, name_='paper')
-        if self.hasContent_():
-            outfile.write('>%s' % (eol_, ))
-            self.exportChildren(outfile, level + 1, namespace_='', name_='paper', pretty_print=pretty_print)
-            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
-        else:
-            outfile.write('/>%s' % (eol_, ))
-    def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='paper'):
-        pass
-    def exportChildren(self, outfile, level, namespace_='', name_='paper', fromsubclass_=False, pretty_print=True):
-        pass
-    def build(self, node):
-        already_processed = set()
-        self.buildAttributes(node, node.attrib, already_processed)
-        for child in node:
-            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
-            self.buildChildren(child, node, nodeName_)
-        return self
-    def buildAttributes(self, node, attrs, already_processed):
-        pass
-    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        pass
-# end class paper
-
-
 class paper_chart(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, paper=None):
+    def __init__(self, chart_id=None):
         self.original_tagname_ = None
-        self.paper = paper
+        if chart_id is None:
+            self.chart_id = []
+        else:
+            self.chart_id = chart_id
     def factory(*args_, **kwargs_):
         if paper_chart.subclass:
             return paper_chart.subclass(*args_, **kwargs_)
@@ -1298,7 +1331,7 @@ class paper_chart(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.paper is not None
+            self.chart_id
         ):
             return True
         else:
@@ -1328,8 +1361,9 @@ class paper_chart(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.paper is not None:
-            self.paper.export(outfile, level, namespace_, name_='paper', pretty_print=pretty_print)
+        for chart_id_ in self.chart_id:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%schart_id>%s</%schart_id>%s' % (namespace_, self.gds_format_string(quote_xml(chart_id_).encode(ExternalEncoding), input_name='chart_id'), namespace_, eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1340,19 +1374,20 @@ class paper_chart(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'paper':
-            obj_ = paper.factory()
-            obj_.build(child_)
-            self.paper = obj_
-            obj_.original_tagname_ = 'paper'
+        if nodeName_ == 'chart_id':
+            chart_id_ = child_.text
+            chart_id_ = self.gds_validate_string(chart_id_, node, 'chart_id')
+            self.chart_id.append(chart_id_)
 # end class paper_chart
 
 
 class point(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self):
+    def __init__(self, latitude=None, longtitude=None):
         self.original_tagname_ = None
+        self.latitude = latitude
+        self.longtitude = longtitude
     def factory(*args_, **kwargs_):
         if point.subclass:
             return point.subclass(*args_, **kwargs_)
@@ -1361,7 +1396,8 @@ class point(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-
+            self.latitude is not None or
+            self.longtitude is not None
         ):
             return True
         else:
@@ -1380,66 +1416,23 @@ class point(GeneratedsSuper):
         if self.hasContent_():
             outfile.write('>%s' % (eol_, ))
             self.exportChildren(outfile, level + 1, namespace_='', name_='point', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
     def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='point'):
         pass
     def exportChildren(self, outfile, level, namespace_='', name_='point', fromsubclass_=False, pretty_print=True):
-        pass
-    def build(self, node):
-        already_processed = set()
-        self.buildAttributes(node, node.attrib, already_processed)
-        for child in node:
-            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
-            self.buildChildren(child, node, nodeName_)
-        return self
-    def buildAttributes(self, node, attrs, already_processed):
-        pass
-    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        pass
-# end class point
-
-
-class port(GeneratedsSuper):
-    subclass = None
-    superclass = None
-    def __init__(self):
-        self.original_tagname_ = None
-    def factory(*args_, **kwargs_):
-        if port.subclass:
-            return port.subclass(*args_, **kwargs_)
-        else:
-            return port(*args_, **kwargs_)
-    factory = staticmethod(factory)
-    def hasContent_(self):
-        if (
-
-        ):
-            return True
-        else:
-            return False
-    def export(self, outfile, level, namespace_='', name_='port', namespacedef_='', pretty_print=True):
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None:
-            name_ = self.original_tagname_
-        showIndent(outfile, level, pretty_print)
-        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
-        already_processed = set()
-        self.exportAttributes(outfile, level, already_processed, namespace_, name_='port')
-        if self.hasContent_():
-            outfile.write('>%s' % (eol_, ))
-            self.exportChildren(outfile, level + 1, namespace_='', name_='port', pretty_print=pretty_print)
-            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
-        else:
-            outfile.write('/>%s' % (eol_, ))
-    def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='port'):
-        pass
-    def exportChildren(self, outfile, level, namespace_='', name_='port', fromsubclass_=False, pretty_print=True):
-        pass
+        if self.latitude is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slatitude>%s</%slatitude>%s' % (namespace_, self.gds_format_string(quote_xml(self.latitude).encode(ExternalEncoding), input_name='latitude'), namespace_, eol_))
+        if self.longtitude is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slongtitude>%s</%slongtitude>%s' % (namespace_, self.gds_format_string(quote_xml(self.longtitude).encode(ExternalEncoding), input_name='longtitude'), namespace_, eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1450,8 +1443,15 @@ class port(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        pass
-# end class port
+        if nodeName_ == 'latitude':
+            latitude_ = child_.text
+            latitude_ = self.gds_validate_string(latitude_, node, 'latitude')
+            self.latitude = latitude_
+        elif nodeName_ == 'longtitude':
+            longtitude_ = child_.text
+            longtitude_ = self.gds_validate_string(longtitude_, node, 'longtitude')
+            self.longtitude = longtitude_
+# end class point
 
 
 class load_report(GeneratedsSuper):
@@ -1612,9 +1612,12 @@ class total_bunker_consumption(GeneratedsSuper):
 class via(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, port=None):
+    def __init__(self, place_name=None):
         self.original_tagname_ = None
-        self.port = port
+        if place_name is None:
+            self.place_name = []
+        else:
+            self.place_name = place_name
     def factory(*args_, **kwargs_):
         if via.subclass:
             return via.subclass(*args_, **kwargs_)
@@ -1623,7 +1626,7 @@ class via(GeneratedsSuper):
     factory = staticmethod(factory)
     def hasContent_(self):
         if (
-            self.port is not None
+            self.place_name
         ):
             return True
         else:
@@ -1653,8 +1656,9 @@ class via(GeneratedsSuper):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.port is not None:
-            self.port.export(outfile, level, namespace_, name_='port', pretty_print=pretty_print)
+        for place_name_ in self.place_name:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%splace_name>%s</%splace_name>%s' % (namespace_, self.gds_format_string(quote_xml(place_name_).encode(ExternalEncoding), input_name='place_name'), namespace_, eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1665,30 +1669,30 @@ class via(GeneratedsSuper):
     def buildAttributes(self, node, attrs, already_processed):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        if nodeName_ == 'port':
-            obj_ = port.factory()
-            obj_.build(child_)
-            self.port = obj_
-            obj_.original_tagname_ = 'port'
+        if nodeName_ == 'place_name':
+            place_name_ = child_.text
+            place_name_ = self.gds_validate_string(place_name_, node, 'place_name')
+            self.place_name.append(place_name_)
 # end class via
 
 
 class voyage_data(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, maximum_draft=None, minimum_ukc=None, load_condition=None, displacement=None, cargo_shipped=None, total_distance=None, total_streaming_time=None, average_speed=None, average_slip=None, me_revolution_distance=None, average_me_rmp=None):
+    def __init__(self, maximum_draft=None, minimum_ukc=None, load_condition=None, displacement=None, cargo_carried=None, total_distance=None, total_streaming_time=None, average_speed=None, average_slip=None, me_revolution_distance=None, average_me_rmp=None, log_distance=None):
         self.original_tagname_ = None
         self.maximum_draft = maximum_draft
         self.minimum_ukc = minimum_ukc
         self.load_condition = load_condition
         self.displacement = displacement
-        self.cargo_shipped = cargo_shipped
+        self.cargo_carried = cargo_carried
         self.total_distance = total_distance
         self.total_streaming_time = total_streaming_time
         self.average_speed = average_speed
         self.average_slip = average_slip
         self.me_revolution_distance = me_revolution_distance
         self.average_me_rmp = average_me_rmp
+        self.log_distance = log_distance
     def factory(*args_, **kwargs_):
         if voyage_data.subclass:
             return voyage_data.subclass(*args_, **kwargs_)
@@ -1701,13 +1705,14 @@ class voyage_data(GeneratedsSuper):
             self.minimum_ukc is not None or
             self.load_condition is not None or
             self.displacement is not None or
-            self.cargo_shipped is not None or
+            self.cargo_carried is not None or
             self.total_distance is not None or
             self.total_streaming_time is not None or
             self.average_speed is not None or
             self.average_slip is not None or
             self.me_revolution_distance is not None or
-            self.average_me_rmp is not None
+            self.average_me_rmp is not None or
+            self.log_distance is not None
         ):
             return True
         else:
@@ -1749,9 +1754,9 @@ class voyage_data(GeneratedsSuper):
         if self.displacement is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sdisplacement>%s</%sdisplacement>%s' % (namespace_, self.gds_format_string(quote_xml(self.displacement).encode(ExternalEncoding), input_name='displacement'), namespace_, eol_))
-        if self.cargo_shipped is not None:
+        if self.cargo_carried is not None:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%scargo_shipped>%s</%scargo_shipped>%s' % (namespace_, self.gds_format_string(quote_xml(self.cargo_shipped).encode(ExternalEncoding), input_name='cargo_shipped'), namespace_, eol_))
+            outfile.write('<%scargo_carried>%s</%scargo_carried>%s' % (namespace_, self.gds_format_string(quote_xml(self.cargo_carried).encode(ExternalEncoding), input_name='cargo_carried'), namespace_, eol_))
         if self.total_distance is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%stotal_distance>%s</%stotal_distance>%s' % (namespace_, self.gds_format_string(quote_xml(self.total_distance).encode(ExternalEncoding), input_name='total_distance'), namespace_, eol_))
@@ -1770,6 +1775,9 @@ class voyage_data(GeneratedsSuper):
         if self.average_me_rmp is not None:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%saverage_me_rmp>%s</%saverage_me_rmp>%s' % (namespace_, self.gds_format_string(quote_xml(self.average_me_rmp).encode(ExternalEncoding), input_name='average_me_rmp'), namespace_, eol_))
+        if self.log_distance is not None:
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%slog_distance>%s</%slog_distance>%s' % (namespace_, self.gds_format_string(quote_xml(self.log_distance).encode(ExternalEncoding), input_name='log_distance'), namespace_, eol_))
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -1796,10 +1804,10 @@ class voyage_data(GeneratedsSuper):
             displacement_ = child_.text
             displacement_ = self.gds_validate_string(displacement_, node, 'displacement')
             self.displacement = displacement_
-        elif nodeName_ == 'cargo_shipped':
-            cargo_shipped_ = child_.text
-            cargo_shipped_ = self.gds_validate_string(cargo_shipped_, node, 'cargo_shipped')
-            self.cargo_shipped = cargo_shipped_
+        elif nodeName_ == 'cargo_carried':
+            cargo_carried_ = child_.text
+            cargo_carried_ = self.gds_validate_string(cargo_carried_, node, 'cargo_carried')
+            self.cargo_carried = cargo_carried_
         elif nodeName_ == 'total_distance':
             total_distance_ = child_.text
             total_distance_ = self.gds_validate_string(total_distance_, node, 'total_distance')
@@ -1824,6 +1832,10 @@ class voyage_data(GeneratedsSuper):
             average_me_rmp_ = child_.text
             average_me_rmp_ = self.gds_validate_string(average_me_rmp_, node, 'average_me_rmp')
             self.average_me_rmp = average_me_rmp_
+        elif nodeName_ == 'log_distance':
+            log_distance_ = child_.text
+            log_distance_ = self.gds_validate_string(log_distance_, node, 'log_distance')
+            self.log_distance = log_distance_
 # end class voyage_data
 
 
@@ -2029,12 +2041,11 @@ __all__ = [
     "critial_point",
     "departure",
     "load_report",
-    "paper",
     "paper_chart",
     "point",
-    "port",
     "total_bunker_consumption",
     "via",
     "voyage_data",
-    "voyage_detail"
+    "voyage_detail",
+    "voyage_performance_efficiency"
 ]

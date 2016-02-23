@@ -104,15 +104,13 @@ class RevertReportWidget(QWidget):
         total_distance = self.ui.total_distance_edit.text()
         for i in range(self.ui.bunker_consume_table.columnCount()):
             try:
-                total_bunker_consume = self.ui.bunker_consume_table.item(0,i).text()
-            except AttributeError, ex:
-                print ex
-                total_bunker_consume = '0.0'
+                total_bunker_consume = self.ui.bunker_consume_table.item(0,i).text().toFloat()[0]
+            except:
+                total_bunker_consume = 0.0
             if not total_distance.isNull() and not total_distance.isEmpty() and total_distance != '0':
                 result = float(total_bunker_consume)/float(total_distance)
             else:
                 result = ''
-            print 'Bunker Consumption %s' % i
             self.ui.bunker_consume_table.item(1,i).setText(str(result))
         self.ui.bunker_consume_table.blockSignals(False)
 
@@ -122,7 +120,7 @@ class RevertReportWidget(QWidget):
         cargo_carried = self.ui.cargo_carried.text()
         for i in range(self.ui.bunker_consume_table.columnCount()):
             try:
-                total_bunker_consume = self.ui.bunker_consume_table.item(0,i).text()
+                total_bunker_consume = self.ui.bunker_consume_table.item(0,i).text().toFloat()[0]
             except:
                 total_bunker_consume = '0.0'
             if ( not total_distance.isNull() and not total_distance.isEmpty() and total_distance != '0')\
@@ -408,12 +406,13 @@ class RevertReportWidget(QWidget):
         #paper chart
         chart = paper_chart()
         chart_items=[]
-        for i in range(self.ui.pape_chart_table_widget.rowCount()):
-            for j in range(self.ui.pape_chart_table_widget.columnCount()):
+        for i in range(self.ui.paper_chart_table_widget.rowCount()):
+            for j in range(self.ui.paper_chart_table_widget.columnCount()):
                 try:
-                    chart_items.append(self.ui.pape_chart_table_widget.item(i,j).text())
+                    chart_items.append(self.ui.paper_chart_table_widget.item(i,j).text())
                 except:
                     pass
+        property.paper_chart = chart
 
         voyage_dat = voyage_data()
         voyage_dat.maximum_draft = self.ui.maximum_draft_edit.text()
