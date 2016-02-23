@@ -259,12 +259,12 @@
                  <string>Terminal</string>
                 </property>
                 <property name="buddy">
-                 <cstring>arrival_terminal</cstring>
+                 <cstring>arrival_terminal_edit</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="arrival_terminal">
+               <widget class="QLineEdit" name="arrival_terminal_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -722,12 +722,12 @@
                  <string>Terminal</string>
                 </property>
                 <property name="buddy">
-                 <cstring>depature_terminal</cstring>
+                 <cstring>departure_terminal_edit</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="depature_terminal">
+               <widget class="QLineEdit" name="departure_terminal_edit">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -840,19 +840,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QPushButton" name="cancel_btn">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Cancel</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
   </layout>
@@ -864,13 +851,13 @@
   <tabstop>voyage_number_edit</tabstop>
   <tabstop>depart_date_edit</tabstop>
   <tabstop>departure_time_edit</tabstop>
-  <tabstop>depature_terminal</tabstop>
+  <tabstop>departure_terminal_edit</tabstop>
   <tabstop>departure_country_combo</tabstop>
   <tabstop>departure_port_combo</tabstop>
   <tabstop>arrival_date_edit</tabstop>
   <tabstop>arrival_time_edit</tabstop>
   <tabstop>arrival_unlo_edit</tabstop>
-  <tabstop>arrival_terminal</tabstop>
+  <tabstop>arrival_terminal_edit</tabstop>
   <tabstop>arrival_country_combo</tabstop>
   <tabstop>arrival_port_combo</tabstop>
   <tabstop>via_name_edit</tabstop>
@@ -887,7 +874,6 @@
   <tabstop>etd_edit</tabstop>
   <tabstop>reload_btn</tabstop>
   <tabstop>submit_btn</tabstop>
-  <tabstop>cancel_btn</tabstop>
  </tabstops>
  <resources/>
  <connections/>

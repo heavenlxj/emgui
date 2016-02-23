@@ -5,77 +5,79 @@
 	<xs:element name="Property">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="ship_name"/>
-				<xs:element ref="call_sign"/>
-				<xs:element ref="voyage_number"/>
-				<xs:element ref="date"/>
-				<xs:element ref="voyage_detail"/>
-				<xs:element ref="via"/>
-				<xs:element ref="use_dw_route"/>
-				<xs:element ref="maximum_draft"/>
-				<xs:element ref="load_condition"/>
-				<xs:element ref="speed_setting"/>
-				<xs:element ref="etd"/>
+				<xs:element ref="ship_name" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="call_sign" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_number" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="date" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="voyage_detail" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="via" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="use_dw_route" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="prefered_route_type" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="maximum_draft" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="load_condition" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="speed_setting" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="etd" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="call_sign" type="xs:string"/>
 	<xs:element name="country" type="xs:string"/>
-	<xs:element name="date" type="xs:date"/>
-	<xs:element name="departure">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="country"/>
-				<xs:element ref="port"/>
-				<xs:element ref="unlo_code"/>
-				<xs:element ref="terminal"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-	<xs:element name="destination">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="country"/>
-				<xs:element ref="port"/>
-				<xs:element ref="unlo_code"/>
-				<xs:element ref="terminal"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
+	<xs:element name="port" type="xs:string"/>
+	<xs:element name="date" type="xs:string"/>
 	<xs:element name="etd" type="xs:string"/>
 	<xs:element name="load_condition" type="xs:string"/>
 	<xs:element name="maximum_draft" type="xs:string"/>
-	<xs:element name="port">
-		<xs:simpleType>
-			<xs:restriction base="xs:string"/>
-		</xs:simpleType>
-	</xs:element>
-	<xs:element name="request_report">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element ref="Property"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
 	<xs:element name="ship_name" type="xs:string"/>
 	<xs:element name="speed_setting" type="xs:string"/>
 	<xs:element name="terminal" type="xs:string"/>
 	<xs:element name="unlo_code" type="xs:string"/>
 	<xs:element name="use_dw_route" type="xs:boolean"/>
+	<xs:element name="place_name" type="xs:string"/>
+	<xs:element name="voyage_number" type="xs:string"/>
+	<xs:element name="prefered_route_type" type="xs:string"/>
+	<xs:element name="departure">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="country" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="port" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="unlo_code" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="terminal" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="arrival">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="country" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="port" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="unlo_code" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="terminal" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="request_report">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Property" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="via">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="port" maxOccurs="unbounded"/>
+				<xs:element ref="place_name" minOccurs="0" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="voyage_detail">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="departure"/>
-				<xs:element ref="destination"/>
+				<xs:element ref="departure" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="arrival" minOccurs="1" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	<xs:element name="voyage_number" type="xs:string"/>
+
 </xs:schema>

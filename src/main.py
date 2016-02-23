@@ -12,7 +12,7 @@ from lib.utils import Utils
 #sys.path.append('..')
 import QtUiFiles.main as MainWindow
 from widget import requestRouteWidget, objectionReportWidget, \
-    initialRouteWidget, revertRouteWidget, loadRouteWidget, generatePlanWidget
+    initialRouteWidget, revertRouteWidget, loadRouteWidget, generatePlanWidget, quartelyReportWidget
 
 class RootWindow(QMainWindow):
     def __init__(self):
@@ -32,7 +32,9 @@ class RootWindow(QMainWindow):
         self.root.stackedWidget.addWidget(loadRouteWidget.LoadRouteWidget())
         self.root.stackedWidget.addWidget(revertRouteWidget.RevertReportWidget())
         self.root.stackedWidget.addWidget(objectionReportWidget.ObjectionReportWidget())
+        self.root.stackedWidget.addWidget(quartelyReportWidget.QuartelyReportWidget())
         self.root.stackedWidget.addWidget(generatePlanWidget.PlanGenerateWidget())
+
 
         self.setWindowTitle("EMGui")
 
@@ -73,6 +75,12 @@ class RootWindow(QMainWindow):
         ObjectionButton = QListWidgetItem(self.root.listWidget)
         #ObjectionButton.setIcon(QIcon(':/images/query.png'))
         ObjectionButton.setText("Objection Route")
+        ObjectionButton.setTextAlignment(Qt.AlignHCenter)
+        ObjectionButton.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
+
+        ObjectionButton = QListWidgetItem(self.root.listWidget)
+        #ObjectionButton.setIcon(QIcon(':/images/query.png'))
+        ObjectionButton.setText("Quartely Report")
         ObjectionButton.setTextAlignment(Qt.AlignHCenter)
         ObjectionButton.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
 

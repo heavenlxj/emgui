@@ -4,7 +4,7 @@ import sys
 import time
 
 from PyQt4.QtGui import QWidget,QApplication,QMessageBox
-from PyQt4.QtCore import QLocale
+from PyQt4.QtCore import QLocale,Qt
 
 import QtUiFiles.requestRoute as reqReport
 from dao.request import *
@@ -34,7 +34,6 @@ class ReqReportWidget(QWidget):
     def buttonConnect(self):
         self.ui.submit_btn.clicked.connect(self.generateXml)
         self.ui.submit_btn.clicked.connect(self.updateCountryPortsConfig)
-        self.ui.cancel_btn.clicked.connect(self.close)
         self.ui.reload_btn.clicked.connect(self.loadConfig)
 
     def loadCountryPorts(self):
@@ -173,12 +172,15 @@ class ReqReportWidget(QWidget):
             msg_box.exec_()
 
     def removeListItem(self):
-        if QMessageBox.warning(self, 'Confirm', 'Do you want to delete the selected item?', QMessageBox.Yes | QMessageBox.Cancel) == QMessageBox.Yes:
-            selected_item = self.ui.via_listWidget.selectedItems()
-            for i in selected_item:
-                row = self.ui.via_listWidget.row(i)
-                item = self.ui.via_listWidget.takeItem(row)
-                self.ui.via_listWidget.removeItemWidget(item)
+        selected_item = self.ui.via_listWidget.selectedItems()
+        if len(selected_item) !=0:
+            if QMessageBox.warning(self, 'Confirm', 'Do you want to delete the selected item?', QMessageBox.Yes | QMessageBox.Cancel) == QMessageBox.Yes:
+                for i in selected_item:
+                    row = self.ui.via_listWidget.row(i)
+                    item = self.ui.via_listWidget.takeItem(row)
+                    self.ui.via_listWidget.removeItemWidget(item)
+        else:
+            QMessageBox.information(self, 'Infomation', 'No item selected, nothing removed', QMessageBox.Ok)
 
     def upListItem(self):
         index = self.ui.via_listWidget.currentRow()
@@ -200,6 +202,49 @@ class ReqReportWidget(QWidget):
         property = Property()
         root.Property = property
 
+        #general data
+        property.ship_name = self.ui.ship_name_edit.text()
+        property.call_sign = self.ui.call_sign_edit.text()
+        property.voyage_number = self.ui.voyage_number_edit.text()
+        property.date = self.ui.date_edit.text()
+        #voyage data departure
+        voyage_det = voyage_detail()
+        depart = departure()
+        arr = arrival()
+        depart.departure_date = self.ui.depart_date_edit.text()
+        depart.departure_time = self.ui.departure_time_edit.text()
+        depart.country = self.ui.departure_country_combo.currentText()
+        depart.port = self.ui.departure_port_combo.currentText()
+        depart.unlo_code = self.ui.departure_unlo_edit.text()
+        depart.terminal = self.ui.departure_terminal_edit.text()
+        #voyage data arrival
+        arr.arrival_date = self.ui.arrival_date_edit.text()
+        arr.arrival_time = self.ui.arrival_time_edit.text()
+        arr.country = self.ui.arrival_country_combo.currentText()
+        arr.port = self.ui.arrival_port_combo.currentText()
+        arr.unlo_code = self.ui.arrival_unlo_edit.text()
+        arr.terminal = self.ui.arrival_terminal_edit.text()
+
+        voyage_det.departure=depart
+        voyage_det.arrival = arr
+        property.voyage_detail = voyage_det
+
+        #add via place
+        via_places=[]
+        vias = via()
+        list_item_count = self.ui.via_listWidget.count()
+        for index in range(list_item_count):
+            via_places.append(self.ui.via_listWidget.item(index).text())
+
+        vias.place_name = via_places
+        property.via = vias
+
+        property.use_dw_route = self.ui.use_dw_route_yes_radio.isChecked()
+        property.prefered_route_type = self.ui.prefer_route_type_combo.currentText()
+        property.maximum_draft = self.ui.maximum_draft_edit.text()
+        property.load_condition = self.ui.load_condition_edit.text()
+        property.speed_setting = self.ui.speed_setting_edit.text()
+        property.etd = self.ui.etd_edit.text()
 
         data_dir = Utils.createDataDir()
         fn_path = abs_lambda(os.path.join(data_dir , 'request.xml'))
