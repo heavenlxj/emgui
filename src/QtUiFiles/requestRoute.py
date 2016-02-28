@@ -559,8 +559,7 @@ class Ui_Form(object):
         Form.setTabOrder(self.maximum_draft_edit, self.load_condition_edit)
         Form.setTabOrder(self.load_condition_edit, self.speed_setting_edit)
         Form.setTabOrder(self.speed_setting_edit, self.etd_edit)
-        Form.setTabOrder(self.etd_edit, self.reload_btn)
-        Form.setTabOrder(self.reload_btn, self.submit_btn)
+        Form.setTabOrder(self.etd_edit, self.submit_btn)
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(_translate("Form", "Request Route", None))

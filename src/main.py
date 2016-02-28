@@ -2,7 +2,7 @@ __author__ = 'xingjieliu'
 
 import sys
 
-from PyQt4.QtGui import QMainWindow,QApplication, QListView, QListWidgetItem
+from PyQt4.QtGui import QMainWindow,QApplication, QListView, QListWidgetItem,QIcon,QPixmap
 from PyQt4.QtCore import Qt
 
 from lib.environ import *
@@ -12,7 +12,7 @@ from lib.utils import Utils
 #sys.path.append('..')
 import QtUiFiles.main as MainWindow
 from widget import requestRouteWidget, objectionReportWidget, \
-    initialRouteWidget, revertRouteWidget, loadRouteWidget, generatePlanWidget, quartelyReportWidget
+    initialRouteWidget, revertRouteWidget, loadRouteWidget, generatePlanWidget, quarterlyReportWidget
 
 class RootWindow(QMainWindow):
     def __init__(self):
@@ -32,7 +32,7 @@ class RootWindow(QMainWindow):
         self.root.stackedWidget.addWidget(loadRouteWidget.LoadRouteWidget())
         self.root.stackedWidget.addWidget(revertRouteWidget.RevertReportWidget())
         self.root.stackedWidget.addWidget(objectionReportWidget.ObjectionReportWidget())
-        self.root.stackedWidget.addWidget(quartelyReportWidget.QuartelyReportWidget())
+        self.root.stackedWidget.addWidget(quarterlyReportWidget.QuartelyReportWidget())
         self.root.stackedWidget.addWidget(generatePlanWidget.PlanGenerateWidget())
 
 

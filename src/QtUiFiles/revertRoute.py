@@ -1186,7 +1186,7 @@ class Ui_Form(object):
         self.label_36.setBuddy(self.attach_wp_plan_edit)
 
         self.retranslateUi(Form)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Form)
         Form.setTabOrder(self.ship_name_edit, self.call_sign_edit)
         Form.setTabOrder(self.call_sign_edit, self.captain_name_edit)
@@ -1236,8 +1236,7 @@ class Ui_Form(object):
         Form.setTabOrder(self.attach_ecdis_route_file_edit, self.attach_ecdis_browse_btn)
         Form.setTabOrder(self.attach_ecdis_browse_btn, self.attach_wp_plan_edit)
         Form.setTabOrder(self.attach_wp_plan_edit, self.attach_wp_plan_browse_btn)
-        Form.setTabOrder(self.attach_wp_plan_browse_btn, self.reload_btn)
-        Form.setTabOrder(self.reload_btn, self.submit_btn)
+        Form.setTabOrder(self.attach_wp_plan_browse_btn, self.submit_btn)
         Form.setTabOrder(self.submit_btn, self.tabWidget)
 
     def retranslateUi(self, Form):

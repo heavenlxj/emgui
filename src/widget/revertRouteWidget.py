@@ -3,6 +3,7 @@ __author__ = 'xingjieliu'
 import sys
 import time
 import copy
+import logging
 
 from PyQt4.QtGui import QWidget,QApplication,QMessageBox,QFileDialog
 from PyQt4.QtCore import QLocale,QDir,Qt
@@ -21,6 +22,8 @@ class RevertReportWidget(QWidget):
         super(RevertReportWidget, self).__init__()
         self.ui = revertReport.Ui_Form()
         self.ui.setupUi(self)
+        self.logger = logging.getLogger('emgui')
+        self.autoloadConfig()
         self.initialize()
 
 
@@ -35,7 +38,7 @@ class RevertReportWidget(QWidget):
     def buttonConnect(self):
         self.ui.submit_btn.clicked.connect(self.generateXml)
         self.ui.submit_btn.clicked.connect(self.updateCountryPortsConfig)
-        self.ui.reload_btn.clicked.connect(self.loadConfig)
+        self.ui.reload_btn.clicked.connect(self.autoloadConfig)
         self.ui.attach_ecdis_browse_btn.clicked.connect(self.set_route_file_path)
         self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
 
@@ -514,7 +517,7 @@ class RevertReportWidget(QWidget):
             self.ui.via_listWidget.insertItem(index_new, self.ui.via_listWidget.takeItem(self.ui.via_listWidget.currentRow()))
             self.ui.via_listWidget.setCurrentRow(index_new)
 
-    def loadConfig(self):
+    def autoloadConfig(self):
         configs, msg = Utils.readGeneralConfigFromXml()
         if configs is not None and len(configs) !=0:
             self.ui.ship_name_edit.setText(configs['ship_name'])
@@ -523,8 +526,7 @@ class RevertReportWidget(QWidget):
             cur_time = time.strftime('%Y/%m/%d',time.localtime(time.time()))
             self.ui.date_edit.setText(cur_time)
         else:
-            msg_box = QMessageBox(QMessageBox.Warning, "Warning", msg)
-            msg_box.exec_()
+            self.logger.error('[Revert Report]:' + msg, exc_info=1)
 
 
 

@@ -11,6 +11,7 @@ from dao.request import *
 from lib.environ import *
 from lib.utils import Utils
 import copy
+import logging
 
 
 class ReqReportWidget(QWidget):
@@ -18,6 +19,8 @@ class ReqReportWidget(QWidget):
         super(ReqReportWidget, self).__init__()
         self.ui = reqReport.Ui_Form()
         self.ui.setupUi(self)
+        self.logger = logging.getLogger('emgui')
+        self.autoloadConfig()
         self.initialize()
 
     def initialize(self):
@@ -34,7 +37,7 @@ class ReqReportWidget(QWidget):
     def buttonConnect(self):
         self.ui.submit_btn.clicked.connect(self.generateXml)
         self.ui.submit_btn.clicked.connect(self.updateCountryPortsConfig)
-        self.ui.reload_btn.clicked.connect(self.loadConfig)
+        self.ui.reload_btn.clicked.connect(self.autoloadConfig)
 
     def loadCountryPorts(self):
         self.country_ports = Utils.getCountryPortsMapper()
@@ -256,7 +259,7 @@ class ReqReportWidget(QWidget):
         msg_box.exec_()
 
 
-    def loadConfig(self):
+    def autoloadConfig(self):
         configs, msg = Utils.readGeneralConfigFromXml()
         if configs is not None and len(configs) !=0:
             self.ui.ship_name_edit.setText(configs['ship_name'])
@@ -265,8 +268,7 @@ class ReqReportWidget(QWidget):
             self.ui.date_edit.setText(cur_time)
             pass
         else:
-            msg_box = QMessageBox(QMessageBox.Warning, "Warning", msg)
-            msg_box.exec_()
+            self.logger.error('[Request Report]:' + msg, exc_info=1)
 
 
 if __name__ == "__main__":

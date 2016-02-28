@@ -19,14 +19,14 @@ class ObjectionReportWidget(QWidget):
         self.ui = objectionReport.Ui_Form()
         self.ui.setupUi(self)
         self.logger = logging.getLogger('emgui')
+        self.autoloadConfig()
         self.initialize()
 
     def initialize(self):
         self.ui.submit_btn.clicked.connect(self.generateXml)
-        self.ui.reload_btn.clicked.connect(self.loadConfig)
+        self.ui.reload_btn.clicked.connect(self.autoloadConfig)
         self.ui.textEdit_remark.setDisabled(True)
         self.ui.checkBox_others.toggled.connect(self.enableEdit)
-
         self.routeTableLoading()
 
     def enableEdit(self, flag):
@@ -142,7 +142,7 @@ class ObjectionReportWidget(QWidget):
         if ckbox.isChecked():
             reason_list.append(ckbox.text())
 
-    def loadConfig(self):
+    def autoloadConfig(self):
         configs, msg = Utils.readGeneralConfigFromXml()
         if configs is not None and len(configs) !=0:
             self.ui.ship_name_edit.setText(configs['ship_name'])
@@ -152,8 +152,7 @@ class ObjectionReportWidget(QWidget):
             self.ui.date_edit.setText(cur_time)
             pass
         else:
-            msg_box = QMessageBox(QMessageBox.Warning, "Warning", msg)
-            msg_box.exec_()
+            self.logger.error('[Objection Report]:' + msg, exc_info=1)
 
 
 

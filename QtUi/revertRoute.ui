@@ -26,7 +26,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -2369,7 +2369,6 @@
   <tabstop>attach_ecdis_browse_btn</tabstop>
   <tabstop>attach_wp_plan_edit</tabstop>
   <tabstop>attach_wp_plan_browse_btn</tabstop>
-  <tabstop>reload_btn</tabstop>
   <tabstop>submit_btn</tabstop>
   <tabstop>tabWidget</tabstop>
  </tabstops>

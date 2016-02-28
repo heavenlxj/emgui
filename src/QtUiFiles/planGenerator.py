@@ -277,5 +277,7 @@ class Ui_Form(object):
         item = self.calculate_form_table_widget.horizontalHeaderItem(7)
         item.setText(_translate("Form", "UKC(m)", None))
         item = self.calculate_form_table_widget.horizontalHeaderItem(8)
-        item.setText(_translate("Form", "Master\'s Instruction, Danger&Hazards Remarks", None))
+        item.setText(_translate("Form", "Master\'s Instruction\n"
+"Danger&Hazards \n"
+"Remarks", None))
 

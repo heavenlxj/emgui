@@ -29,12 +29,9 @@ class LoadRouteWidget(QWidget):
 
 
     def buttonConnect(self):
-        #self.ui.submit_btn.clicked.connect(self.generateXml)
-        #self.ui.submit_btn.clicked.connect(self.updateCountryPortsConfig)
+
         self.ui.load_btn.clicked.connect(self.readConfigFromXML)
         self.ui.browse_btn.clicked.connect(self.browse_config_file)
-        self.ui.attach_ecdis_browse_btn.clicked.connect(self.set_route_file_path)
-        self.ui.attach_wp_plan_browse_btn.clicked.connect(self.set_wp_plan_path)
 
     def critialPointLoading(self):
         self.ui.critial_point_add_btn.clicked.connect(self.addTableItem)
@@ -138,20 +135,6 @@ class LoadRouteWidget(QWidget):
         country_name = unicode(country_name)
         self.ui.arrival_port_combo.clear()
         self.ui.arrival_port_combo.addItems(self.country_ports[country_name])
-
-    def set_route_file_path(self):
-        fn = QFileDialog.getOpenFileName(self, "Open Files",
-                DATA_PATH, ".xml(*.xml)")
-        if fn:
-            abs_fn = os.path.abspath(fn)
-            self.ui.attach_ecdis_route_file_edit.setText(abs_fn)
-
-    def set_wp_plan_path(self):
-        fn = QFileDialog.getOpenFileName(self, "Open Files",
-                DATA_PATH, ".xml(*.xml)")
-        if fn:
-            abs_fn = os.path.abspath(fn)
-            self.ui.attach_wp_plan_edit.setText(abs_fn)
 
     def browse_config_file(self):
         fn = QFileDialog.getOpenFileName(self, "Open Files",

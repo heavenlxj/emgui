@@ -872,7 +872,6 @@
   <tabstop>load_condition_edit</tabstop>
   <tabstop>speed_setting_edit</tabstop>
   <tabstop>etd_edit</tabstop>
-  <tabstop>reload_btn</tabstop>
   <tabstop>submit_btn</tabstop>
  </tabstops>
  <resources/>

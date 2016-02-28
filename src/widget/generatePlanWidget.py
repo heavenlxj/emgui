@@ -148,7 +148,7 @@ class PlanGenerateWidget(QWidget):
         except AttributeError,ex:
             course = 'END'
             distance = 'END'
-            self.logger.error(ex, exc_info=1)
+            #self.logger.error(ex, exc_info=1)
 
         course_index= sender.model().index(source_index,4)
         sender.model().setData(course_index, course)

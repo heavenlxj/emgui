@@ -347,7 +347,9 @@
            </column>
            <column>
             <property name="text">
-             <string>Master's Instruction, Danger&amp;Hazards Remarks</string>
+             <string>Master's Instruction
+Danger&amp;Hazards 
+Remarks</string>
             </property>
            </column>
           </widget>
